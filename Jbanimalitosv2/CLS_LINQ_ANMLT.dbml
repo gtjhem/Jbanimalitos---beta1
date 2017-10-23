@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="jbandb" Class="CLS_LINQ_ANMLTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\jbandb.mdf;Integrated Security=True" SettingsObjectName="Jbanimalitosv2.Properties.Settings" SettingsPropertyName="jbandbCnx" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBL_ANIMALITOS" Member="TBL_ANIMALITOS">
+    <Type Name="TBL_ANIMALITOS">
+      <Column Name="IDANIMALITOS" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDSORTEOAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CODIGO" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="NOMBRE_ANIMALITO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COLOR" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="COLUMNA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_HORARIOS" Member="TBL_HORARIOS">
+    <Type Name="TBL_HORARIOS">
+      <Column Name="IDHORA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDSORTEOHR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HORA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_SORTEO" Member="Tbl_SORTEO">
+    <Type Name="Tbl_SORTEO">
+      <Column Name="ID_SORTEO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE_SORTEO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MINIMO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MAXIMO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PAGARE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_TICKET" Member="TBL_TICKET">
+    <Type Name="TBL_TICKET">
+      <Column Name="IDTICKET" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDSORTEOTK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDHRTK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TOTALPAGADO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="JUGADAS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PREMIOS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DIFERENCIA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ESTATUSTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="SERIAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_DTICKET" Member="TBL_DTICKET">
+    <Type Name="TBL_DTICKET">
+      <Column Name="IDUNICO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDTICKETDTR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CODIGODTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="MONTO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PREMIO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ESTATUSDTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FECHADTK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
