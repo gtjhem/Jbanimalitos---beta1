@@ -404,8 +404,10 @@ namespace Jbanimalitosv2
 
         private void Imprimir_Click(object sender, EventArgs e)
         {
-
-            //sr_Detalle();
+            CN.sr_guardar_ticket(ref this.Ticket, ref this.Total, ref this.cmbloteria);
+            MessageBox.Show(
+                    " creo que se guardo revisa wn"
+                    , "Se guardo creo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //Rutina para imprimir falta probarla 
             //sr_imprimir();
 

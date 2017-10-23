@@ -24,7 +24,7 @@ namespace Jbanimalitosv2
             var query = (from qrysorteos in db.dbSorteos
                          join qryhorario in db.dbhorarios on qrysorteos.ID_SORTEO equals qryhorario.IDSORTEOHR
                          where qrysorteos.ESTATUS == "A" && qrysorteos.ID_SORTEO == vr_key_codigo
-                         select new { qryhorario.HORA, qrysorteos.NOMBRE_SORTEO, qrysorteos.ID_SORTEO }).ToList();
+                         select new { qryhorario.HORA, qrysorteos.NOMBRE_SORTEO, qryhorario.IDHORA   }).ToList();
 
 
             CLB.Items.Clear();
@@ -33,7 +33,7 @@ namespace Jbanimalitosv2
                 if (aqui.HORA <= DateTime.Now.TimeOfDay)
                 {
 
-                    CLB.Items.Add(aqui.HORA + " - " + aqui.NOMBRE_SORTEO.ToString().ToUpper() + " - " + aqui.ID_SORTEO);
+                    CLB.Items.Add(aqui.HORA + " - " + aqui.NOMBRE_SORTEO.ToString().ToUpper() + " - " + aqui.IDHORA );
                 }        
                                     
         }
@@ -98,7 +98,7 @@ namespace Jbanimalitosv2
 
         }
         
-        public void sr_guardar_ticket(ref ListBox lxb, ref TextBox ttl, ref ComboBox ltr, ref CheckedListBox hrr)
+        public void sr_guardar_ticket(ref ListBox lxb, ref TextBox ttl, ref ComboBox ltr)
         {
             using (animalitos db = new animalitos(CONEC))
             {
@@ -114,10 +114,19 @@ namespace Jbanimalitosv2
                     empezar.Sertkt(6);
 
                 ing.TOTALPAGADO = float.Parse (ttl.Text);
-                ing.IDHRTK = 0;
                 
+                string[] v = lxb.Items[0].ToString().Split('-');
+                ing.IDHRTK = int.Parse (v[2]); //obtener ID horario desde el primer items del listbox 
+
+                string[] s = ltr.Text.ToString().Split('-');
+                ing.IDSORTEOTK = int.Parse (s[1]);  // obtener ID loteria desde el combobox
+                ing.PREMIOS = 0;
+                ing.DIFERENCIA = float.Parse (ttl.Text );
                 ing.SERIAL = ser;
                 ing.JUGADAS = lxb.Items.Count - 1;
+                ing.ESTATUSTK = "PP";
+                db.dbtickets.InsertOnSubmit(ing);
+                db.SubmitChanges();
 
                 sr_Detalle(ref lxb);               
 
@@ -127,20 +136,34 @@ namespace Jbanimalitosv2
         public void sr_Detalle(ref ListBox rlxb)
         {
             Detalles_animales DA = new Detalles_animales();
+                   
+            TBL_DTICKET ing = new TBL_DTICKET();
+
 
             int x = 0;
-
-            for (x = 1; x <= rlxb.Items.Count; x++)
+            for (x = 1; x <= rlxb.Items.Count - 1; x++)
             {
+                using (animalitos db = new animalitos(CONEC)){ 
+                
+                    string[] v = rlxb.Items[x].ToString().Split('-');
+                    Dtsanimal dts = new Dtsanimal(v[0], v[1], float.Parse(v[2]));
+                    DA[x] = dts;
 
-                string[] v = rlxb.Items[x].ToString().Split('-');
-                Dtsanimal dts = new Dtsanimal(v[0], v[1], float.Parse(v[2]));
-                DA[x] = dts;
+                    ing.ESTATUSDTK = "PP";
+                    ing.CODIGODTK = DA[x].var_cls_codi_animal;
+                    ing.IDTICKETDTR = sr_ticket() - 1;
+                    ing.MONTO = DA[x].var_cls_Monto;
+                    ing.PREMIO = DA[x].var_cls_Monto;
+                    ing.FECHADTK = DateTime.Now;
+                    ing.HORA = DateTime.Now.TimeOfDay;
+                    db.dbdtickets.InsertOnSubmit(ing);
+                    db.SubmitChanges();
+                
+                }
             }
 
-
         }
-
+        
 
 
     }
