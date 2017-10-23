@@ -206,15 +206,8 @@ namespace Jbanimalitosv2
 
                 cont += 1;
                 msg = msg + " Selecciona la hora del Sorteo" + Environment.NewLine;
-            }else
-            {
-               // string vr_sorteo = lstSorteos.SelectedItem.ToString ();
-                //if (vr_sorteo  != "")
-               // {
-                //    string[] v = vr_sorteo.Split('-');
-
-//                }
             }
+            
 
             
 
@@ -408,6 +401,7 @@ namespace Jbanimalitosv2
             MessageBox.Show(
                     " creo que se guardo revisa wn"
                     , "Se guardo creo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             //Rutina para imprimir falta probarla 
             //sr_imprimir();
 
@@ -470,6 +464,12 @@ namespace Jbanimalitosv2
             Tk.PrintTicket("Microsoft Office Document Image Writer");
             //Tk.PrintTicket("GP-7645(Cut) Series");
 
+        }
+
+        private void Ir_REPORTES_VENTAS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Reportes  f = new Reportes();
+            f.ShowDialog();
         }
     }
 }

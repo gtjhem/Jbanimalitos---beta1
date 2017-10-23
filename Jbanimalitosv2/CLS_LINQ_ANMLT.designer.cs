@@ -39,12 +39,12 @@ namespace Jbanimalitosv2
     partial void InsertTbl_SORTEO(Tbl_SORTEO instance);
     partial void UpdateTbl_SORTEO(Tbl_SORTEO instance);
     partial void DeleteTbl_SORTEO(Tbl_SORTEO instance);
-    partial void InsertTBL_TICKET(TBL_TICKET instance);
-    partial void UpdateTBL_TICKET(TBL_TICKET instance);
-    partial void DeleteTBL_TICKET(TBL_TICKET instance);
     partial void InsertTBL_DTICKET(TBL_DTICKET instance);
     partial void UpdateTBL_DTICKET(TBL_DTICKET instance);
     partial void DeleteTBL_DTICKET(TBL_DTICKET instance);
+    partial void InsertTBL_TICKET(TBL_TICKET instance);
+    partial void UpdateTBL_TICKET(TBL_TICKET instance);
+    partial void DeleteTBL_TICKET(TBL_TICKET instance);
     #endregion
 		
 		public CLS_LINQ_ANMLTDataContext() : 
@@ -101,19 +101,19 @@ namespace Jbanimalitosv2
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_TICKET> TBL_TICKET
-		{
-			get
-			{
-				return this.GetTable<TBL_TICKET>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TBL_DTICKET> TBL_DTICKET
 		{
 			get
 			{
 				return this.GetTable<TBL_DTICKET>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_TICKET> TBL_TICKET
+		{
+			get
+			{
+				return this.GetTable<TBL_TICKET>();
 			}
 		}
 	}
@@ -616,6 +616,236 @@ namespace Jbanimalitosv2
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_DTICKET")]
+	public partial class TBL_DTICKET : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _IDUNICO;
+		
+		private System.Nullable<long> _IDTICKETDTR;
+		
+		private string _CODIGODTK;
+		
+		private System.Nullable<double> _MONTO;
+		
+		private System.Nullable<double> _PREMIO;
+		
+		private string _ESTATUSDTK;
+		
+		private System.Nullable<System.DateTime> _FECHADTK;
+		
+		private System.Nullable<System.TimeSpan> _HORA;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDUNICOChanging(long value);
+    partial void OnIDUNICOChanged();
+    partial void OnIDTICKETDTRChanging(System.Nullable<long> value);
+    partial void OnIDTICKETDTRChanged();
+    partial void OnCODIGODTKChanging(string value);
+    partial void OnCODIGODTKChanged();
+    partial void OnMONTOChanging(System.Nullable<double> value);
+    partial void OnMONTOChanged();
+    partial void OnPREMIOChanging(System.Nullable<double> value);
+    partial void OnPREMIOChanged();
+    partial void OnESTATUSDTKChanging(string value);
+    partial void OnESTATUSDTKChanged();
+    partial void OnFECHADTKChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHADTKChanged();
+    partial void OnHORAChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHORAChanged();
+    #endregion
+		
+		public TBL_DTICKET()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUNICO", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long IDUNICO
+		{
+			get
+			{
+				return this._IDUNICO;
+			}
+			set
+			{
+				if ((this._IDUNICO != value))
+				{
+					this.OnIDUNICOChanging(value);
+					this.SendPropertyChanging();
+					this._IDUNICO = value;
+					this.SendPropertyChanged("IDUNICO");
+					this.OnIDUNICOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTICKETDTR", DbType="BigInt")]
+		public System.Nullable<long> IDTICKETDTR
+		{
+			get
+			{
+				return this._IDTICKETDTR;
+			}
+			set
+			{
+				if ((this._IDTICKETDTR != value))
+				{
+					this.OnIDTICKETDTRChanging(value);
+					this.SendPropertyChanging();
+					this._IDTICKETDTR = value;
+					this.SendPropertyChanged("IDTICKETDTR");
+					this.OnIDTICKETDTRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGODTK", DbType="VarChar(2)")]
+		public string CODIGODTK
+		{
+			get
+			{
+				return this._CODIGODTK;
+			}
+			set
+			{
+				if ((this._CODIGODTK != value))
+				{
+					this.OnCODIGODTKChanging(value);
+					this.SendPropertyChanging();
+					this._CODIGODTK = value;
+					this.SendPropertyChanged("CODIGODTK");
+					this.OnCODIGODTKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTO", DbType="Float")]
+		public System.Nullable<double> MONTO
+		{
+			get
+			{
+				return this._MONTO;
+			}
+			set
+			{
+				if ((this._MONTO != value))
+				{
+					this.OnMONTOChanging(value);
+					this.SendPropertyChanging();
+					this._MONTO = value;
+					this.SendPropertyChanged("MONTO");
+					this.OnMONTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PREMIO", DbType="Float")]
+		public System.Nullable<double> PREMIO
+		{
+			get
+			{
+				return this._PREMIO;
+			}
+			set
+			{
+				if ((this._PREMIO != value))
+				{
+					this.OnPREMIOChanging(value);
+					this.SendPropertyChanging();
+					this._PREMIO = value;
+					this.SendPropertyChanged("PREMIO");
+					this.OnPREMIOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUSDTK", DbType="VarChar(2)")]
+		public string ESTATUSDTK
+		{
+			get
+			{
+				return this._ESTATUSDTK;
+			}
+			set
+			{
+				if ((this._ESTATUSDTK != value))
+				{
+					this.OnESTATUSDTKChanging(value);
+					this.SendPropertyChanging();
+					this._ESTATUSDTK = value;
+					this.SendPropertyChanged("ESTATUSDTK");
+					this.OnESTATUSDTKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHADTK", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHADTK
+		{
+			get
+			{
+				return this._FECHADTK;
+			}
+			set
+			{
+				if ((this._FECHADTK != value))
+				{
+					this.OnFECHADTKChanging(value);
+					this.SendPropertyChanging();
+					this._FECHADTK = value;
+					this.SendPropertyChanged("FECHADTK");
+					this.OnFECHADTKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORA
+		{
+			get
+			{
+				return this._HORA;
+			}
+			set
+			{
+				if ((this._HORA != value))
+				{
+					this.OnHORAChanging(value);
+					this.SendPropertyChanging();
+					this._HORA = value;
+					this.SendPropertyChanged("HORA");
+					this.OnHORAChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_TICKET")]
 	public partial class TBL_TICKET : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -640,6 +870,10 @@ namespace Jbanimalitosv2
 		
 		private string _SERIAL;
 		
+		private System.Nullable<System.DateTime> _FECHA;
+		
+		private System.Nullable<System.TimeSpan> _HORA;
+		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -662,6 +896,10 @@ namespace Jbanimalitosv2
     partial void OnESTATUSTKChanged();
     partial void OnSERIALChanging(string value);
     partial void OnSERIALChanged();
+    partial void OnFECHAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHAChanged();
+    partial void OnHORAChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHORAChanged();
     #endregion
 		
 		public TBL_TICKET()
@@ -849,212 +1087,22 @@ namespace Jbanimalitosv2
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_DTICKET")]
-	public partial class TBL_DTICKET : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _IDUNICO;
-		
-		private System.Nullable<long> _IDTICKETDTR;
-		
-		private string _CODIGODTK;
-		
-		private System.Nullable<double> _MONTO;
-		
-		private System.Nullable<double> _PREMIO;
-		
-		private string _ESTATUSDTK;
-		
-		private System.Nullable<System.DateTime> _FECHADTK;
-		
-		private System.Nullable<System.TimeSpan> _HORA;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDUNICOChanging(long value);
-    partial void OnIDUNICOChanged();
-    partial void OnIDTICKETDTRChanging(System.Nullable<long> value);
-    partial void OnIDTICKETDTRChanged();
-    partial void OnCODIGODTKChanging(string value);
-    partial void OnCODIGODTKChanged();
-    partial void OnMONTOChanging(System.Nullable<double> value);
-    partial void OnMONTOChanged();
-    partial void OnPREMIOChanging(System.Nullable<double> value);
-    partial void OnPREMIOChanged();
-    partial void OnESTATUSDTKChanging(string value);
-    partial void OnESTATUSDTKChanged();
-    partial void OnFECHADTKChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHADTKChanged();
-    partial void OnHORAChanging(System.Nullable<System.TimeSpan> value);
-    partial void OnHORAChanged();
-    #endregion
-		
-		public TBL_DTICKET()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUNICO", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long IDUNICO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHA
 		{
 			get
 			{
-				return this._IDUNICO;
+				return this._FECHA;
 			}
 			set
 			{
-				if ((this._IDUNICO != value))
+				if ((this._FECHA != value))
 				{
-					this.OnIDUNICOChanging(value);
+					this.OnFECHAChanging(value);
 					this.SendPropertyChanging();
-					this._IDUNICO = value;
-					this.SendPropertyChanged("IDUNICO");
-					this.OnIDUNICOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTICKETDTR", DbType="BigInt")]
-		public System.Nullable<long> IDTICKETDTR
-		{
-			get
-			{
-				return this._IDTICKETDTR;
-			}
-			set
-			{
-				if ((this._IDTICKETDTR != value))
-				{
-					this.OnIDTICKETDTRChanging(value);
-					this.SendPropertyChanging();
-					this._IDTICKETDTR = value;
-					this.SendPropertyChanged("IDTICKETDTR");
-					this.OnIDTICKETDTRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGODTK", DbType="VarChar(2)")]
-		public string CODIGODTK
-		{
-			get
-			{
-				return this._CODIGODTK;
-			}
-			set
-			{
-				if ((this._CODIGODTK != value))
-				{
-					this.OnCODIGODTKChanging(value);
-					this.SendPropertyChanging();
-					this._CODIGODTK = value;
-					this.SendPropertyChanged("CODIGODTK");
-					this.OnCODIGODTKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTO", DbType="Float")]
-		public System.Nullable<double> MONTO
-		{
-			get
-			{
-				return this._MONTO;
-			}
-			set
-			{
-				if ((this._MONTO != value))
-				{
-					this.OnMONTOChanging(value);
-					this.SendPropertyChanging();
-					this._MONTO = value;
-					this.SendPropertyChanged("MONTO");
-					this.OnMONTOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PREMIO", DbType="Float")]
-		public System.Nullable<double> PREMIO
-		{
-			get
-			{
-				return this._PREMIO;
-			}
-			set
-			{
-				if ((this._PREMIO != value))
-				{
-					this.OnPREMIOChanging(value);
-					this.SendPropertyChanging();
-					this._PREMIO = value;
-					this.SendPropertyChanged("PREMIO");
-					this.OnPREMIOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUSDTK", DbType="VarChar(2)")]
-		public string ESTATUSDTK
-		{
-			get
-			{
-				return this._ESTATUSDTK;
-			}
-			set
-			{
-				if ((this._ESTATUSDTK != value))
-				{
-					this.OnESTATUSDTKChanging(value);
-					this.SendPropertyChanging();
-					this._ESTATUSDTK = value;
-					this.SendPropertyChanged("ESTATUSDTK");
-					this.OnESTATUSDTKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHADTK", DbType="Date")]
-		public System.Nullable<System.DateTime> FECHADTK
-		{
-			get
-			{
-				return this._FECHADTK;
-			}
-			set
-			{
-				if ((this._FECHADTK != value))
-				{
-					this.OnFECHADTKChanging(value);
-					this.SendPropertyChanging();
-					this._FECHADTK = value;
-					this.SendPropertyChanged("FECHADTK");
-					this.OnFECHADTKChanged();
+					this._FECHA = value;
+					this.SendPropertyChanged("FECHA");
+					this.OnFECHAChanged();
 				}
 			}
 		}

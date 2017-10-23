@@ -28,6 +28,18 @@
       <Column Name="ESTATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_DTICKET" Member="TBL_DTICKET">
+    <Type Name="TBL_DTICKET">
+      <Column Name="IDUNICO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDTICKETDTR" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODIGODTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="MONTO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PREMIO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ESTATUSDTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FECHADTK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBL_TICKET" Member="TBL_TICKET">
     <Type Name="TBL_TICKET">
       <Column Name="IDTICKET" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -39,17 +51,7 @@
       <Column Name="DIFERENCIA" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="ESTATUSTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
       <Column Name="SERIAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_DTICKET" Member="TBL_DTICKET">
-    <Type Name="TBL_DTICKET">
-      <Column Name="IDUNICO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IDTICKETDTR" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CODIGODTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="MONTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PREMIO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ESTATUSDTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="FECHADTK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="HORA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
     </Type>
   </Table>

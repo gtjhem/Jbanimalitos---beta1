@@ -34,8 +34,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.Ir_REPORTES_VENTAS = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
@@ -93,8 +92,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel2);
-            this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
-            this.flowLayoutPanel1.Controls.Add(this.linkLabel3);
+            this.flowLayoutPanel1.Controls.Add(this.Ir_REPORTES_VENTAS);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel4);
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel6);
@@ -136,37 +134,22 @@
             this.linkLabel2.Text = "- Premios";
             this.linkLabel2.VisitedLinkColor = System.Drawing.Color.White;
             // 
-            // linkLabel1
+            // Ir_REPORTES_VENTAS
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(10, 81);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(82, 18);
-            this.linkLabel1.TabIndex = 11;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "- Ventas";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel3.LinkColor = System.Drawing.Color.White;
-            this.linkLabel3.Location = new System.Drawing.Point(10, 114);
-            this.linkLabel3.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(97, 18);
-            this.linkLabel3.TabIndex = 12;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "- Pagados";
-            this.linkLabel3.VisitedLinkColor = System.Drawing.Color.White;
+            this.Ir_REPORTES_VENTAS.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
+            this.Ir_REPORTES_VENTAS.AutoSize = true;
+            this.Ir_REPORTES_VENTAS.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.Ir_REPORTES_VENTAS.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.Ir_REPORTES_VENTAS.LinkColor = System.Drawing.Color.White;
+            this.Ir_REPORTES_VENTAS.Location = new System.Drawing.Point(10, 81);
+            this.Ir_REPORTES_VENTAS.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
+            this.Ir_REPORTES_VENTAS.Name = "Ir_REPORTES_VENTAS";
+            this.Ir_REPORTES_VENTAS.Size = new System.Drawing.Size(82, 18);
+            this.Ir_REPORTES_VENTAS.TabIndex = 11;
+            this.Ir_REPORTES_VENTAS.TabStop = true;
+            this.Ir_REPORTES_VENTAS.Text = "- Ventas";
+            this.Ir_REPORTES_VENTAS.VisitedLinkColor = System.Drawing.Color.White;
+            this.Ir_REPORTES_VENTAS.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Ir_REPORTES_VENTAS_LinkClicked);
             // 
             // linkLabel4
             // 
@@ -175,7 +158,7 @@
             this.linkLabel4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel4.LinkColor = System.Drawing.Color.White;
-            this.linkLabel4.Location = new System.Drawing.Point(10, 147);
+            this.linkLabel4.Location = new System.Drawing.Point(10, 114);
             this.linkLabel4.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(113, 18);
@@ -189,7 +172,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
-            this.label2.Location = new System.Drawing.Point(10, 180);
+            this.label2.Location = new System.Drawing.Point(10, 147);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 18);
@@ -203,7 +186,7 @@
             this.linkLabel6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel6.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel6.LinkColor = System.Drawing.Color.White;
-            this.linkLabel6.Location = new System.Drawing.Point(10, 213);
+            this.linkLabel6.Location = new System.Drawing.Point(10, 180);
             this.linkLabel6.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel6.Name = "linkLabel6";
             this.linkLabel6.Size = new System.Drawing.Size(97, 18);
@@ -219,7 +202,7 @@
             this.linkLabel7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel7.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel7.LinkColor = System.Drawing.Color.White;
-            this.linkLabel7.Location = new System.Drawing.Point(10, 246);
+            this.linkLabel7.Location = new System.Drawing.Point(10, 213);
             this.linkLabel7.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel7.Name = "linkLabel7";
             this.linkLabel7.Size = new System.Drawing.Size(75, 18);
@@ -235,7 +218,7 @@
             this.linkLabel8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel8.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel8.LinkColor = System.Drawing.Color.White;
-            this.linkLabel8.Location = new System.Drawing.Point(10, 279);
+            this.linkLabel8.Location = new System.Drawing.Point(10, 246);
             this.linkLabel8.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel8.Name = "linkLabel8";
             this.linkLabel8.Size = new System.Drawing.Size(114, 18);
@@ -250,7 +233,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
-            this.label3.Location = new System.Drawing.Point(10, 312);
+            this.label3.Location = new System.Drawing.Point(10, 279);
             this.label3.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 18);
@@ -264,7 +247,7 @@
             this.linkLabel10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel10.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel10.LinkColor = System.Drawing.Color.White;
-            this.linkLabel10.Location = new System.Drawing.Point(10, 345);
+            this.linkLabel10.Location = new System.Drawing.Point(10, 312);
             this.linkLabel10.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel10.Name = "linkLabel10";
             this.linkLabel10.Size = new System.Drawing.Size(82, 18);
@@ -280,7 +263,7 @@
             this.linkLabel11.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel11.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel11.LinkColor = System.Drawing.Color.White;
-            this.linkLabel11.Location = new System.Drawing.Point(10, 378);
+            this.linkLabel11.Location = new System.Drawing.Point(10, 345);
             this.linkLabel11.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel11.Name = "linkLabel11";
             this.linkLabel11.Size = new System.Drawing.Size(108, 18);
@@ -702,6 +685,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -723,8 +707,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel Ir_REPORTES_VENTAS;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel6;
