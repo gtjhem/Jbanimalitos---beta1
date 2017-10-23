@@ -125,8 +125,10 @@ namespace Jbanimalitosv2
                 ing.SERIAL = ser;
                 ing.JUGADAS = lxb.Items.Count - 1;
                 ing.ESTATUSTK = "PP";
+
                 db.dbtickets.InsertOnSubmit(ing);
                 db.SubmitChanges();
+                
 
                 sr_Detalle(ref lxb);               
 
@@ -137,27 +139,25 @@ namespace Jbanimalitosv2
         {
             Detalles_animales DA = new Detalles_animales();
                    
-            TBL_DTICKET ing = new TBL_DTICKET();
-
-
             int x = 0;
             for (x = 1; x <= rlxb.Items.Count - 1; x++)
             {
-                using (animalitos db = new animalitos(CONEC)){ 
-                
+                using (animalitos xdb = new animalitos(CONEC)){
+                    TBL_DTICKET ding = new TBL_DTICKET();
+
                     string[] v = rlxb.Items[x].ToString().Split('-');
                     Dtsanimal dts = new Dtsanimal(v[0], v[1], float.Parse(v[2]));
                     DA[x] = dts;
 
-                    ing.ESTATUSDTK = "PP";
-                    ing.CODIGODTK = DA[x].var_cls_codi_animal;
-                    ing.IDTICKETDTR = sr_ticket() - 1;
-                    ing.MONTO = DA[x].var_cls_Monto;
-                    ing.PREMIO = DA[x].var_cls_Monto;
-                    ing.FECHADTK = DateTime.Now;
-                    ing.HORA = DateTime.Now.TimeOfDay;
-                    db.dbdtickets.InsertOnSubmit(ing);
-                    db.SubmitChanges();
+                    ding.ESTATUSDTK = "PP";
+                    ding.CODIGODTK = DA[x].var_cls_codi_animal;
+                    ding.IDTICKETDTR = sr_ticket() - 1;
+                    ding.MONTO = DA[x].var_cls_Monto;
+                    ding.PREMIO = DA[x].var_cls_Monto;
+                    ding.FECHADTK = DateTime.Now;
+                    ding.HORA = DateTime.Now.TimeOfDay;
+                    xdb.dbdtickets.InsertOnSubmit(ding);
+                    xdb.SubmitChanges();
                 
                 }
             }
