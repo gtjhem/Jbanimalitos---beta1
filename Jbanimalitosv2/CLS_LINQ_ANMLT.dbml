@@ -30,7 +30,7 @@
   </Table>
   <Table Name="dbo.TBL_TICKET" Member="TBL_TICKET">
     <Type Name="TBL_TICKET">
-      <Column Name="IDTICKET" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDTICKET" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IDSORTEOTK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IDHRTK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TOTALPAGADO" Type="System.Double" DbType="Float" CanBeNull="true" />
@@ -44,7 +44,7 @@
   <Table Name="dbo.TBL_DTICKET" Member="TBL_DTICKET">
     <Type Name="TBL_DTICKET">
       <Column Name="IDUNICO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IDTICKETDTR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTICKETDTR" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="CODIGODTK" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
       <Column Name="MONTO" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="PREMIO" Type="System.Double" DbType="Float" CanBeNull="true" />

@@ -30,7 +30,7 @@ namespace Jbanimalitosv2
             CLB.Items.Clear();
             foreach (var aqui in query)
 
-                if (aqui.HORA <= DateTime.Now.TimeOfDay)
+                if (aqui.HORA >= DateTime.Now.TimeOfDay)
                 {
 
                     CLB.Items.Add(aqui.HORA + " - " + aqui.NOMBRE_SORTEO.ToString().ToUpper() + " - " + aqui.IDHORA );
@@ -73,12 +73,12 @@ namespace Jbanimalitosv2
                 CLB.Items.Add(aqui.CODIGO.ToString() + " - " + aqui.NOMBRE_ANIMALITO.ToString());
         }
         
-        public int sr_ticket()
+        public long sr_ticket()
         {
             
             animalitos db = new animalitos(CONEC);
 
-             var query = db.dbtickets.Max(d => d.IDTICKET);
+             long query = db.dbtickets.Max(d => d.IDTICKET);
 
             return query + 1;
         }

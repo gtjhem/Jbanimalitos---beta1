@@ -622,7 +622,7 @@ namespace Jbanimalitosv2
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _IDTICKET;
+		private long _IDTICKET;
 		
 		private System.Nullable<int> _IDSORTEOTK;
 		
@@ -644,7 +644,7 @@ namespace Jbanimalitosv2
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIDTICKETChanging(int value);
+    partial void OnIDTICKETChanging(long value);
     partial void OnIDTICKETChanged();
     partial void OnIDSORTEOTKChanging(System.Nullable<int> value);
     partial void OnIDSORTEOTKChanged();
@@ -669,8 +669,8 @@ namespace Jbanimalitosv2
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTICKET", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IDTICKET
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTICKET", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long IDTICKET
 		{
 			get
 			{
@@ -878,7 +878,7 @@ namespace Jbanimalitosv2
 		
 		private long _IDUNICO;
 		
-		private System.Nullable<int> _IDTICKETDTR;
+		private System.Nullable<long> _IDTICKETDTR;
 		
 		private string _CODIGODTK;
 		
@@ -898,7 +898,7 @@ namespace Jbanimalitosv2
     partial void OnCreated();
     partial void OnIDUNICOChanging(long value);
     partial void OnIDUNICOChanged();
-    partial void OnIDTICKETDTRChanging(System.Nullable<int> value);
+    partial void OnIDTICKETDTRChanging(System.Nullable<long> value);
     partial void OnIDTICKETDTRChanged();
     partial void OnCODIGODTKChanging(string value);
     partial void OnCODIGODTKChanged();
@@ -939,8 +939,8 @@ namespace Jbanimalitosv2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTICKETDTR", DbType="Int")]
-		public System.Nullable<int> IDTICKETDTR
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTICKETDTR", DbType="BigInt")]
+		public System.Nullable<long> IDTICKETDTR
 		{
 			get
 			{
