@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgr = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
@@ -48,8 +48,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(61, 492);
+            this.panel1.Size = new System.Drawing.Size(19, 492);
             this.panel1.TabIndex = 0;
             // 
             // dgr
@@ -59,18 +60,18 @@
             this.dgr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(72)))), ((int)(((byte)(69)))));
             this.dgr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgr.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgr.Location = new System.Drawing.Point(73, 123);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgr.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgr.Location = new System.Drawing.Point(22, 123);
             this.dgr.Name = "dgr";
             this.dgr.ReadOnly = true;
-            this.dgr.Size = new System.Drawing.Size(806, 357);
+            this.dgr.Size = new System.Drawing.Size(857, 357);
             this.dgr.TabIndex = 1;
             // 
             // label12
@@ -134,13 +135,13 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
             this.panel2.Controls.Add(this.Cerrar);
             this.panel2.Controls.Add(this.lblloteria);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(61, 0);
+            this.panel2.Location = new System.Drawing.Point(19, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(830, 56);
+            this.panel2.Size = new System.Drawing.Size(872, 56);
             this.panel2.TabIndex = 29;
             // 
             // Cerrar
@@ -150,7 +151,7 @@
             this.Cerrar.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold);
             this.Cerrar.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.Cerrar.LinkColor = System.Drawing.Color.White;
-            this.Cerrar.Location = new System.Drawing.Point(803, 0);
+            this.Cerrar.Location = new System.Drawing.Point(836, 0);
             this.Cerrar.Margin = new System.Windows.Forms.Padding(0);
             this.Cerrar.Name = "Cerrar";
             this.Cerrar.Size = new System.Drawing.Size(27, 26);

@@ -399,10 +399,10 @@ namespace Jbanimalitosv2
         {
             CN.sr_guardar_ticket(ref this.Ticket, ref this.Total, ref this.cmbloteria);
             MessageBox.Show(
-                    " creo que se guardo revisa wn"
-                    , "Se guardo creo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 " creo que se guardo revisa wn"
+                , "Se guardo creo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //Rutina para imprimir falta probarla 
+            //Rutina para imprimir falta realizar ajustes de alineacion  
             //sr_imprimir();
 
         }
@@ -423,9 +423,9 @@ namespace Jbanimalitosv2
                 empezar.Sertkt(6);
 
 
-            ver_ticket();
+            //ver_ticket();
 
-            //Tk.OpenBoxCash();
+            Tk.OpenBoxCash();
             Tk.TextoCentrado("CATIA LA MAR LOTERIA");
             Tk.TextoCentrado("RIF: ");
             Tk.TextoCentrado("Direccion: ");
@@ -461,8 +461,8 @@ namespace Jbanimalitosv2
             Tk.TextoCentrado("REVISE SU TICKET NO SE REALIZA DEV");
             Tk.TextoCentrado("GRACIAS POR SU COMPRA VUELVA PRONTO");
             Tk.CortaCinta();
-            Tk.PrintTicket("Microsoft Office Document Image Writer");
-            //Tk.PrintTicket("GP-7645(Cut) Series");
+            //Tk.PrintTicket("Microsoft Office Document Image Writer");
+            Tk.PrintTicket("POS58(copy of 1)");
 
         }
 

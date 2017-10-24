@@ -2,34 +2,34 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CLS_LINQ_ANMLT">
   <DataContextMoniker Name="/CLS_LINQ_ANMLTDataContext" />
   <nestedChildShapes>
-    <classShape Id="c35cb889-d188-42e0-af12-84d366064369" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
+    <classShape Id="fbcf175b-d22f-4777-b6b0-506db55532df" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
       <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_ANIMALITOS" />
       <nestedChildShapes>
-        <elementListCompartment Id="56663016-58b4-4796-95cc-ba06406d5dc7" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="282698e6-d997-41a4-96c2-ddabbb18e1b6" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b59044b9-4f5d-4cd2-a655-85ac0770f828" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_HORARIOS" />
-      <nestedChildShapes>
-        <elementListCompartment Id="2450a04f-9651-4b89-927e-f7bb3765b2db" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="4a1e9663-712c-41d6-9746-479a00789505" absoluteBounds="3.75, 4.75, 2, 1.9631982421875005">
-      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/Tbl_SORTEO" />
-      <nestedChildShapes>
-        <elementListCompartment Id="0fe7b258-1271-49ad-a96b-666b0df30d0f" absoluteBounds="3.765, 5.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="cf41241e-1477-43ee-bf00-4a93190df220" absoluteBounds="6.375, 0.75, 2, 2.3478011067708335">
+    <classShape Id="9cec1b42-4c96-4308-939e-1899d37bce55" absoluteBounds="3.75, 0.75, 2, 2.3478011067708335">
       <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_DTICKET" />
       <nestedChildShapes>
-        <elementListCompartment Id="835b1298-2219-4323-8a1e-5ec7919062d2" absoluteBounds="6.39, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b56a1da8-565e-43f4-a8be-eeed46fcffab" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fc415a1e-81be-4b67-9659-952c1001e032" absoluteBounds="3.25, 0.75, 2, 2.9247054036458331">
+    <classShape Id="b08f3f40-c169-493d-a5b1-ea959dc3c430" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_HORARIOS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6b8798c-e20c-4825-bf44-a780ae53a9cd" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ce937ed-1709-4184-b0ae-2e52f6cc53f6" absoluteBounds="3.75, 4.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/Tbl_SORTEO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aadb5f05-4c79-4509-9e1d-a7cb12d328eb" absoluteBounds="3.765, 5.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="34b245fa-0284-4ed4-beae-f47e031d396f" absoluteBounds="6.625, 1.625, 2, 2.9247054036458331">
       <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_TICKET" />
       <nestedChildShapes>
-        <elementListCompartment Id="1028821d-5555-48cf-819e-1773de075b10" absoluteBounds="3.2649999999999997, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="03c54ba8-0adc-4418-9daa-73b54da4e3cc" absoluteBounds="6.64, 2.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

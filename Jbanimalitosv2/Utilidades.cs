@@ -31,6 +31,7 @@ namespace Jbanimalitosv2
             foreach (var aqui in query)
 
                 if (aqui.HORA >= DateTime.Now.TimeOfDay)
+                //if (aqui.HORA <= DateTime.Now.TimeOfDay)
                 {
 
                     CLB.Items.Add(aqui.HORA + " - " + aqui.NOMBRE_SORTEO.ToString().ToUpper() + " - " + aqui.IDHORA );
@@ -125,8 +126,8 @@ namespace Jbanimalitosv2
                 ing.SERIAL = ser;
                 ing.JUGADAS = lxb.Items.Count - 1;
                 ing.ESTATUSTK = "PP";
-                ing.FECHA = DateTime.Now;
-                ing.HORA = DateTime.Now.TimeOfDay;
+                ing.FECHATQ = DateTime.Now;
+                ing.HORATQ = DateTime.Now.TimeOfDay;
 
                 db.dbtickets.InsertOnSubmit(ing);
                 db.SubmitChanges();
