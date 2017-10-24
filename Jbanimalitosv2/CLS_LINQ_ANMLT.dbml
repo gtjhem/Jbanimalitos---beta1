@@ -55,4 +55,11 @@
       <Column Name="HORATQ" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_ESTATUS" Member="TBL_ESTATUS">
+    <Type Name="TBL_ESTATUS">
+      <Column Name="IDESTATUS" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CODESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="NOMESTATUS" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

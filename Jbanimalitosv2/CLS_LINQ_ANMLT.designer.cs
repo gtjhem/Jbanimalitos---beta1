@@ -45,6 +45,9 @@ namespace Jbanimalitosv2
     partial void InsertTBL_TICKET(TBL_TICKET instance);
     partial void UpdateTBL_TICKET(TBL_TICKET instance);
     partial void DeleteTBL_TICKET(TBL_TICKET instance);
+    partial void InsertTBL_ESTATUS(TBL_ESTATUS instance);
+    partial void UpdateTBL_ESTATUS(TBL_ESTATUS instance);
+    partial void DeleteTBL_ESTATUS(TBL_ESTATUS instance);
     #endregion
 		
 		public CLS_LINQ_ANMLTDataContext() : 
@@ -114,6 +117,14 @@ namespace Jbanimalitosv2
 			get
 			{
 				return this.GetTable<TBL_TICKET>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_ESTATUS> TBL_ESTATUS
+		{
+			get
+			{
+				return this.GetTable<TBL_ESTATUS>();
 			}
 		}
 	}
@@ -1123,6 +1134,116 @@ namespace Jbanimalitosv2
 					this._HORATQ = value;
 					this.SendPropertyChanged("HORATQ");
 					this.OnHORATQChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_ESTATUS")]
+	public partial class TBL_ESTATUS : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDESTATUS;
+		
+		private string _CODESTATUS;
+		
+		private string _NOMESTATUS;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDESTATUSChanging(int value);
+    partial void OnIDESTATUSChanged();
+    partial void OnCODESTATUSChanging(string value);
+    partial void OnCODESTATUSChanged();
+    partial void OnNOMESTATUSChanging(string value);
+    partial void OnNOMESTATUSChanged();
+    #endregion
+		
+		public TBL_ESTATUS()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDESTATUS", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDESTATUS
+		{
+			get
+			{
+				return this._IDESTATUS;
+			}
+			set
+			{
+				if ((this._IDESTATUS != value))
+				{
+					this.OnIDESTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._IDESTATUS = value;
+					this.SendPropertyChanged("IDESTATUS");
+					this.OnIDESTATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODESTATUS", DbType="VarChar(2)")]
+		public string CODESTATUS
+		{
+			get
+			{
+				return this._CODESTATUS;
+			}
+			set
+			{
+				if ((this._CODESTATUS != value))
+				{
+					this.OnCODESTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._CODESTATUS = value;
+					this.SendPropertyChanged("CODESTATUS");
+					this.OnCODESTATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMESTATUS", DbType="VarChar(20)")]
+		public string NOMESTATUS
+		{
+			get
+			{
+				return this._NOMESTATUS;
+			}
+			set
+			{
+				if ((this._NOMESTATUS != value))
+				{
+					this.OnNOMESTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._NOMESTATUS = value;
+					this.SendPropertyChanged("NOMESTATUS");
+					this.OnNOMESTATUSChanged();
 				}
 			}
 		}

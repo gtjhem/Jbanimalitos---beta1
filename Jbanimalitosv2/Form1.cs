@@ -455,7 +455,6 @@ namespace Jbanimalitosv2
             Tk.AgregarSubTotales(" PAGO CON: ", 1500);
             Tk.AgregarSubTotales("    TOTAL: ", 850.5M);
             Tk.LineasIgualdad();
-
             Tk.TextoCentrado("SU TICKET CADUCA A LOS 3 DIAS");
             Tk.TextoCentrado("SIN TICKET NO SE COBRA");
             Tk.TextoCentrado("REVISE SU TICKET NO SE REALIZA DEV");
