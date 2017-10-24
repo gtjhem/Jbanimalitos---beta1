@@ -20,16 +20,21 @@ namespace Jbanimalitosv2
         private void Reportes_Load(object sender, EventArgs e)
         {
 
-            utilidades_reportes ur = new utilidades_reportes();
+            
 
             Formatear_fechas();
 
-            ur.sr_llenar_grid(ref this.dgr , this.dtdesde, this.dthasta ); // llenar grid reportes
-            ur.sr_columnas_cambiar(ref this.dgr, "D");
-            ur.sr_ganador_ticket(ref this.dgr, 6); // le indico la posicion donde esta la celda 
-
+            sr_buscar();
         }
 
+
+        private void sr_buscar()
+        {
+            utilidades_reportes ur = new utilidades_reportes();
+            ur.sr_llenar_grid(ref this.dgr, this.dtdesde, this.dthasta); // llenar grid reportes
+            ur.sr_columnas_cambiar(ref this.dgr, "D");
+            ur.sr_ganador_ticket(ref this.dgr, 6); // le indico la posicion donde esta la celda
+        }
         public void Formatear_fechas()
         {
             // Set the Format type and the CustomFormat string.
@@ -72,6 +77,11 @@ namespace Jbanimalitosv2
                 fd.ShowDialog();
 
             }
+        }
+
+        private void Buscar_Click(object sender, EventArgs e)
+        {
+            sr_buscar();
         }
     }
 }

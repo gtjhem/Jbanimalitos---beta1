@@ -15,7 +15,8 @@ namespace Jbanimalitosv2
         public void sr_llenar_grid(ref DataGridView dgr,  DateTimePicker desde,  DateTimePicker hasta) {
 
             animalitos db = new animalitos(CN.CONEC);
-            dgr.Rows.Clear();
+
+            //dgr.Rows.Clear();
 
             var query = (from qrytickets in db.dbtickets
                          join qrysorteo in db.dbSorteos on qrytickets.IDSORTEOTK equals qrysorteo.ID_SORTEO into fg
