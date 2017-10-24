@@ -156,7 +156,7 @@ namespace Jbanimalitosv2
                     ding.CODIGODTK = DA[x].var_cls_codi_animal;
                     ding.IDTICKETDTR = sr_ticket() - 1;
                     ding.MONTO = DA[x].var_cls_Monto;
-                    ding.PREMIO = DA[x].var_cls_Monto;
+                    ding.PREMIO = 0;
                     ding.FECHADTK = DateTime.Now;
                     ding.HORA = DateTime.Now.TimeOfDay;
                     xdb.dbdtickets.InsertOnSubmit(ding);

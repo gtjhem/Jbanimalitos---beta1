@@ -76,6 +76,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_detalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_detalle.Designer.cs">
+      <DependentUpon>frm_detalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="jbandbDataSet.cs">
       <DependentUpon>jbandbDataSet.xsd</DependentUpon>
     </Compile>
@@ -96,6 +102,9 @@
     <Compile Include="TicketCS.cs" />
     <Compile Include="Utilidades.cs" />
     <Compile Include="utilidades_reportes.cs" />
+    <EmbeddedResource Include="frm_detalle.resx">
+      <DependentUpon>frm_detalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>

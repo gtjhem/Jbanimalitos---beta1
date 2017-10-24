@@ -72,8 +72,10 @@
             this.dgr.Margin = new System.Windows.Forms.Padding(0);
             this.dgr.Name = "dgr";
             this.dgr.ReadOnly = true;
+            this.dgr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgr.Size = new System.Drawing.Size(933, 365);
             this.dgr.TabIndex = 1;
+            this.dgr.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgr_CellDoubleClick);
             // 
             // label12
             // 
