@@ -126,7 +126,7 @@ namespace Jbanimalitosv2
                 ing.SERIAL = ser;
                 ing.JUGADAS = lxb.Items.Count - 1;
                 ing.ESTATUSTK = "PP";
-                ing.FECHATQ = DateTime.Now;
+                ing.FECHATQ = DateTime.Now ;
                 ing.HORATQ = DateTime.Now.TimeOfDay;
 
                 db.dbtickets.InsertOnSubmit(ing);

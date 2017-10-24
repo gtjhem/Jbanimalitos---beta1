@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgr = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
@@ -60,18 +60,19 @@
             this.dgr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(72)))), ((int)(((byte)(69)))));
             this.dgr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgr.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgr.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgr.Location = new System.Drawing.Point(22, 123);
+            this.dgr.Margin = new System.Windows.Forms.Padding(0);
             this.dgr.Name = "dgr";
             this.dgr.ReadOnly = true;
-            this.dgr.Size = new System.Drawing.Size(857, 357);
+            this.dgr.Size = new System.Drawing.Size(933, 365);
             this.dgr.TabIndex = 1;
             // 
             // label12
@@ -79,7 +80,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(64, 74);
+            this.label12.Location = new System.Drawing.Point(31, 74);
             this.label12.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 23);
@@ -92,7 +93,7 @@
             this.dtdesde.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtdesde.CustomFormat = "d, M, yyyy";
             this.dtdesde.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
-            this.dtdesde.Location = new System.Drawing.Point(159, 77);
+            this.dtdesde.Location = new System.Drawing.Point(121, 77);
             this.dtdesde.Name = "dtdesde";
             this.dtdesde.Size = new System.Drawing.Size(200, 21);
             this.dtdesde.TabIndex = 25;
@@ -103,7 +104,7 @@
             this.dthasta.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dthasta.CustomFormat = "";
             this.dthasta.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
-            this.dthasta.Location = new System.Drawing.Point(480, 77);
+            this.dthasta.Location = new System.Drawing.Point(420, 77);
             this.dthasta.Name = "dthasta";
             this.dthasta.Size = new System.Drawing.Size(200, 21);
             this.dthasta.TabIndex = 27;
@@ -113,7 +114,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(385, 74);
+            this.label1.Location = new System.Drawing.Point(334, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 23);
@@ -126,9 +127,9 @@
             this.Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Buscar.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Buscar.ForeColor = System.Drawing.Color.White;
-            this.Buscar.Location = new System.Drawing.Point(699, 62);
+            this.Buscar.Location = new System.Drawing.Point(689, 62);
             this.Buscar.Name = "Buscar";
-            this.Buscar.Size = new System.Drawing.Size(180, 55);
+            this.Buscar.Size = new System.Drawing.Size(270, 55);
             this.Buscar.TabIndex = 28;
             this.Buscar.Text = "Buscar";
             this.Buscar.UseVisualStyleBackColor = false;
@@ -141,7 +142,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(19, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(872, 56);
+            this.panel2.Size = new System.Drawing.Size(940, 56);
             this.panel2.TabIndex = 29;
             // 
             // Cerrar
@@ -151,7 +152,7 @@
             this.Cerrar.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold);
             this.Cerrar.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.Cerrar.LinkColor = System.Drawing.Color.White;
-            this.Cerrar.Location = new System.Drawing.Point(836, 0);
+            this.Cerrar.Location = new System.Drawing.Point(913, 0);
             this.Cerrar.Margin = new System.Windows.Forms.Padding(0);
             this.Cerrar.Name = "Cerrar";
             this.Cerrar.Size = new System.Drawing.Size(27, 26);
@@ -178,7 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(891, 492);
+            this.ClientSize = new System.Drawing.Size(959, 492);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Buscar);
             this.Controls.Add(this.dthasta);

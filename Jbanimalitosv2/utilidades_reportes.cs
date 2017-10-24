@@ -49,6 +49,14 @@ namespace Jbanimalitosv2
             dgr.Columns[7].HeaderText = "Fecha";
             dgr.Columns[8].HeaderText = "Hora";
 
+            dgr.Columns[3].DefaultCellStyle.Format = "###,##0.00";
+            dgr.Columns[4].DefaultCellStyle.Format = "###,##0.00";
+            dgr.Columns[5].DefaultCellStyle.Format = "###,##0.00";
+            dgr.Columns[8].DefaultCellStyle.Format = @"hh\:mm\:ss";
+
+
+
+
         }
     }
 }

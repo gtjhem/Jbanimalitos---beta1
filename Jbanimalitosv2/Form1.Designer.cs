@@ -318,9 +318,9 @@
             this.lblloteria.Location = new System.Drawing.Point(10, 24);
             this.lblloteria.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.lblloteria.Name = "lblloteria";
-            this.lblloteria.Size = new System.Drawing.Size(288, 32);
+            this.lblloteria.Size = new System.Drawing.Size(297, 32);
             this.lblloteria.TabIndex = 16;
-            this.lblloteria.Text = "Loteria Jhory Diaz";
+            this.lblloteria.Text = "Sistema de Loteria";
             // 
             // Minz
             // 
