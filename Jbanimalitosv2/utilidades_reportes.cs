@@ -47,17 +47,21 @@ namespace Jbanimalitosv2
             int IDSORT = func_CODSORTEO(tkt);
 
             var query = (from qrydetalleticket in db.dbdtickets
-                         join qryanimal in db.dbanimalitos on qrydetalleticket.CODIGODTK equals qryanimal.CODIGO
-                         where qrydetalleticket.IDTICKETDTR == tkt && qryanimal.IDSORTEOAN == IDSORT
+                         join qryanimal in db.dbanimalitos on qrydetalleticket.CODIGODTK equals qryanimal.CODIGO into AN
+                         join qryestatus in db.dbestatus on qrydetalleticket.ESTATUSDTK equals qryestatus.CODESTATUS into CA
+                         from ANX in AN.Where (x => x.CODIGO  == qrydetalleticket.CODIGODTK  ).DefaultIfEmpty ()
+                         from CAX in CA.Where (b => b.CODESTATUS == qrydetalleticket.ESTATUSDTK ).DefaultIfEmpty ()
+
+                         where qrydetalleticket.IDTICKETDTR == tkt && ANX.IDSORTEOAN == IDSORT
 
                          select new
                          {
                              qrydetalleticket.IDTICKETDTR,
                              qrydetalleticket.CODIGODTK,
-                             qryanimal.NOMBRE_ANIMALITO,
+                             ANX.NOMBRE_ANIMALITO,
                              qrydetalleticket.MONTO,
                              qrydetalleticket.PREMIO,
-                             qrydetalleticket.ESTATUSDTK 
+                             CAX.NOMESTATUS  
                          }
                          ).ToList();
 
@@ -81,33 +85,63 @@ namespace Jbanimalitosv2
 
         public void sr_columnas_cambiar(ref DataGridView dgr, string tipo)
         {
+            if (tipo == "D") { 
+                dgr.Columns[0].HeaderText = "Ticket";
+                dgr.Columns[1].HeaderText = "Loteria";
+                dgr.Columns[2].HeaderText = "Horario";
+                dgr.Columns[3].HeaderText = "Jugadas";
+                dgr.Columns[4].HeaderText = "Premios";
+                dgr.Columns[5].HeaderText = "Totales";
+                dgr.Columns[6].HeaderText = "Estatus";
+                dgr.Columns[7].HeaderText = "Fecha";
+                dgr.Columns[8].HeaderText = "Hora";
 
-            dgr.Columns[0].HeaderText = "Ticket";
-            dgr.Columns[1].HeaderText = "Loteria";
-            dgr.Columns[2].HeaderText = "Horario";
-            dgr.Columns[3].HeaderText = "Jugadas";
-            dgr.Columns[4].HeaderText = "Premios";
-            dgr.Columns[5].HeaderText = "Totales";
-            dgr.Columns[6].HeaderText = "Estatus";
-            dgr.Columns[7].HeaderText = "Fecha";
-            dgr.Columns[8].HeaderText = "Hora";
+                dgr.Columns[3].DefaultCellStyle.Format = "###,##0.00";
+                dgr.Columns[4].DefaultCellStyle.Format = "###,##0.00";
+                dgr.Columns[5].DefaultCellStyle.Format = "###,##0.00";
+                dgr.Columns[8].DefaultCellStyle.Format = @"hh\:mm\:ss";
 
-            dgr.Columns[3].DefaultCellStyle.Format = "###,##0.00";
-            dgr.Columns[4].DefaultCellStyle.Format = "###,##0.00";
-            dgr.Columns[5].DefaultCellStyle.Format = "###,##0.00";
-            dgr.Columns[8].DefaultCellStyle.Format = @"hh\:mm\:ss";
-
-            //dataGridView1.Columns["CompanyName"].ReadOnly = true;
+                //dataGridView1.Columns["CompanyName"].ReadOnly = true;
 
           
-            dgr.Columns[1].ReadOnly = true;
-            dgr.Columns[2].ReadOnly = true;
-            dgr.Columns[3].ReadOnly = true;
-            dgr.Columns[4].ReadOnly = true;
-            dgr.Columns[5].ReadOnly = true;
-            dgr.Columns[7].ReadOnly = true;
-            dgr.Columns[8].ReadOnly = true;
-  
+                dgr.Columns[1].ReadOnly = true;
+                dgr.Columns[2].ReadOnly = true;
+                dgr.Columns[3].ReadOnly = true;
+                dgr.Columns[4].ReadOnly = true;
+                dgr.Columns[5].ReadOnly = true;
+                dgr.Columns[7].ReadOnly = true;
+                dgr.Columns[8].ReadOnly = true;
+
+            }else if (tipo == "T")
+            {
+
+                dgr.Columns[0].HeaderText = "Ticket";
+                dgr.Columns[1].HeaderText = "Animal";
+                dgr.Columns[2].HeaderText = "Nombre";
+                dgr.Columns[3].HeaderText = "Monto";
+                dgr.Columns[4].HeaderText = "Premio";
+                dgr.Columns[5].HeaderText = "Estatus";
+
+                dgr.Columns[3].DefaultCellStyle.Format = "###,##0.00";
+                dgr.Columns[4].DefaultCellStyle.Format = "###,##0.00";
+            
+            }
+
+
+        }
+
+        public void sr_ganador_ticket(ref DataGridView dgr, int celda)
+        {
+            
+                for (int count = 0; count < dgr.Rows.Count; count++)
+                {
+                
+                        if (dgr.Rows[count].Cells[celda].Value.ToString().Trim() == "PENDIENTE POR PAGAR" ||
+                            dgr.Rows[count].Cells[celda].Value.ToString().Trim() == "PAGADO") 
+                        {
+                            dgr.Rows[count].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(167)))), ((int)(((byte)(151)))));
+                        }
+                }
 
 
         }

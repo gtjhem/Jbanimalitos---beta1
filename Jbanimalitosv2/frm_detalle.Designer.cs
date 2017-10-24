@@ -114,6 +114,7 @@
             this.dgr.Margin = new System.Windows.Forms.Padding(0);
             this.dgr.Name = "dgr";
             this.dgr.ReadOnly = true;
+            this.dgr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgr.Size = new System.Drawing.Size(622, 293);
             this.dgr.TabIndex = 2;
             // 

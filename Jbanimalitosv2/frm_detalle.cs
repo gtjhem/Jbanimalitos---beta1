@@ -40,6 +40,8 @@ namespace Jbanimalitosv2
             txtfechor.Text = vr_fecha.Substring(0,10) + " " + vr_horas.Substring(0,8).ToString ();
 
             ur.sr_llenar_grid_detalle(ref this.dgr, ID_TICKET);
+            ur.sr_columnas_cambiar(ref this.dgr, "T");
+            ur.sr_ganador_ticket(ref this.dgr, 5);
         }
     }
 }

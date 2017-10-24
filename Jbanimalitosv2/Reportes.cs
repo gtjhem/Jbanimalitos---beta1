@@ -25,7 +25,8 @@ namespace Jbanimalitosv2
             Formatear_fechas();
 
             ur.sr_llenar_grid(ref this.dgr , this.dtdesde, this.dthasta ); // llenar grid reportes
-            ur.sr_columnas_cambiar(ref this.dgr, "V");
+            ur.sr_columnas_cambiar(ref this.dgr, "D");
+            ur.sr_ganador_ticket(ref this.dgr, 6); // le indico la posicion donde esta la celda 
 
         }
 
