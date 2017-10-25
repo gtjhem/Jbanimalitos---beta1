@@ -45,6 +45,8 @@ namespace Jbanimalitosv2
             lblsubtotal.Text = stt.ToString("###,##0.00");
             ttg = stt - pven;
             lbltotalgeneral.Text  = ttg.ToString("###,##0.00");
+
+            bsq.sr_stp_totales(ref ttv, ref ttp, ref stt, dtdesde, dthasta);
             
         }
     }

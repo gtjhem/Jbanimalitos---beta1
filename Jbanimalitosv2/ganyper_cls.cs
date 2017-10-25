@@ -133,5 +133,24 @@ namespace Jbanimalitosv2
             if (query != null )stt = float.Parse(query.ToString());
 
         }
+
+        public void sr_stp_totales(ref float ttv, ref float ttp, ref float stt, DateTimePicker desde, DateTimePicker hasta)
+        {
+            animalitos DB = new animalitos(CN.CONEC);
+
+            double pr_ttv, pr_ttp, pr_stt;
+
+            pr_ttv = ttv;
+            pr_ttp = ttp;
+            pr_stt = stt;
+
+         
+
+            var query = DB.TOTALGANYPER(desde.Value , hasta.Value ,ref ttv, ref ttp,ref stt);
+
+
+            
+
+        }
     }
 }

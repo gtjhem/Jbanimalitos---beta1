@@ -62,4 +62,12 @@
       <Column Name="NOMESTATUS" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
+  <Function Name="dbo.TOTALGANYPER" Method="TOTALGANYPER">
+    <Parameter Name="PR_DESDE" Parameter="pR_DESDE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PR_HASTA" Parameter="pR_HASTA" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PR_TTV" Parameter="pR_TTV" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="PR_TTP" Parameter="pR_TTP" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="PR_STT" Parameter="pR_STT" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
