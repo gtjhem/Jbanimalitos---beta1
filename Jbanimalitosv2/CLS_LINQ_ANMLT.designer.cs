@@ -1157,7 +1157,12 @@ namespace Jbanimalitosv2
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-	}
+
+        internal object Sum(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
+    }
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_ESTATUS")]
 	public partial class TBL_ESTATUS : INotifyPropertyChanging, INotifyPropertyChanged

@@ -135,12 +135,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(282, 62);
+            this.label1.Location = new System.Drawing.Point(351, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 23);
+            this.label1.Size = new System.Drawing.Size(98, 23);
             this.label1.TabIndex = 26;
-            this.label1.Text = "Horario........:";
+            this.label1.Text = "Horario:";
             // 
             // label2
             // 
@@ -172,7 +172,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(282, 98);
+            this.label3.Location = new System.Drawing.Point(289, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 23);
@@ -189,7 +189,7 @@
             this.txtloteria.Multiline = true;
             this.txtloteria.Name = "txtloteria";
             this.txtloteria.ReadOnly = true;
-            this.txtloteria.Size = new System.Drawing.Size(140, 27);
+            this.txtloteria.Size = new System.Drawing.Size(211, 27);
             this.txtloteria.TabIndex = 30;
             // 
             // txttotal
@@ -222,6 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(655, 436);
             this.Controls.Add(this.txtfechor);
             this.Controls.Add(this.txttotal);

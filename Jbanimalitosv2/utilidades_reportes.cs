@@ -25,7 +25,7 @@ namespace Jbanimalitosv2
                          from fgi in fg.Where(f => f.ID_SORTEO == qrytickets.IDSORTEOTK).DefaultIfEmpty()
                          from fxi in fx .Where(x => x.IDHORA == qrytickets.IDHRTK ).DefaultIfEmpty ()
                          from fed in fe.Where (n => n.CODESTATUS == qrytickets.ESTATUSTK).DefaultIfEmpty ()
-                            
+                                                     
                        where qrytickets.FECHATQ >= desde.Value && qrytickets.FECHATQ <= hasta.Value 
 
                        select new
@@ -38,6 +38,165 @@ namespace Jbanimalitosv2
             // SELECT * FROM DBTICKET LEFTJOIN DBSORTEO ON IDSORTEOTK = ID_SORTEO LEFT JOIN DBHORARIO ON IDHRTK = IDSORTEOHR
 
             dgr.DataSource = query;
+
+
+        }
+
+
+        public void sr_llenar_grid_pagados(ref DataGridView dgr, DateTimePicker desde, DateTimePicker hasta)
+        {
+            //obtengo todos los pagados y por pagar 
+            animalitos db = new animalitos(CN.CONEC);
+
+
+            var TAGESTATUS = new string[] { "PA", "NP" };
+
+            var query = (from qrytickets in db.dbtickets
+                         join qrysorteo in db.dbSorteos on qrytickets.IDSORTEOTK equals qrysorteo.ID_SORTEO into fg
+                         join qryhorario in db.dbhorarios on qrytickets.IDHRTK equals qryhorario.IDHORA into fx
+                         join qryestatus in db.dbestatus on qrytickets.ESTATUSTK equals qryestatus.CODESTATUS into fe
+                         from fgi in fg.Where(f => f.ID_SORTEO == qrytickets.IDSORTEOTK).DefaultIfEmpty()
+                         from fxi in fx.Where(x => x.IDHORA == qrytickets.IDHRTK).DefaultIfEmpty()
+                         from fed in fe.Where(n => n.CODESTATUS == qrytickets.ESTATUSTK).DefaultIfEmpty()
+
+                         where qrytickets.FECHATQ >= desde.Value && qrytickets.FECHATQ <= hasta.Value &&
+                            TAGESTATUS.Contains (qrytickets.ESTATUSTK )
+
+                         select new
+                         {
+                             qrytickets.IDTICKET,
+                             fgi.NOMBRE_SORTEO,
+                             fxi.HORA,
+                             qrytickets.TOTALPAGADO,
+                             qrytickets.PREMIOS,
+                             qrytickets.DIFERENCIA,
+                             fed.NOMESTATUS,
+                             qrytickets.FECHATQ,
+                             qrytickets.HORATQ
+                         }).ToList();
+
+            // SELECT * FROM DBTICKET LEFTJOIN DBSORTEO ON IDSORTEOTK = ID_SORTEO LEFT JOIN DBHORARIO ON IDHRTK = IDSORTEOHR
+
+            dgr.DataSource = query;
+
+
+        }
+
+
+
+        public void sr_llenar_grid_FILTRADO1(ref DataGridView dgr, DateTimePicker desde, DateTimePicker hasta, ComboBox cmb)
+        {
+
+            //filtra por loterias 
+
+            animalitos db = new animalitos(CN.CONEC);
+
+            string[] v = cmb.Text.Split('-'); //Obtengo el ID de la loteria
+            
+
+            var query = (from qrytickets in db.dbtickets
+                         join qrysorteo in db.dbSorteos on qrytickets.IDSORTEOTK equals qrysorteo.ID_SORTEO into fg
+                         join qryhorario in db.dbhorarios on qrytickets.IDHRTK equals qryhorario.IDHORA into fx
+                         join qryestatus in db.dbestatus on qrytickets.ESTATUSTK equals qryestatus.CODESTATUS into fe
+                         from fgi in fg.Where(f => f.ID_SORTEO == qrytickets.IDSORTEOTK).DefaultIfEmpty()
+                         from fxi in fx.Where(x => x.IDHORA == qrytickets.IDHRTK).DefaultIfEmpty()
+                         from fed in fe.Where(n => n.CODESTATUS == qrytickets.ESTATUSTK).DefaultIfEmpty()
+
+                         where qrytickets.FECHATQ >= desde.Value && qrytickets.FECHATQ <= hasta.Value
+                               && qrytickets.IDSORTEOTK == int.Parse(v[1]) 
+
+                         select new
+                         {
+                             qrytickets.IDTICKET,
+                             fgi.NOMBRE_SORTEO,
+                             fxi.HORA,
+                             qrytickets.TOTALPAGADO,
+                             qrytickets.PREMIOS,
+                             qrytickets.DIFERENCIA,
+                             fed.NOMESTATUS,
+                             qrytickets.FECHATQ,
+                             qrytickets.HORATQ
+                         }).ToList();
+
+            dgr.DataSource = query;
+
+
+        }
+        public void sr_llenar_grid_FILTRADO_pagados(ref DataGridView dgr, DateTimePicker desde, DateTimePicker hasta, ComboBox cmb)
+        {
+
+            //filtra por loterias y los pagados y pendientes por pagar
+
+            animalitos db = new animalitos(CN.CONEC);
+
+            string[] v = cmb.Text.Split('-'); //Obtengo el ID de la loteria
+            var TAGESTATUS = new string[] { "PA", "NP" };
+
+
+            var query = (from qrytickets in db.dbtickets
+                         join qrysorteo in db.dbSorteos on qrytickets.IDSORTEOTK equals qrysorteo.ID_SORTEO into fg
+                         join qryhorario in db.dbhorarios on qrytickets.IDHRTK equals qryhorario.IDHORA into fx
+                         join qryestatus in db.dbestatus on qrytickets.ESTATUSTK equals qryestatus.CODESTATUS into fe
+                         from fgi in fg.Where(f => f.ID_SORTEO == qrytickets.IDSORTEOTK).DefaultIfEmpty()
+                         from fxi in fx.Where(x => x.IDHORA == qrytickets.IDHRTK).DefaultIfEmpty()
+                         from fed in fe.Where(n => n.CODESTATUS == qrytickets.ESTATUSTK).DefaultIfEmpty()
+
+                         where qrytickets.FECHATQ >= desde.Value && qrytickets.FECHATQ <= hasta.Value
+                               && qrytickets.IDSORTEOTK == int.Parse(v[1]) &&
+                               TAGESTATUS.Contains(qrytickets.ESTATUSTK)
+
+                         select new
+                         {
+                             qrytickets.IDTICKET,
+                             fgi.NOMBRE_SORTEO,
+                             fxi.HORA,
+                             qrytickets.TOTALPAGADO,
+                             qrytickets.PREMIOS,
+                             qrytickets.DIFERENCIA,
+                             fed.NOMESTATUS,
+                             qrytickets.FECHATQ,
+                             qrytickets.HORATQ
+                         }).ToList();
+
+            dgr.DataSource = query;
+
+
+        }
+
+        public void sr_llenar_grid_FILTRADO2(ref DataGridView dgr,  TextBox TXTIDTK)
+        {
+
+            //filtra por TICKETS 
+
+            animalitos db = new animalitos(CN.CONEC);
+
+    
+
+            var query = (from qrytickets in db.dbtickets
+                         join qrysorteo in db.dbSorteos on qrytickets.IDSORTEOTK equals qrysorteo.ID_SORTEO into fg
+                         join qryhorario in db.dbhorarios on qrytickets.IDHRTK equals qryhorario.IDHORA into fx
+                         join qryestatus in db.dbestatus on qrytickets.ESTATUSTK equals qryestatus.CODESTATUS into fe
+                         from fgi in fg.Where(f => f.ID_SORTEO == qrytickets.IDSORTEOTK).DefaultIfEmpty()
+                         from fxi in fx.Where(x => x.IDHORA == qrytickets.IDHRTK).DefaultIfEmpty()
+                         from fed in fe.Where(n => n.CODESTATUS == qrytickets.ESTATUSTK).DefaultIfEmpty()
+
+                         where qrytickets.IDTICKET  == int.Parse(TXTIDTK.Text )
+
+                         select new
+                         {
+                             qrytickets.IDTICKET,
+                             fgi.NOMBRE_SORTEO,
+                             fxi.HORA,
+                             qrytickets.TOTALPAGADO,
+                             qrytickets.PREMIOS,
+                             qrytickets.DIFERENCIA,
+                             fed.NOMESTATUS,
+                             qrytickets.FECHATQ,
+                             qrytickets.HORATQ
+                         }).ToList();
+
+            dgr.DataSource = query;
+
 
 
         }
@@ -146,5 +305,17 @@ namespace Jbanimalitosv2
 
 
         }
+
+        public void Formatear_fechas(ref DateTimePicker dtp )
+        {
+            //Aplica formato de fecha y coloca la fecha de hoy 
+            dtp.Format = DateTimePickerFormat.Custom;
+            dtp.CustomFormat = "dd/MM/yyyy";
+            dtp.Value = DateTime.Today;
+       
+        }
+
+
     }
+
 }

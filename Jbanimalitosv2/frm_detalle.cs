@@ -36,7 +36,8 @@ namespace Jbanimalitosv2
             lbldetalleticket.Text  = "Detalle Ticket N°: " +  ID_TICKET;
             txtloteria.Text = vr_loteria;
             txthorario.Text = vr_horario;
-            txttotal.Text = (vr_monto.ToString ());
+
+            txttotal.Text = vr_monto.ToString("###,##0.00");
             txtfechor.Text = vr_fecha.Substring(0,10) + " " + vr_horas.Substring(0,8).ToString ();
 
             ur.sr_llenar_grid_detalle(ref this.dgr, ID_TICKET);

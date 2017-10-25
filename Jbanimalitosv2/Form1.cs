@@ -17,12 +17,12 @@ namespace Jbanimalitosv2
 {
      
 
-    public partial class Form1 : Form
+    public partial class INICIO : Form
     {
         Utilidades CN = new Utilidades();
 
 
-        public Form1()
+        public INICIO()
         {
             InitializeComponent();
         }
@@ -71,7 +71,7 @@ namespace Jbanimalitosv2
         public void sr_loteria()
         {
            
-            CN.sr_llenar_loteria(ref cmbloteria);
+            CN.sr_llenar_loteria(ref cmbloteria, true );
         }
 
         public void sr_animalitos(int vr_key_loteria)
@@ -468,6 +468,18 @@ namespace Jbanimalitosv2
         private void Ir_REPORTES_VENTAS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Reportes  f = new Reportes();
+            f.ShowDialog();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_premiados  f = new frm_premiados ();
+            f.ShowDialog();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_ganyper f = new frm_ganyper();
             f.ShowDialog();
         }
     }

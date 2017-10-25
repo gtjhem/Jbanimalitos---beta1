@@ -12,6 +12,10 @@ namespace Jbanimalitosv2
 {
     public partial class Reportes : Form
     {
+
+        Utilidades CN = new Utilidades();
+        utilidades_reportes ur = new utilidades_reportes();
+
         public Reportes()
         {
             InitializeComponent();
@@ -20,9 +24,13 @@ namespace Jbanimalitosv2
         private void Reportes_Load(object sender, EventArgs e)
         {
 
-            
 
-            Formatear_fechas();
+            cmbloteria.Items.Add("TODOS");
+            CN.sr_llenar_loteria(ref cmbloteria, false );
+            this.cmbloteria.SelectedIndex = 0;
+
+            ur.Formatear_fechas(ref dtdesde); //formatea fecha desde 
+            ur.Formatear_fechas(ref dthasta); //formatea fecha hasta
 
             sr_buscar();
         }
@@ -30,23 +38,32 @@ namespace Jbanimalitosv2
 
         private void sr_buscar()
         {
-            utilidades_reportes ur = new utilidades_reportes();
-            ur.sr_llenar_grid(ref this.dgr, this.dtdesde, this.dthasta); // llenar grid reportes
+            
+
+            if (NTicket.Text == "")
+            { 
+                if (this.cmbloteria.Text == "TODOS") //Buscar en todas las loterias del dia 
+                { 
+                    ur.sr_llenar_grid(ref this.dgr, this.dtdesde, this.dthasta); // llenar grid reportes
+                 
+                }
+                    else if (this.cmbloteria.Text != "TODOS")// buscar por la loteria indicada
+                {
+                    ur.sr_llenar_grid_FILTRADO1(ref this.dgr, this.dtdesde, this.dthasta, this.cmbloteria);
+
+                }
+            }
+                else if (NTicket.Text != "")
+            {
+                   ur.sr_llenar_grid_FILTRADO2(ref this.dgr, this.NTicket); // buscar por numero de ticket
+                
+
+            }
+
             ur.sr_columnas_cambiar(ref this.dgr, "D");
             ur.sr_ganador_ticket(ref this.dgr, 6); // le indico la posicion donde esta la celda
         }
-        public void Formatear_fechas()
-        {
-            // Set the Format type and the CustomFormat string.
-            dtdesde.Format = DateTimePickerFormat.Custom;
-            dtdesde.CustomFormat = "dd/MM/yyyy";
-
-            dthasta.Format = DateTimePickerFormat.Custom;
-            dthasta.CustomFormat = "dd/MM/yyyy";
-
-            dtdesde.Value = DateTime.Today;
-            dthasta.Value = DateTime.Today;
-        }
+     
 
         private void Cerrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -82,6 +99,31 @@ namespace Jbanimalitosv2
         private void Buscar_Click(object sender, EventArgs e)
         {
             sr_buscar();
+        }
+
+        private void NTicket_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+
+                e.Handled = false;
+
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                
+                    e.Handled = false;
+                
+            }
+            //SI lo activas permite usar el espacio
+            //else if (Char.IsSeparator(e.KeyChar))
+            //{
+            //   e.Handled = false;
+            //}
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

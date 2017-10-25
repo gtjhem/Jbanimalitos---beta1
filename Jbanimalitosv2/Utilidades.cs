@@ -40,7 +40,7 @@ namespace Jbanimalitosv2
         }
 
         private ComboBox cmb = new ComboBox();
-        public void sr_llenar_loteria (ref ComboBox CMB)
+        public void sr_llenar_loteria (ref ComboBox CMB, Boolean limpiar)
         {
 
             animalitos db = new animalitos(CONEC);
@@ -50,7 +50,7 @@ namespace Jbanimalitosv2
                          select new { qrysorteos.NOMBRE_SORTEO, qrysorteos.ID_SORTEO }).ToList();
 
 
-            CMB.Items.Clear();
+            if (limpiar == true ) CMB.Items.Clear();
 
             foreach (var aqui in query)
 

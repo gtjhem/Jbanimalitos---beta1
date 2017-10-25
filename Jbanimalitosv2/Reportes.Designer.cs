@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgr = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
-            this.dtdesde = new System.Windows.Forms.DateTimePicker();
-            this.dthasta = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.Buscar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,6 +41,8 @@
             this.cmbloteria = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.NTicket = new System.Windows.Forms.TextBox();
+            this.dtdesde = new System.Windows.Forms.DateTimePicker();
+            this.dthasta = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgr)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -64,14 +64,14 @@
             this.dgr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(72)))), ((int)(((byte)(69)))));
             this.dgr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgr.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgr.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgr.Location = new System.Drawing.Point(22, 123);
             this.dgr.Margin = new System.Windows.Forms.Padding(0);
             this.dgr.Name = "dgr";
@@ -92,28 +92,6 @@
             this.label12.Size = new System.Drawing.Size(84, 23);
             this.label12.TabIndex = 24;
             this.label12.Text = "Desde:";
-            // 
-            // dtdesde
-            // 
-            this.dtdesde.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtdesde.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtdesde.CustomFormat = "d, M, yyyy";
-            this.dtdesde.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
-            this.dtdesde.Location = new System.Drawing.Point(121, 62);
-            this.dtdesde.Name = "dtdesde";
-            this.dtdesde.Size = new System.Drawing.Size(141, 21);
-            this.dtdesde.TabIndex = 25;
-            // 
-            // dthasta
-            // 
-            this.dthasta.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dthasta.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dthasta.CustomFormat = "";
-            this.dthasta.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
-            this.dthasta.Location = new System.Drawing.Point(373, 62);
-            this.dthasta.Name = "dthasta";
-            this.dthasta.Size = new System.Drawing.Size(141, 21);
-            this.dthasta.TabIndex = 27;
             // 
             // label1
             // 
@@ -210,7 +188,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(527, 94);
+            this.label3.Location = new System.Drawing.Point(527, 65);
             this.label3.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 23);
@@ -220,30 +198,48 @@
             // NTicket
             // 
             this.NTicket.BackColor = System.Drawing.SystemColors.Window;
-            this.NTicket.Enabled = false;
             this.NTicket.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.NTicket.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.NTicket.Location = new System.Drawing.Point(617, 92);
+            this.NTicket.Location = new System.Drawing.Point(617, 64);
             this.NTicket.MaxLength = 20;
             this.NTicket.Name = "NTicket";
-            this.NTicket.Size = new System.Drawing.Size(131, 27);
+            this.NTicket.Size = new System.Drawing.Size(163, 27);
             this.NTicket.TabIndex = 33;
+            this.NTicket.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NTicket_KeyPress);
+            // 
+            // dtdesde
+            // 
+            this.dtdesde.CalendarFont = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtdesde.Font = new System.Drawing.Font("Verdana", 12F);
+            this.dtdesde.Location = new System.Drawing.Point(127, 65);
+            this.dtdesde.Name = "dtdesde";
+            this.dtdesde.Size = new System.Drawing.Size(135, 27);
+            this.dtdesde.TabIndex = 41;
+            // 
+            // dthasta
+            // 
+            this.dthasta.CalendarFont = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dthasta.Font = new System.Drawing.Font("Verdana", 12F);
+            this.dthasta.Location = new System.Drawing.Point(379, 64);
+            this.dthasta.Name = "dthasta";
+            this.dthasta.Size = new System.Drawing.Size(135, 27);
+            this.dthasta.TabIndex = 42;
             // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(959, 492);
+            this.Controls.Add(this.dthasta);
+            this.Controls.Add(this.dtdesde);
             this.Controls.Add(this.NTicket);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbloteria);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Buscar);
-            this.Controls.Add(this.dthasta);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtdesde);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dgr);
             this.Controls.Add(this.panel1);
@@ -265,8 +261,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgr;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dtdesde;
-        private System.Windows.Forms.DateTimePicker dthasta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Buscar;
         private System.Windows.Forms.Panel panel2;
@@ -276,5 +270,7 @@
         private System.Windows.Forms.ComboBox cmbloteria;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox NTicket;
+        private System.Windows.Forms.DateTimePicker dtdesde;
+        private System.Windows.Forms.DateTimePicker dthasta;
     }
 }
