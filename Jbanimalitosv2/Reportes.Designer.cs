@@ -39,6 +39,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Cerrar = new System.Windows.Forms.LinkLabel();
             this.lblloteria = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbloteria = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.NTicket = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgr)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +77,7 @@
             this.dgr.Name = "dgr";
             this.dgr.ReadOnly = true;
             this.dgr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgr.Size = new System.Drawing.Size(933, 365);
+            this.dgr.Size = new System.Drawing.Size(933, 335);
             this.dgr.TabIndex = 1;
             this.dgr.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgr_CellDoubleClick);
             // 
@@ -82,7 +86,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(31, 74);
+            this.label12.Location = new System.Drawing.Point(31, 62);
             this.label12.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 23);
@@ -95,9 +99,9 @@
             this.dtdesde.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtdesde.CustomFormat = "d, M, yyyy";
             this.dtdesde.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
-            this.dtdesde.Location = new System.Drawing.Point(121, 77);
+            this.dtdesde.Location = new System.Drawing.Point(121, 62);
             this.dtdesde.Name = "dtdesde";
-            this.dtdesde.Size = new System.Drawing.Size(200, 21);
+            this.dtdesde.Size = new System.Drawing.Size(141, 21);
             this.dtdesde.TabIndex = 25;
             // 
             // dthasta
@@ -106,9 +110,9 @@
             this.dthasta.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dthasta.CustomFormat = "";
             this.dthasta.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
-            this.dthasta.Location = new System.Drawing.Point(420, 77);
+            this.dthasta.Location = new System.Drawing.Point(373, 62);
             this.dthasta.Name = "dthasta";
-            this.dthasta.Size = new System.Drawing.Size(200, 21);
+            this.dthasta.Size = new System.Drawing.Size(141, 21);
             this.dthasta.TabIndex = 27;
             // 
             // label1
@@ -116,7 +120,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(334, 77);
+            this.label1.Location = new System.Drawing.Point(275, 62);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 23);
@@ -129,9 +133,9 @@
             this.Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Buscar.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Buscar.ForeColor = System.Drawing.Color.White;
-            this.Buscar.Location = new System.Drawing.Point(689, 62);
+            this.Buscar.Location = new System.Drawing.Point(795, 64);
             this.Buscar.Name = "Buscar";
-            this.Buscar.Size = new System.Drawing.Size(270, 55);
+            this.Buscar.Size = new System.Drawing.Size(160, 55);
             this.Buscar.TabIndex = 28;
             this.Buscar.Text = "Buscar";
             this.Buscar.UseVisualStyleBackColor = false;
@@ -155,7 +159,7 @@
             this.Cerrar.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold);
             this.Cerrar.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.Cerrar.LinkColor = System.Drawing.Color.White;
-            this.Cerrar.Location = new System.Drawing.Point(913, 0);
+            this.Cerrar.Location = new System.Drawing.Point(909, 0);
             this.Cerrar.Margin = new System.Windows.Forms.Padding(0);
             this.Cerrar.Name = "Cerrar";
             this.Cerrar.Size = new System.Drawing.Size(27, 26);
@@ -177,12 +181,64 @@
             this.lblloteria.TabIndex = 17;
             this.lblloteria.Text = "Reporte de Ventas:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(31, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 23);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Loteria...:";
+            // 
+            // cmbloteria
+            // 
+            this.cmbloteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbloteria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbloteria.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbloteria.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cmbloteria.FormattingEnabled = true;
+            this.cmbloteria.Location = new System.Drawing.Point(152, 94);
+            this.cmbloteria.Name = "cmbloteria";
+            this.cmbloteria.Size = new System.Drawing.Size(362, 26);
+            this.cmbloteria.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Location = new System.Drawing.Point(527, 94);
+            this.label3.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 23);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Ticket:";
+            // 
+            // NTicket
+            // 
+            this.NTicket.BackColor = System.Drawing.SystemColors.Window;
+            this.NTicket.Enabled = false;
+            this.NTicket.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.NTicket.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.NTicket.Location = new System.Drawing.Point(617, 92);
+            this.NTicket.MaxLength = 20;
+            this.NTicket.Name = "NTicket";
+            this.NTicket.Size = new System.Drawing.Size(131, 27);
+            this.NTicket.TabIndex = 33;
+            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(959, 492);
+            this.Controls.Add(this.NTicket);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbloteria);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Buscar);
             this.Controls.Add(this.dthasta);
@@ -216,5 +272,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblloteria;
         private System.Windows.Forms.LinkLabel Cerrar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbloteria;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox NTicket;
     }
 }

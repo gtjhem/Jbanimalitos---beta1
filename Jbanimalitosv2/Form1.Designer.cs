@@ -266,10 +266,10 @@
             this.linkLabel11.Location = new System.Drawing.Point(10, 345);
             this.linkLabel11.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel11.Name = "linkLabel11";
-            this.linkLabel11.Size = new System.Drawing.Size(108, 18);
+            this.linkLabel11.Size = new System.Drawing.Size(125, 18);
             this.linkLabel11.TabIndex = 22;
             this.linkLabel11.TabStop = true;
-            this.linkLabel11.Text = "- Refrescar";
+            this.linkLabel11.Text = "- AntiQuiebre";
             this.linkLabel11.VisitedLinkColor = System.Drawing.Color.White;
             // 
             // panel2
