@@ -134,22 +134,12 @@ namespace Jbanimalitosv2
 
         }
 
-        public void sr_stp_totales(ref float ttv, ref float ttp, ref float stt, DateTimePicker desde, DateTimePicker hasta)
+        public void sr_stp_totales(ref decimal ? ttv, ref decimal ? ttp, ref decimal ? stt, DateTimePicker desde, DateTimePicker hasta)
         {
-            animalitos DB = new animalitos(CN.CONEC);
-
-            double pr_ttv, pr_ttp, pr_stt;
-
-            pr_ttv = ttv;
-            pr_ttp = ttp;
-            pr_stt = stt;
-
-         
-
-            var query = DB.TOTALGANYPER(desde.Value , hasta.Value ,ref ttv, ref ttp,ref stt);
-
-
             
+            CLS_LINQ_ANMLTDataContext DCT = new CLS_LINQ_ANMLTDataContext(CN.CONEC);
+
+            var query = DCT.TOTALES_GYP(desde.Value , hasta.Value ,ref  ttv , ref ttp, ref stt);
 
         }
     }

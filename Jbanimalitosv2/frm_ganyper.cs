@@ -36,18 +36,16 @@ namespace Jbanimalitosv2
 
         private void Buscar_Click(object sender, EventArgs e)
         {
-            float ttv = 0, ttp = 0, stt = 0, pven = 0, ttg = 0;
-            bsq.sr_buscar_totales(ref ttv, ref ttp, ref stt, dtdesde, dthasta);
-
-            
-            lbltotalventa.Text = ttv.ToString("###,##0.00");
-            lbltotalapagar.Text = ttp.ToString("###,##0.00");
-            lblsubtotal.Text = stt.ToString("###,##0.00");
-            ttg = stt - pven;
-            lbltotalgeneral.Text  = ttg.ToString("###,##0.00");
-
+            decimal ? ttv = 0, ttp = 0, stt = 0, pven = 0, ttg = 0;
+            //bsq.sr_buscar_totales(ref ttv, ref ttp, ref stt, dtdesde, dthasta);               
             bsq.sr_stp_totales(ref ttv, ref ttp, ref stt, dtdesde, dthasta);
-            
+
+            lbltotalventa.Text = Convert.ToDouble(ttv).ToString("###,##0.00");
+            lbltotalapagar.Text = Convert.ToDouble(ttp).ToString("###,##0.00");
+            lblsubtotal.Text = Convert.ToDouble(stt).ToString("###,##0.00");
+            ttg = stt - pven;
+            lbltotalgeneral.Text = Convert.ToDouble(ttg).ToString("###,##0.00");
+
         }
     }
 }

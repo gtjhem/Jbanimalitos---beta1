@@ -128,13 +128,13 @@ namespace Jbanimalitosv2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.TOTALGANYPER")]
-		public int TOTALGANYPER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_DESDE", DbType="Date")] System.Nullable<System.DateTime> pR_DESDE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_HASTA", DbType="Date")] System.Nullable<System.DateTime> pR_HASTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_TTV", DbType="Float")] ref System.Nullable<double> pR_TTV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_TTP", DbType="Float")] ref System.Nullable<double> pR_TTP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_STT", DbType="Float")] ref System.Nullable<double> pR_STT)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.TOTALES_GYP")]
+		public int TOTALES_GYP([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_DESDE", DbType="Date")] System.Nullable<System.DateTime> pR_DESDE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_HASTA", DbType="Date")] System.Nullable<System.DateTime> pR_HASTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_TTV", DbType="Money")] ref System.Nullable<decimal> pR_TTV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_TTP", DbType="Money")] ref System.Nullable<decimal> pR_TTP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PR_STT", DbType="Money")] ref System.Nullable<decimal> pR_STT)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pR_DESDE, pR_HASTA, pR_TTV, pR_TTP, pR_STT);
-			pR_TTV = ((System.Nullable<double>)(result.GetParameterValue(2)));
-			pR_TTP = ((System.Nullable<double>)(result.GetParameterValue(3)));
-			pR_STT = ((System.Nullable<double>)(result.GetParameterValue(4)));
+			pR_TTV = ((System.Nullable<decimal>)(result.GetParameterValue(2)));
+			pR_TTP = ((System.Nullable<decimal>)(result.GetParameterValue(3)));
+			pR_STT = ((System.Nullable<decimal>)(result.GetParameterValue(4)));
 			return ((int)(result.ReturnValue));
 		}
 	}
