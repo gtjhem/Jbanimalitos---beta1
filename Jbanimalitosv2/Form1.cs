@@ -60,6 +60,8 @@ namespace Jbanimalitosv2
             }
 
             this.Animal.Focus();
+            ver_ticket();
+            sr_antiquiebre();
         }
 
          public void sr_sorteos (int vr_key_codigo)
@@ -116,13 +118,15 @@ namespace Jbanimalitosv2
         private void button2_Click(object sender, EventArgs e)
         {
             sr_agregar();
-        }
+                   }
 
         public void sr_agregar() {
 
             string msg = "";
 
             msg = validar();
+
+            ver_ticket();
 
             if (msg == "")
             {
@@ -164,7 +168,30 @@ namespace Jbanimalitosv2
             }
         }
         
+        public void sr_antiquiebre()
+        {
+            DateTime desde, hasta;
 
+
+            int IDH = 0, IDS = 0;
+
+            string[] v;
+            foreach (object itemChecked in lstSorteos.CheckedItems) // obtengo el ID horario seleccionado 
+            { 
+                v = itemChecked.ToString().Split('-');
+                IDH = int.Parse(v[2]);
+            }
+
+            v = cmbloteria.Text.Split('-'); // obtengo el ID SORTEO
+            IDS = int.Parse(v[1]);
+            
+        
+            desde = DateTime.Today;
+            hasta = DateTime.Today;
+
+            Antiquiebre ATQ = new Antiquiebre();
+            ATQ.sr_anti_quiebre(desde, hasta, ref this.AntiQuiebre, IDS, IDH );
+        }
         public void deseleccionar ()
         {
             for (int i = 0; i < Animales.Items.Count; i++)
@@ -305,6 +332,7 @@ namespace Jbanimalitosv2
         {
             if (lstSorteos.CheckedItems.Count == 1)
             {
+                
                 Boolean isCheckedItemBeingUnchecked = (e.CurrentValue == CheckState.Checked);
                 if (isCheckedItemBeingUnchecked)
                 {
@@ -325,9 +353,11 @@ namespace Jbanimalitosv2
                     {
                         Ticket.Items.RemoveAt(0);
                         Ticket.Items.Insert(0, lstSorteos.SelectedItem);
+                        
 
                     }
                 }
+                
                 return;
             }
 
@@ -397,6 +427,7 @@ namespace Jbanimalitosv2
 
         private void Imprimir_Click(object sender, EventArgs e)
         {
+            
             CN.sr_guardar_ticket(ref this.Ticket, ref this.Total, ref this.cmbloteria);
             MessageBox.Show(
                  " creo que se guardo revisa wn"
@@ -404,7 +435,10 @@ namespace Jbanimalitosv2
 
             //Rutina para imprimir falta realizar ajustes de alineacion  
             //sr_imprimir();
-
+            ver_ticket();
+            sr_antiquiebre();
+            this.Ticket.Items.Clear();
+            this.Animal.Focus();
         }
 
         
@@ -481,6 +515,11 @@ namespace Jbanimalitosv2
         {
             frm_ganyper f = new frm_ganyper();
             f.ShowDialog();
+        }
+
+        private void lstSorteos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sr_antiquiebre();
         }
     }
 }

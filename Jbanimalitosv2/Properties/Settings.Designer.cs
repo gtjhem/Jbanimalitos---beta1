@@ -44,5 +44,16 @@ namespace Jbanimalitosv2.Properties {
                 return ((string)(this["animalitosConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JBJV-PC\\SQLEXPRESS;Initial Catalog=Loterias;User ID=sa;Password=gdfwd" +
+            "k**88")]
+        public string LoteriasConnectionString {
+            get {
+                return ((string)(this["LoteriasConnectionString"]));
+            }
+        }
     }
 }

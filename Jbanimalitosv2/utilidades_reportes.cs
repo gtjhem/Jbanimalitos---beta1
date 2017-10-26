@@ -248,7 +248,7 @@ namespace Jbanimalitosv2
             if (tipo == "D") { 
                 dgr.Columns[0].HeaderText = "Ticket";
                 dgr.Columns[1].HeaderText = "Loteria";
-                dgr.Columns[2].HeaderText = "Horario";
+                dgr.Columns[2].HeaderText = "Sorteo";
                 dgr.Columns[3].HeaderText = "Jugadas";
                 dgr.Columns[4].HeaderText = "Premios";
                 dgr.Columns[5].HeaderText = "Totales";

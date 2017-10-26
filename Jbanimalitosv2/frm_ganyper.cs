@@ -26,6 +26,7 @@ namespace Jbanimalitosv2
         {
             ur.Formatear_fechas(ref dtdesde); //formatea fecha desde 
             ur.Formatear_fechas(ref dthasta); //formatea fecha hasta
+            ir_a_buscar();
         }
 
        
@@ -36,7 +37,13 @@ namespace Jbanimalitosv2
 
         private void Buscar_Click(object sender, EventArgs e)
         {
-            decimal ? ttv = 0, ttp = 0, stt = 0, pven = 0, ttg = 0;
+            ir_a_buscar();
+
+        }
+
+        public void ir_a_buscar()
+        {
+            decimal? ttv = 0, ttp = 0, stt = 0, pven = 0, ttg = 0;
             //bsq.sr_buscar_totales(ref ttv, ref ttp, ref stt, dtdesde, dthasta);               
             bsq.sr_stp_totales(ref ttv, ref ttp, ref stt, dtdesde, dthasta);
 
@@ -45,7 +52,6 @@ namespace Jbanimalitosv2
             lblsubtotal.Text = Convert.ToDouble(stt).ToString("###,##0.00");
             ttg = stt - pven;
             lbltotalgeneral.Text = Convert.ToDouble(ttg).ToString("###,##0.00");
-
         }
     }
 }
