@@ -1,0 +1,138 @@
+﻿CREATE TABLE [dbo].[TBL_TICKET] (
+    [IDTICKET]    BIGINT       IDENTITY (1, 1) NOT NULL,
+    [IDSORTEOTK]  INT          NULL,
+    [IDHRTK]      INT          NULL,
+    [TOTALPAGADO] FLOAT (53)   NULL,
+    [JUGADAS]     FLOAT (53)   NULL,
+    [PREMIOS]     FLOAT (53)   NULL,
+    [DIFERENCIA]  FLOAT (53)   NULL,
+    [ESTATUSTK]   VARCHAR (2)  NULL,
+    [SERIAL]      VARCHAR (50) NULL,
+    [FECHATQ]     DATE         NULL,
+    [HORATQ]      TIME (7)     NULL,
+    PRIMARY KEY CLUSTERED ([IDTICKET] ASC)
+);
+
+CREATE TABLE [dbo].[Tbl_SORTEO] (
+    [ID_SORTEO]     INT          IDENTITY (1, 1) NOT NULL,
+    [NOMBRE_SORTEO] VARCHAR (50) NULL,
+    [MINIMO]        FLOAT (53)   NULL,
+    [MAXIMO]        FLOAT (53)   NULL,
+    [PAGARE]        FLOAT (53)   NULL,
+    [ESTATUS]       VARCHAR (1)  NULL,
+    PRIMARY KEY CLUSTERED ([ID_SORTEO] ASC)
+);
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Clave Sorteo', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Tbl_SORTEO', @level2type = N'COLUMN', @level2name = N'ID_SORTEO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Descripcion Loteria Sorteo', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Tbl_SORTEO', @level2type = N'COLUMN', @level2name = N'NOMBRE_SORTEO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Minimo para apuesta', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Tbl_SORTEO', @level2type = N'COLUMN', @level2name = N'MINIMO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Maximo Apuesta', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Tbl_SORTEO', @level2type = N'COLUMN', @level2name = N'MAXIMO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Pagar por cada minimo', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Tbl_SORTEO', @level2type = N'COLUMN', @level2name = N'PAGARE';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Estatus ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Tbl_SORTEO', @level2type = N'COLUMN', @level2name = N'ESTATUS';
+
+CREATE TABLE [dbo].[TBL_RESULTADOS] (
+    [ID_RESULTADO] BIGINT      IDENTITY (1, 1) NOT NULL,
+    [ID_LOTERIA]   INT         NULL,
+    [ID_SORTEOHR]  INT         NULL,
+    [ID_ANIMAL]    INT         NULL,
+    [CODIGOANIMAL] VARCHAR (2) NULL,
+    [FECHA]        DATE        NULL,
+    [HORA]         TIME (7)    NULL,
+    [ESTATUS]      VARCHAR (2) NULL,
+    PRIMARY KEY CLUSTERED ([ID_RESULTADO] ASC)
+);
+
+CREATE TABLE [dbo].[TBL_HORARIOS] (
+    [IDHORA]     INT      IDENTITY (1, 1) NOT NULL,
+    [IDSORTEOHR] INT      NULL,
+    [HORA]       TIME (7) NULL,
+    PRIMARY KEY CLUSTERED ([IDHORA] ASC)
+);
+
+CREATE TABLE [dbo].[TBL_ESTATUS] (
+    [IDESTATUS]  INT          IDENTITY (1, 1) NOT NULL,
+    [CODESTATUS] VARCHAR (2)  NULL,
+    [NOMESTATUS] VARCHAR (20) NULL,
+    PRIMARY KEY CLUSTERED ([IDESTATUS] ASC)
+);
+
+CREATE TABLE [dbo].[TBL_DTICKET] (
+    [IDUNICO]     BIGINT      IDENTITY (1, 1) NOT NULL,
+    [IDTICKETDTR] BIGINT      NULL,
+    [CODIGODTK]   VARCHAR (2) NULL,
+    [MONTO]       FLOAT (53)  NULL,
+    [PREMIO]      FLOAT (53)  NULL,
+    [ESTATUSDTK]  VARCHAR (2) NULL,
+    [FECHADTK]    DATE        NULL,
+    [HORA]        TIME (7)    NULL,
+    PRIMARY KEY CLUSTERED ([IDUNICO] ASC)
+);
+
+CREATE TABLE [dbo].[TBL_BANCA] (
+    [ID_AGENCIA]     INT           IDENTITY (1, 1) NOT NULL,
+    [NOMBRE_AGENCIA] VARCHAR (30)  NULL,
+    [MULTIPLICADOR]  FLOAT (53)    NULL,
+    [ESTATUS]        VARCHAR (2)   NULL,
+    [FECHAINICIO]    DATE          NULL,
+    [IMPRESORA]      VARCHAR (100) NULL,
+    [FECHAREGISTRO]  DATE          NULL,
+    [HORAREGISTRO]   DATE          NULL,
+    PRIMARY KEY CLUSTERED ([ID_AGENCIA] ASC)
+);
+
+CREATE TABLE [dbo].[TBL_ANIMALITOS] (
+    [IDANIMALITOS]     INT          IDENTITY (1, 1) NOT NULL,
+    [IDSORTEOAN]       INT          NULL,
+    [CODIGO]           VARCHAR (2)  NULL,
+    [NOMBRE_ANIMALITO] VARCHAR (50) NULL,
+    [COLOR]            VARCHAR (1)  NULL,
+    [COLUMNA]          VARCHAR (1)  NULL,
+    [ESTATUS]          VARCHAR (1)  NULL,
+    PRIMARY KEY CLUSTERED ([IDANIMALITOS] ASC)
+);
+
+
+CREATE  PROCEDURE [dbo].[PREP_REST]
+
+AS
+ BEGIN
+ 
+ IF (SELECT COUNT(*) FROM TBL_RESULTADOS WHERE FECHA = CONVERT(VARCHAR(10), SYSDATETIME(), 103)) = 0
+	BEGIN
+		INSERT INTO TBL_RESULTADOS (ID_LOTERIA, ID_SORTEOHR, FECHA, HORA, ESTATUS)
+		SELECT IDSORTEOHR, IDHORA, CONVERT(VARCHAR(10), SYSDATETIME(), 103),  CONVERT(VARCHAR(8), SYSDATETIME(), 24), 'XS'  FROM TBL_HORARIOS
+		LEFT JOIN Tbl_SORTEO ON 
+		IDSORTEOHR = ID_SORTEO
+		WHERE ESTATUS = 'A'
+	END
+ 
+END
+
+CREATE PROCEDURE [dbo].[TOTALES_GYP]
+    @PR_DESDE date,
+    @PR_HASTA date,
+    @PR_TTV money OUTPUT,
+    @PR_TTP money OUTPUT,
+    @PR_STT money OUTPUT
+AS
+    SELECT @PR_TTV =  SUM(TOTALPAGADO) ,@PR_TTP = SUM(PREMIOS),  @PR_STT = SUM(DIFERENCIA)
+    FROM TBL_TICKET WHERE FECHATQ >= @PR_DESDE AND FECHATQ <= @PR_HASTA
+
+RETURN
