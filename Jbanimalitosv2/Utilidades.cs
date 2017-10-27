@@ -39,6 +39,23 @@ namespace Jbanimalitosv2
                                     
         }
 
+        public void sr_llenar_sorteos_resultados(ref CheckedListBox CLB, int vr_key_codigo) // no posee filtros para la hora
+        {
+
+            animalitos db = new animalitos(CONEC);
+
+            var query = (from qrysorteos in db.dbSorteos
+                         join qryhorario in db.dbhorarios on qrysorteos.ID_SORTEO equals qryhorario.IDSORTEOHR
+                         where qrysorteos.ESTATUS == "A" && qrysorteos.ID_SORTEO == vr_key_codigo
+                         select new { qryhorario.HORA, qrysorteos.NOMBRE_SORTEO, qryhorario.IDHORA }).ToList();
+
+
+            CLB.Items.Clear();
+            foreach (var aqui in query)
+                    CLB.Items.Add(aqui.HORA + " - " + aqui.NOMBRE_SORTEO.ToString().ToUpper() + " - " + aqui.IDHORA);
+             
+        }
+
         private ComboBox cmb = new ComboBox();
         public void sr_llenar_loteria (ref ComboBox CMB, Boolean limpiar)
         {
@@ -99,6 +116,21 @@ namespace Jbanimalitosv2
 
         }
         
+        public void sr_resultados_del_dia()
+        {
+            animalitos db = new animalitos(CONEC);
+            long cont = db.dbresultados.Where(d => d.FECHA == DateTime.Now).Count();
+
+            if (cont == 0) // si no se han cargados los registros del dia se procede 
+            {
+
+                CLS_LINQ_ANMLTDataContext PRC = new Jbanimalitosv2.CLS_LINQ_ANMLTDataContext(CONEC);
+
+                var query = PRC.PREP_REST();
+                
+            }
+        }
+
         public void sr_guardar_ticket(ref ListBox lxb, ref TextBox ttl, ref ComboBox ltr)
         {
             using (animalitos db = new animalitos(CONEC))

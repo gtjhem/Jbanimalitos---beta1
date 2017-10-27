@@ -24,6 +24,7 @@ namespace Jbanimalitosv2
 
         private void frm_ganyper_Load(object sender, EventArgs e)
         {
+          
             ur.Formatear_fechas(ref dtdesde); //formatea fecha desde 
             ur.Formatear_fechas(ref dthasta); //formatea fecha hasta
             ir_a_buscar();

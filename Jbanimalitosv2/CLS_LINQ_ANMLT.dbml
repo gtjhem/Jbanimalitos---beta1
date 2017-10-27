@@ -62,12 +62,51 @@
       <Column Name="HORATQ" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_BANCA" Member="TBL_BANCA">
+    <Type Name="TBL_BANCA">
+      <Column Name="ID_AGENCIA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NOMBRE_AGENCIA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MULTIPLICADOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FECHAINICIO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IMPRESORA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FECHAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_BANCA" Member="TBL_BANCA1">
+    <Type Name="TBL_BANCA1">
+      <Column Name="ID_AGENCIA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE_AGENCIA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MULTIPLICADOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FECHAINICIO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IMPRESORA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FECHAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_RESULTADOS" Member="TBL_RESULTADOS">
+    <Type Name="TBL_RESULTADOS">
+      <Column Name="ID_RESULTADO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_LOTERIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_SORTEOHR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ANIMAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CODIGOANIMAL" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.TOTALES_GYP" Method="TOTALES_GYP">
     <Parameter Name="PR_DESDE" Parameter="pR_DESDE" Type="System.DateTime" DbType="Date" />
     <Parameter Name="PR_HASTA" Parameter="pR_HASTA" Type="System.DateTime" DbType="Date" />
     <Parameter Name="PR_TTV" Parameter="pR_TTV" Type="System.Decimal" DbType="Money" Direction="InOut" />
     <Parameter Name="PR_TTP" Parameter="pR_TTP" Type="System.Decimal" DbType="Money" Direction="InOut" />
     <Parameter Name="PR_STT" Parameter="pR_STT" Type="System.Decimal" DbType="Money" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PREP_REST" Method="PREP_REST">
     <Return Type="System.Int32" />
   </Function>
 </Database>

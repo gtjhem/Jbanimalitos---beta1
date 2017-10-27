@@ -42,6 +42,35 @@ namespace Jbanimalitosv2
 
         }
 
+        public void sr_llenar_resultados(ref DataGridView dgr)
+        {
+            animalitos db = new animalitos(CN.CONEC);
+            var query = (from A in db.dbresultados
+                         join B in db.dbSorteos on new { ID_LOTERIA = Convert.ToInt32(A.ID_LOTERIA) } equals new { ID_LOTERIA = B.ID_SORTEO } into B_join
+                         from B in B_join.DefaultIfEmpty()
+                         join C in db.dbhorarios
+                               on new { A.ID_LOTERIA, ID_SORTEOHR = Convert.ToInt32(A.ID_SORTEOHR) }
+                           equals new { ID_LOTERIA = C.IDSORTEOHR, ID_SORTEOHR = C.IDHORA } into C_join
+                         from C in C_join.DefaultIfEmpty()
+                         join D in db.dbanimalitos on new { ID_ANIMAL = Convert.ToInt32(A.ID_ANIMAL) } equals new { ID_ANIMAL = D.IDANIMALITOS } into D_join
+                         from D in D_join.DefaultIfEmpty()
+                         join E in db.dbestatus on new { ESTATUS = A.ESTATUS } equals new { ESTATUS = E.CODESTATUS } into E_join
+                         from E in E_join.DefaultIfEmpty()
+                         where
+                           A.FECHA == DateTime.Now 
+                         select new
+                         {
+                             A.ID_RESULTADO,
+                             NOMBRE_SORTEO = B.NOMBRE_SORTEO,
+                             HORA = C.HORA,
+                             NOMBRE_ANIMALITO = D.NOMBRE_ANIMALITO,
+                             NOMESTATUS = E.NOMESTATUS,
+                             A.FECHA,
+                             Column1 = A.HORA
+                         });
+
+            dgr.DataSource = query;
+        }
 
         public void sr_llenar_grid_pagados(ref DataGridView dgr, DateTimePicker desde, DateTimePicker hasta)
         {

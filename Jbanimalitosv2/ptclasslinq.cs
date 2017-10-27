@@ -18,6 +18,9 @@ namespace Jbanimalitosv2
         public Table<TBL_TICKET> dbtickets;
         public Table<TBL_DTICKET> dbdtickets;
         public Table<TBL_ESTATUS> dbestatus;
+        public Table<TBL_RESULTADOS> dbresultados;
+        public Table<TBL_BANCA> dbbanca;
+        
         
         public animalitos(string connection) : base(connection) { }
 

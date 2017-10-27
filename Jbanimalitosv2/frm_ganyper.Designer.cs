@@ -89,12 +89,12 @@
             // lbldetalleticket
             // 
             this.lbldetalleticket.AutoSize = true;
-            this.lbldetalleticket.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold);
+            this.lbldetalleticket.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.lbldetalleticket.ForeColor = System.Drawing.Color.White;
             this.lbldetalleticket.Location = new System.Drawing.Point(13, 15);
             this.lbldetalleticket.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.lbldetalleticket.Name = "lbldetalleticket";
-            this.lbldetalleticket.Size = new System.Drawing.Size(215, 22);
+            this.lbldetalleticket.Size = new System.Drawing.Size(319, 32);
             this.lbldetalleticket.TabIndex = 18;
             this.lbldetalleticket.Text = "Ganacias y Perdidas";
             // 

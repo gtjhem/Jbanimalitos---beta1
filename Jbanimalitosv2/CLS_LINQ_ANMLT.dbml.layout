@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CLS_LINQ_ANMLT">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.625, 10.375" name="CLS_LINQ_ANMLT">
   <DataContextMoniker Name="/CLS_LINQ_ANMLTDataContext" />
   <nestedChildShapes>
     <classShape Id="10e968d3-61d5-4b6a-97e6-999a72453f85" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
@@ -36,6 +36,24 @@
       <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_TICKET" />
       <nestedChildShapes>
         <elementListCompartment Id="06c9ef16-95ce-431f-9c61-0701c8d79fcc" absoluteBounds="6.765, 4.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ff93250b-eb85-4b7c-8f0e-861d38e07756" absoluteBounds="9.375, 3.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_BANCA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac9b5dce-b0f2-4553-9604-f5cbef74e91b" absoluteBounds="9.39, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0748d014-a6ea-484d-8e23-c4178a0a0ec6" absoluteBounds="0.75, 7.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_BANCA1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa6f9bcc-a2aa-4551-9c4e-73a969096533" absoluteBounds="0.765, 8.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f08aded7-9a8b-443e-85d3-54ae59eca29b" absoluteBounds="3.75, 7.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_RESULTADOS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0a06732-02be-49b0-be84-d3317eaae1f2" absoluteBounds="3.765, 8.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

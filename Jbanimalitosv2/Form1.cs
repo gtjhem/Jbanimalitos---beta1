@@ -43,9 +43,6 @@ namespace Jbanimalitosv2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            
-           
 
             sr_loteria();
 
@@ -62,6 +59,7 @@ namespace Jbanimalitosv2
             this.Animal.Focus();
             ver_ticket();
             sr_antiquiebre();
+            CN.sr_resultados_del_dia(); // llama al STORE PROCEDURE para cargar los dias pendientes por incluir resultados
         }
 
          public void sr_sorteos (int vr_key_codigo)
@@ -372,6 +370,14 @@ namespace Jbanimalitosv2
             sr_animalitos( int.Parse(v[1]));
 
             sr_sorteos(int.Parse(v[1]));
+
+            if (this.lstSorteos.Items.Count > 0)
+            {
+                this.lstSorteos.SetItemChecked(0, true);
+            }
+            sr_antiquiebre();
+
+
         }
 
         private void Animal_KeyPress(object sender, KeyPressEventArgs e)
@@ -501,25 +507,40 @@ namespace Jbanimalitosv2
 
         private void Ir_REPORTES_VENTAS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            
             Reportes  f = new Reportes();
             f.ShowDialog();
+            
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+           
             frm_premiados  f = new frm_premiados ();
             f.ShowDialog();
+            
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+           
             frm_ganyper f = new frm_ganyper();
             f.ShowDialog();
+            
+
         }
 
         private void lstSorteos_SelectedIndexChanged(object sender, EventArgs e)
         {
             sr_antiquiebre();
+        }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+            FRM_RESULTADOS f = new FRM_RESULTADOS();
+            f.ShowDialog();
+
         }
     }
 }
