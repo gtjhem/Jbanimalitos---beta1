@@ -42,7 +42,7 @@ namespace Jbanimalitosv2
 
         }
 
-        public void sr_llenar_resultados(ref DataGridView dgr)
+        public void sr_llenar_resultados(ref DataGridView dgr, int IDS, DateTime dia)
         {
             animalitos db = new animalitos(CN.CONEC);
             var query = (from A in db.dbresultados
@@ -57,7 +57,8 @@ namespace Jbanimalitosv2
                          join E in db.dbestatus on new { ESTATUS = A.ESTATUS } equals new { ESTATUS = E.CODESTATUS } into E_join
                          from E in E_join.DefaultIfEmpty()
                          where
-                           A.FECHA == DateTime.Now 
+                           A.FECHA == dia && 
+                           A.ID_LOTERIA == IDS
                          select new
                          {
                              A.ID_RESULTADO,

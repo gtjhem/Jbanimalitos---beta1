@@ -14,6 +14,8 @@ namespace Jbanimalitosv2
     public partial class FRM_RESULTADOS : Form
     {
         Utilidades CN = new Utilidades();
+        private DateTime hoy;
+
         public FRM_RESULTADOS()
         {
             InitializeComponent();
@@ -23,22 +25,34 @@ namespace Jbanimalitosv2
         {
             CN.sr_llenar_loteria(ref cmbloteria, true);
 
-
-            if (this.cmbloteria.Items.Count > 0)
-            {
-                this.cmbloteria.SelectedIndex = 0;
-                string[] v = cmbloteria.Text.Split('-');
-                sr_sorteos(int.Parse(v[1]));
-            }
+            hoy = DateTime.Now;
+            
+            sr_cambiar_horarios(true);
 
             sr_resultados();
         }
+        public void sr_fecha()
+        {
+            lbldia.Text = hoy.ToString("dd/MM/yyyy");
+        }
 
+
+        public void sr_cambiar_horarios(Boolean load)
+        {
+             
+            if (this.cmbloteria.Items.Count > 0)
+            {
+                if (load == true) this.cmbloteria.SelectedIndex = 0;
+                string[] v = cmbloteria.Text.Split('-');
+                sr_sorteos(int.Parse(v[1]));
+            }   
+            
+        }
         public void sr_resultados ()
         {
             utilidades_reportes ur = new utilidades_reportes();
-
-            ur.sr_llenar_resultados(ref this.dgr);
+            string[] v = cmbloteria.Text.Split('-');
+            ur.sr_llenar_resultados(ref this.dgr, int.Parse(v[1]), hoy);
         }
 
         public void sr_sorteos(int vr_key_codigo)
@@ -58,6 +72,8 @@ namespace Jbanimalitosv2
             string[] v = cmbloteria.Text.Split('-');
 
             sr_animalitos(int.Parse(v[1]));
+            sr_resultados();
+            sr_cambiar_horarios(false);
         }
 
         public void sr_animalitos(int vr_key_loteria)
@@ -122,6 +138,34 @@ namespace Jbanimalitosv2
                 v = itemChecked.ToString().Split('-');
                 this.Nombre.Text = v[1];
                 this.Numero.Text = v[0];
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            hoy = hoy.AddDays(-1);
+            sr_fecha();
+            sr_resultados();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            hoy = hoy.AddDays(+1);
+            sr_fecha();
+            sr_resultados();
+        }
+
+        private void lbldia_DoubleClick(object sender, EventArgs e)
+        {
+            hoy = DateTime.Now;
+            sr_fecha();
+        }
+
+        private void FRM_RESULTADOS_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
             }
         }
     }
