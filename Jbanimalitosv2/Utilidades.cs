@@ -198,7 +198,35 @@ namespace Jbanimalitosv2
             }
 
         }
-        
+
+        public void sr_guardar_ganador(int idl, int ids, DateTime fecha, string coda)
+        {
+            using (animalitos db = new animalitos(CONEC))
+            {
+
+                var ganador = (from c in db.dbresultados
+                               where c.ID_LOTERIA == idl && c.ID_SORTEOHR == ids
+                               && c.FECHA == fecha select c).First ();
+
+                //ganador.ID_ANIMAL =
+                if (ganador.ESTATUS == "CA") ganador.ESTATUS = "RE";
+                if (ganador.ESTATUS == "XS") ganador.ESTATUS = "CA";          
+                ganador.ID_ANIMAL = sr_ID_ANIMALITO(coda, idl);
+                ganador.CODIGOANIMAL = coda;
+                db.SubmitChanges();
+
+
+            }
+        }
+        public int sr_ID_ANIMALITO(string coda, int IDL)
+        {
+            animalitos db = new animalitos(CONEC);
+            var IDANIMAL = (from A1 in db.dbanimalitos
+                            where A1.IDSORTEOAN == IDL && A1.CODIGO == coda select A1).First();
+
+            return IDANIMAL.IDANIMALITOS;
+        }
+
 
 
     }

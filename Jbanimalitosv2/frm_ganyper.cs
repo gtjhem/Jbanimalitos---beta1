@@ -54,5 +54,13 @@ namespace Jbanimalitosv2
             ttg = stt - pven;
             lbltotalgeneral.Text = Convert.ToDouble(ttg).ToString("###,##0.00");
         }
+
+        private void frm_ganyper_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

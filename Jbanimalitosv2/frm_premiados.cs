@@ -79,5 +79,13 @@ namespace Jbanimalitosv2
         {
             this.Close();
         }
+
+        private void frm_premiados_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

@@ -220,6 +220,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frm_premiados";
             this.Load += new System.EventHandler(this.frm_premiados_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frm_premiados_KeyUp);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgr)).EndInit();

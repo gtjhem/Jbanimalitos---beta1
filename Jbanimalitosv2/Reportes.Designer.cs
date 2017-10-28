@@ -248,6 +248,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reportes";
             this.Load += new System.EventHandler(this.Reportes_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Reportes_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgr)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

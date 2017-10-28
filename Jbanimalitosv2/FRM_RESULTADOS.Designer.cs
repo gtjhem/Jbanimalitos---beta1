@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Cerrar = new System.Windows.Forms.LinkLabel();
@@ -48,7 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.lbldia = new System.Windows.Forms.Label();
+            this.lbldia = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgr)).BeginInit();
             this.SuspendLayout();
@@ -158,6 +158,7 @@
             this.button2.TabIndex = 26;
             this.button2.Text = "Asignar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // lstSorteos
             // 
@@ -207,7 +208,7 @@
             this.Nombre.MaxLength = 20;
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
-            this.Nombre.Size = new System.Drawing.Size(255, 59);
+            this.Nombre.Size = new System.Drawing.Size(289, 59);
             this.Nombre.TabIndex = 30;
             this.Nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -230,14 +231,14 @@
             this.dgr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(72)))), ((int)(((byte)(69)))));
             this.dgr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgr.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgr.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgr.Location = new System.Drawing.Point(359, 304);
             this.dgr.Margin = new System.Windows.Forms.Padding(0);
             this.dgr.Name = "dgr";
@@ -267,7 +268,7 @@
             this.Numero.MaxLength = 20;
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
-            this.Numero.Size = new System.Drawing.Size(255, 59);
+            this.Numero.Size = new System.Drawing.Size(289, 59);
             this.Numero.TabIndex = 34;
             this.Numero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -276,7 +277,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
-            this.label2.Location = new System.Drawing.Point(357, 56);
+            this.label2.Location = new System.Drawing.Point(357, 58);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(304, 38);
@@ -315,16 +316,20 @@
             // 
             // lbldia
             // 
+            this.lbldia.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
             this.lbldia.AutoSize = true;
             this.lbldia.Font = new System.Drawing.Font("Verdana", 26F, System.Drawing.FontStyle.Bold);
-            this.lbldia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
-            this.lbldia.Location = new System.Drawing.Point(651, 56);
+            this.lbldia.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lbldia.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
+            this.lbldia.Location = new System.Drawing.Point(669, 56);
             this.lbldia.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.lbldia.Name = "lbldia";
             this.lbldia.Size = new System.Drawing.Size(266, 42);
-            this.lbldia.TabIndex = 38;
-            this.lbldia.Text = "27/10/2017";
-            this.lbldia.DoubleClick += new System.EventHandler(this.lbldia_DoubleClick);
+            this.lbldia.TabIndex = 21;
+            this.lbldia.TabStop = true;
+            this.lbldia.Text = "24/18/2017";
+            this.lbldia.VisitedLinkColor = System.Drawing.Color.White;
+            this.lbldia.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbldia_LinkClicked);
             // 
             // FRM_RESULTADOS
             // 
@@ -386,6 +391,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label lbldia;
+        private System.Windows.Forms.LinkLabel lbldia;
     }
 }

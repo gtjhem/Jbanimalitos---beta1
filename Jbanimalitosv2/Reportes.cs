@@ -125,5 +125,13 @@ namespace Jbanimalitosv2
                 e.Handled = true;
             }
         }
+
+        private void Reportes_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

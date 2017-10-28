@@ -26,7 +26,8 @@ namespace Jbanimalitosv2
             CN.sr_llenar_loteria(ref cmbloteria, true);
 
             hoy = DateTime.Now;
-            
+            sr_fecha();
+
             sr_cambiar_horarios(true);
 
             sr_resultados();
@@ -167,6 +168,36 @@ namespace Jbanimalitosv2
             {
                 this.Close();
             }
+        }
+
+        private void lbldia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            hoy = DateTime.Now;
+            sr_fecha();
+            sr_resultados();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string[] v = cmbloteria.Text.Split('-');
+            int ids = 0;
+            obtener_sorteo(ref ids);
+            CN.sr_guardar_ganador(int.Parse(v[1]), ids ,hoy, this.Numero.Text );
+        }
+
+        public void  obtener_sorteo(ref int ids)
+        {
+            string[] v;
+            string x = "";
+            foreach (object itemChecked in lstSorteos.CheckedItems) // obtengo el ID horario seleccionado 
+            {
+
+                v = itemChecked.ToString().Split('-');
+                x = v[2];
+            }
+
+
+            ids = int.Parse(x);
         }
     }
 }

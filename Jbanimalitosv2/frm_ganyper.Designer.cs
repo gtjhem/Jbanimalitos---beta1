@@ -398,6 +398,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frm_ganyper";
             this.Load += new System.EventHandler(this.frm_ganyper_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frm_ganyper_KeyUp);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);

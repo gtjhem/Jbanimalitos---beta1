@@ -240,6 +240,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frm_detalle";
             this.Load += new System.EventHandler(this.frm_detalle_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frm_detalle_KeyUp);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgr)).EndInit();
