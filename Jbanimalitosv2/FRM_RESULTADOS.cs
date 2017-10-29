@@ -179,25 +179,43 @@ namespace Jbanimalitosv2
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
             string[] v = cmbloteria.Text.Split('-');
             int ids = 0;
-            obtener_sorteo(ref ids);
-            CN.sr_guardar_ganador(int.Parse(v[1]), ids ,hoy, this.Numero.Text );
+            string b = "";
+            obtener_sorteo(ref ids, ref b);
+
+            if (MessageBox.Show("Desea cargar como ganador la siguiente jugada: " + this.Numero.Text.ToUpper () + " - " +
+               this.Nombre.Text.ToUpper() + " Para la loteria " + v[0] + " en el sorteo de " + b, " EPA CUIDADO !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Hand ) == DialogResult.Yes) {
+
+                CN.sr_guardar_ganador(int.Parse(v[1]), ids ,hoy, this.Numero.Text );
+
+                MessageBox.Show(
+                    " El " + this.Nombre.Text  + " - " + this.Numero.Text  + "Fue Cargado para la loteria de "
+                    + v[0] + " para el Sorteo de las " + b 
+                   , "Resultado Cargado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                sr_resultados();
+            }
         }
 
-        public void  obtener_sorteo(ref int ids)
+        public void  obtener_sorteo(ref int ids, ref string sorteohora)
         {
             string[] v;
-            string x = "";
+            string x = "", b = "";
+            
             foreach (object itemChecked in lstSorteos.CheckedItems) // obtengo el ID horario seleccionado 
             {
 
                 v = itemChecked.ToString().Split('-');
                 x = v[2];
+                b = v[0];
+               
             }
 
 
             ids = int.Parse(x);
+            sorteohora = b;
         }
     }
 }

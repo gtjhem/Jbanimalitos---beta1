@@ -79,7 +79,7 @@ namespace Jbanimalitosv2
             animalitos db = new animalitos(CN.CONEC);
 
 
-            var TAGESTATUS = new string[] { "PA", "NP" };
+            var TAGESTATUS = new string[] { "PA", "PE" };
 
             var query = (from qrytickets in db.dbtickets
                          join qrysorteo in db.dbSorteos on qrytickets.IDSORTEOTK equals qrysorteo.ID_SORTEO into fg
