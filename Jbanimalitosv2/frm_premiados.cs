@@ -50,6 +50,7 @@ namespace Jbanimalitosv2
           
             ur.sr_columnas_cambiar(ref this.dgr, "D");
             ur.sr_ganador_ticket(ref this.dgr, 6); // le indico la posicion donde esta la celda
+            this.dgr.ClearSelection();
         }
 
         private void Buscar_Click(object sender, EventArgs e)
@@ -87,5 +88,7 @@ namespace Jbanimalitosv2
                 this.Close();
             }
         }
+
+       
     }
 }

@@ -138,9 +138,9 @@
             this.label1.Location = new System.Drawing.Point(351, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 23);
+            this.label1.Size = new System.Drawing.Size(96, 23);
             this.label1.TabIndex = 26;
-            this.label1.Text = "Horario:";
+            this.label1.Text = "Sorteo.:";
             // 
             // label2
             // 

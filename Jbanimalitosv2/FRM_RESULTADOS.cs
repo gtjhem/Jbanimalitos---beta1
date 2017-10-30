@@ -57,6 +57,7 @@ namespace Jbanimalitosv2
                 CN.sr_resultados_del_dia_otros(Convert.ToDateTime(hoy.ToString("dd/MM/yyyy")));   // llama al STORE PROCEDURE para cargar los dias pendientes por incluir resultados
 
             ur.sr_llenar_resultados(ref this.dgr, int.Parse(v[1]), hoy);
+            this.dgr.ClearSelection();
         }
 
         public void sr_sorteos(int vr_key_codigo)

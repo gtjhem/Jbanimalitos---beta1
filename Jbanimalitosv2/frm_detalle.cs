@@ -43,6 +43,7 @@ namespace Jbanimalitosv2
             ur.sr_llenar_grid_detalle(ref this.dgr, ID_TICKET);
             ur.sr_columnas_cambiar(ref this.dgr, "T");
             ur.sr_ganador_ticket(ref this.dgr, 5);
+            this.dgr.ClearSelection();
         }
 
         private void frm_detalle_KeyUp(object sender, KeyEventArgs e)
