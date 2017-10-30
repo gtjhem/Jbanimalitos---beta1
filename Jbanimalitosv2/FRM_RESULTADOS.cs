@@ -53,6 +53,9 @@ namespace Jbanimalitosv2
         {
             utilidades_reportes ur = new utilidades_reportes();
             string[] v = cmbloteria.Text.Split('-');
+            if (Convert.ToDateTime(hoy.ToString("dd/MM/yyyy")) != Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy")))
+                CN.sr_resultados_del_dia_otros(Convert.ToDateTime(hoy.ToString("dd/MM/yyyy")));   // llama al STORE PROCEDURE para cargar los dias pendientes por incluir resultados
+
             ur.sr_llenar_resultados(ref this.dgr, int.Parse(v[1]), hoy);
         }
 
@@ -196,6 +199,7 @@ namespace Jbanimalitosv2
                    , "Resultado Cargado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 sr_resultados();
+                sr_actualizar_ganador();
             }
         }
 
@@ -217,5 +221,12 @@ namespace Jbanimalitosv2
             ids = int.Parse(x);
             sorteohora = b;
         }
+
+        public void sr_actualizar_ganador()
+        {
+
+          CN.sr_ganador(Convert.ToDateTime(hoy.ToString("dd/MM/yyyy")));
+        }
+
     }
 }

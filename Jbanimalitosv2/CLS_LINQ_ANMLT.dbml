@@ -109,4 +109,12 @@
   <Function Name="dbo.PREP_REST" Method="PREP_REST">
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.ACTUALIZAR_RESULTADOS" Method="ACTUALIZAR_RESULTADOS">
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PREP_REST_OTROS" Method="PREP_REST_OTROS">
+    <Parameter Name="FECHA" Parameter="fECHA" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

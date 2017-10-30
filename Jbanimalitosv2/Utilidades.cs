@@ -119,6 +119,7 @@ namespace Jbanimalitosv2
         public void sr_resultados_del_dia()
         {
             animalitos db = new animalitos(CONEC);
+           
             long cont = db.dbresultados.Where(d => d.FECHA == DateTime.Now).Count();
 
             if (cont == 0) // si no se han cargados los registros del dia se procede 
@@ -130,6 +131,23 @@ namespace Jbanimalitosv2
                 
             }
         }
+
+        public void sr_resultados_del_dia_otros(DateTime fec)
+        {
+            animalitos db = new animalitos(CONEC);
+
+            long cont = db.dbresultados.Where(d => d.FECHA == fec).Count();
+
+            if (cont == 0) // si no se han cargados los registros de los otros dias se procede 
+            {
+
+                CLS_LINQ_ANMLTDataContext PRC = new Jbanimalitosv2.CLS_LINQ_ANMLTDataContext(CONEC);
+
+                var query = PRC.PREP_REST_OTROS(fec);
+
+            }
+        }
+
 
         public void sr_guardar_ticket(ref ListBox lxb, ref TextBox ttl, ref ComboBox ltr)
         {
@@ -225,6 +243,13 @@ namespace Jbanimalitosv2
                             where A1.IDSORTEOAN == IDL && A1.CODIGO == coda select A1).First();
 
             return IDANIMAL.IDANIMALITOS;
+        }
+
+        public void sr_ganador(DateTime fec)
+        {
+            CLS_LINQ_ANMLTDataContext PRC = new CLS_LINQ_ANMLTDataContext(CONEC);
+
+            var query = PRC.ACTUALIZAR_RESULTADOS(fec);
         }
 
 
