@@ -138,8 +138,21 @@ namespace Jbanimalitosv2
         {
             
             CLS_LINQ_ANMLTDataContext DCT = new CLS_LINQ_ANMLTDataContext(CN.CONEC);
+            
 
             var query = DCT.TOTALES_GYP(desde.Value , hasta.Value ,ref  ttv , ref ttp, ref stt);
+            
+
+        }
+
+        public void sr_stp_totales_dia(ref decimal? ttv, ref decimal? ttp, ref decimal? stt, DateTime desde, DateTime hasta)
+        {
+
+            CLS_LINQ_ANMLTDataContext DCT = new CLS_LINQ_ANMLTDataContext(CN.CONEC);
+
+
+            var query = DCT.TOTALES_GYP(desde, hasta, ref ttv, ref ttp, ref stt);
+
 
         }
     }

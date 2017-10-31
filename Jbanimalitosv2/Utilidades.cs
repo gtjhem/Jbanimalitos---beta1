@@ -8,7 +8,8 @@ using System.Windows.Forms;
 
 namespace Jbanimalitosv2
 {
-    class Utilidades 
+    class  Utilidades  :  IDisposable
+
     {
         
                 public string CONEC =  System.Configuration.ConfigurationManager.ConnectionStrings["CNX"].ConnectionString;
@@ -30,7 +31,7 @@ namespace Jbanimalitosv2
             CLB.Items.Clear();
             foreach (var aqui in query)
 
-                if (aqui.HORA >= DateTime.Now.TimeOfDay)
+                if (aqui.HORA <= DateTime.Now.TimeOfDay)
                 //if (aqui.HORA <= DateTime.Now.TimeOfDay)
                 {
 
@@ -252,7 +253,57 @@ namespace Jbanimalitosv2
             var query = PRC.ACTUALIZAR_RESULTADOS(fec);
         }
 
+        public string func_linea (ref ListBox lst)
+        {
+            string linea = "";
 
+            int x = 0;
+            for (x = 1; x <= lst.Items.Count - 1; x++)
+            {
+                string[] v = lst.Items[x].ToString().Split('-');
+        
+
+                linea = linea + " " + v[0] + " - " + v[1] + " - " + float.Parse(v[2]).ToString("###,##0.00") + Environment.NewLine; 
+            }
+
+                
+            return linea;
+        }
+
+        #region IDisposable Support
+        private bool disposedValue = false; // Para detectar llamadas redundantes
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: elimine el estado administrado (objetos administrados).
+                }
+
+                // TODO: libere los recursos no administrados (objetos no administrados) y reemplace el siguiente finalizador.
+                // TODO: configure los campos grandes en nulos.
+
+                disposedValue = true;
+            }
+        }
+
+        // TODO: reemplace un finalizador solo si el anterior Dispose(bool disposing) tiene código para liberar los recursos no administrados.
+        // ~Utilidades() {
+        //   // No cambie este código. Coloque el código de limpieza en el anterior Dispose(colocación de bool).
+        //   Dispose(false);
+        // }
+
+        // Este código se agrega para implementar correctamente el patrón descartable.
+        public void Dispose()
+        {
+            // No cambie este código. Coloque el código de limpieza en el anterior Dispose(colocación de bool).
+            Dispose(true);
+            // TODO: quite la marca de comentario de la siguiente línea si el finalizador se ha reemplazado antes.
+            // GC.SuppressFinalize(this);
+        }
+        #endregion
 
     }
 }

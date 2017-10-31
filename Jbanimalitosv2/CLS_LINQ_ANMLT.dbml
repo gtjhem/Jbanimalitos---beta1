@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Loterias" Class="CLS_LINQ_ANMLTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=JBJV-PC\SQLEXPRESS;Initial Catalog=Loterias;User ID=sa" SettingsObjectName="Jbanimalitosv2.Properties.Settings" SettingsPropertyName="LoteriasConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBL_ABONOS" Member="TBL_ABONOS">
+    <Type Name="TBL_ABONOS">
+      <Column Name="ID_ABONO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FECHA_ABONO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORA_ABONO" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ESTATUS_ABONO" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="MONTO_ABONO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FECHA_SISTEMA" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORA_SISTEMA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBL_ANIMALITOS" Member="TBL_ANIMALITOS">
     <Type Name="TBL_ANIMALITOS">
       <Column Name="IDANIMALITOS" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -9,6 +20,32 @@
       <Column Name="COLOR" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
       <Column Name="COLUMNA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
       <Column Name="ESTATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_BANCA" Member="TBL_BANCA">
+    <Type Name="TBL_BANCA">
+      <Column Name="ID_AGENCIA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE_AGENCIA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MULTIPLICADOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FECHAINICIO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IMPRESORA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FECHAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORAREGISTRO" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_CIERRE" Member="TBL_CIERRE">
+    <Type Name="TBL_CIERRE">
+      <Column Name="ID_CIERRE" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LOTERIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FECHA_DE_CIERRE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TOTAL_VENTAS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOTAL_PAGOS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SUB_TOTAL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PORCENTAJE_VENTA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOTAL_GENERAL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ABONOS_TOTAL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ESTATUS_CIERRE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBL_DTICKET" Member="TBL_DTICKET">
@@ -37,6 +74,18 @@
       <Column Name="HORA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_RESULTADOS" Member="TBL_RESULTADOS">
+    <Type Name="TBL_RESULTADOS">
+      <Column Name="ID_RESULTADO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_LOTERIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_SORTEOHR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ANIMAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CODIGOANIMAL" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Tbl_SORTEO" Member="Tbl_SORTEO">
     <Type Name="Tbl_SORTEO">
       <Column Name="ID_SORTEO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -60,42 +109,8 @@
       <Column Name="SERIAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="FECHATQ" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="HORATQ" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_BANCA" Member="TBL_BANCA">
-    <Type Name="TBL_BANCA">
-      <Column Name="ID_AGENCIA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NOMBRE_AGENCIA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="MULTIPLICADOR" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="FECHAINICIO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="IMPRESORA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FECHAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="HORAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_BANCA" Member="TBL_BANCA1">
-    <Type Name="TBL_BANCA1">
-      <Column Name="ID_AGENCIA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NOMBRE_AGENCIA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="MULTIPLICADOR" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="FECHAINICIO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="IMPRESORA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FECHAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="HORAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_RESULTADOS" Member="TBL_RESULTADOS">
-    <Type Name="TBL_RESULTADOS">
-      <Column Name="ID_RESULTADO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_LOTERIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_SORTEOHR" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_ANIMAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CODIGOANIMAL" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="FECHA" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="HORA" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FECHA_PAGO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORA_PAGO" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.TOTALES_GYP" Method="TOTALES_GYP">

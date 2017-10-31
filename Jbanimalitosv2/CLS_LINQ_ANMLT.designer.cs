@@ -30,9 +30,18 @@ namespace Jbanimalitosv2
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
+    partial void InsertTBL_ABONOS(TBL_ABONOS instance);
+    partial void UpdateTBL_ABONOS(TBL_ABONOS instance);
+    partial void DeleteTBL_ABONOS(TBL_ABONOS instance);
     partial void InsertTBL_ANIMALITOS(TBL_ANIMALITOS instance);
     partial void UpdateTBL_ANIMALITOS(TBL_ANIMALITOS instance);
     partial void DeleteTBL_ANIMALITOS(TBL_ANIMALITOS instance);
+    partial void InsertTBL_BANCA(TBL_BANCA instance);
+    partial void UpdateTBL_BANCA(TBL_BANCA instance);
+    partial void DeleteTBL_BANCA(TBL_BANCA instance);
+    partial void InsertTBL_CIERRE(TBL_CIERRE instance);
+    partial void UpdateTBL_CIERRE(TBL_CIERRE instance);
+    partial void DeleteTBL_CIERRE(TBL_CIERRE instance);
     partial void InsertTBL_DTICKET(TBL_DTICKET instance);
     partial void UpdateTBL_DTICKET(TBL_DTICKET instance);
     partial void DeleteTBL_DTICKET(TBL_DTICKET instance);
@@ -42,21 +51,15 @@ namespace Jbanimalitosv2
     partial void InsertTBL_HORARIOS(TBL_HORARIOS instance);
     partial void UpdateTBL_HORARIOS(TBL_HORARIOS instance);
     partial void DeleteTBL_HORARIOS(TBL_HORARIOS instance);
+    partial void InsertTBL_RESULTADOS(TBL_RESULTADOS instance);
+    partial void UpdateTBL_RESULTADOS(TBL_RESULTADOS instance);
+    partial void DeleteTBL_RESULTADOS(TBL_RESULTADOS instance);
     partial void InsertTbl_SORTEO(Tbl_SORTEO instance);
     partial void UpdateTbl_SORTEO(Tbl_SORTEO instance);
     partial void DeleteTbl_SORTEO(Tbl_SORTEO instance);
     partial void InsertTBL_TICKET(TBL_TICKET instance);
     partial void UpdateTBL_TICKET(TBL_TICKET instance);
     partial void DeleteTBL_TICKET(TBL_TICKET instance);
-    partial void InsertTBL_BANCA(TBL_BANCA instance);
-    partial void UpdateTBL_BANCA(TBL_BANCA instance);
-    partial void DeleteTBL_BANCA(TBL_BANCA instance);
-    partial void InsertTBL_BANCA1(TBL_BANCA1 instance);
-    partial void UpdateTBL_BANCA1(TBL_BANCA1 instance);
-    partial void DeleteTBL_BANCA1(TBL_BANCA1 instance);
-    partial void InsertTBL_RESULTADOS(TBL_RESULTADOS instance);
-    partial void UpdateTBL_RESULTADOS(TBL_RESULTADOS instance);
-    partial void DeleteTBL_RESULTADOS(TBL_RESULTADOS instance);
     #endregion
 		
 		public CLS_LINQ_ANMLTDataContext() : 
@@ -89,11 +92,35 @@ namespace Jbanimalitosv2
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<TBL_ABONOS> TBL_ABONOS
+		{
+			get
+			{
+				return this.GetTable<TBL_ABONOS>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TBL_ANIMALITOS> TBL_ANIMALITOS
 		{
 			get
 			{
 				return this.GetTable<TBL_ANIMALITOS>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_BANCA> TBL_BANCA
+		{
+			get
+			{
+				return this.GetTable<TBL_BANCA>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_CIERRE> TBL_CIERRE
+		{
+			get
+			{
+				return this.GetTable<TBL_CIERRE>();
 			}
 		}
 		
@@ -121,6 +148,14 @@ namespace Jbanimalitosv2
 			}
 		}
 		
+		public System.Data.Linq.Table<TBL_RESULTADOS> TBL_RESULTADOS
+		{
+			get
+			{
+				return this.GetTable<TBL_RESULTADOS>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Tbl_SORTEO> Tbl_SORTEO
 		{
 			get
@@ -134,30 +169,6 @@ namespace Jbanimalitosv2
 			get
 			{
 				return this.GetTable<TBL_TICKET>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_BANCA> TBL_BANCA
-		{
-			get
-			{
-				return this.GetTable<TBL_BANCA>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_BANCA1> TBL_BANCA1
-		{
-			get
-			{
-				return this.GetTable<TBL_BANCA1>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_RESULTADOS> TBL_RESULTADOS
-		{
-			get
-			{
-				return this.GetTable<TBL_RESULTADOS>();
 			}
 		}
 		
@@ -190,6 +201,212 @@ namespace Jbanimalitosv2
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fECHA);
 			return ((int)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_ABONOS")]
+	public partial class TBL_ABONOS : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ID_ABONO;
+		
+		private System.Nullable<System.DateTime> _FECHA_ABONO;
+		
+		private System.Nullable<System.TimeSpan> _HORA_ABONO;
+		
+		private string _ESTATUS_ABONO;
+		
+		private System.Nullable<double> _MONTO_ABONO;
+		
+		private System.Nullable<System.DateTime> _FECHA_SISTEMA;
+		
+		private System.Nullable<System.TimeSpan> _HORA_SISTEMA;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_ABONOChanging(long value);
+    partial void OnID_ABONOChanged();
+    partial void OnFECHA_ABONOChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHA_ABONOChanged();
+    partial void OnHORA_ABONOChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHORA_ABONOChanged();
+    partial void OnESTATUS_ABONOChanging(string value);
+    partial void OnESTATUS_ABONOChanged();
+    partial void OnMONTO_ABONOChanging(System.Nullable<double> value);
+    partial void OnMONTO_ABONOChanged();
+    partial void OnFECHA_SISTEMAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHA_SISTEMAChanged();
+    partial void OnHORA_SISTEMAChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHORA_SISTEMAChanged();
+    #endregion
+		
+		public TBL_ABONOS()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ABONO", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ID_ABONO
+		{
+			get
+			{
+				return this._ID_ABONO;
+			}
+			set
+			{
+				if ((this._ID_ABONO != value))
+				{
+					this.OnID_ABONOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_ABONO = value;
+					this.SendPropertyChanged("ID_ABONO");
+					this.OnID_ABONOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ABONO", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHA_ABONO
+		{
+			get
+			{
+				return this._FECHA_ABONO;
+			}
+			set
+			{
+				if ((this._FECHA_ABONO != value))
+				{
+					this.OnFECHA_ABONOChanging(value);
+					this.SendPropertyChanging();
+					this._FECHA_ABONO = value;
+					this.SendPropertyChanged("FECHA_ABONO");
+					this.OnFECHA_ABONOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA_ABONO", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORA_ABONO
+		{
+			get
+			{
+				return this._HORA_ABONO;
+			}
+			set
+			{
+				if ((this._HORA_ABONO != value))
+				{
+					this.OnHORA_ABONOChanging(value);
+					this.SendPropertyChanging();
+					this._HORA_ABONO = value;
+					this.SendPropertyChanged("HORA_ABONO");
+					this.OnHORA_ABONOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUS_ABONO", DbType="VarChar(2)")]
+		public string ESTATUS_ABONO
+		{
+			get
+			{
+				return this._ESTATUS_ABONO;
+			}
+			set
+			{
+				if ((this._ESTATUS_ABONO != value))
+				{
+					this.OnESTATUS_ABONOChanging(value);
+					this.SendPropertyChanging();
+					this._ESTATUS_ABONO = value;
+					this.SendPropertyChanged("ESTATUS_ABONO");
+					this.OnESTATUS_ABONOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTO_ABONO", DbType="Float")]
+		public System.Nullable<double> MONTO_ABONO
+		{
+			get
+			{
+				return this._MONTO_ABONO;
+			}
+			set
+			{
+				if ((this._MONTO_ABONO != value))
+				{
+					this.OnMONTO_ABONOChanging(value);
+					this.SendPropertyChanging();
+					this._MONTO_ABONO = value;
+					this.SendPropertyChanged("MONTO_ABONO");
+					this.OnMONTO_ABONOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_SISTEMA", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHA_SISTEMA
+		{
+			get
+			{
+				return this._FECHA_SISTEMA;
+			}
+			set
+			{
+				if ((this._FECHA_SISTEMA != value))
+				{
+					this.OnFECHA_SISTEMAChanging(value);
+					this.SendPropertyChanging();
+					this._FECHA_SISTEMA = value;
+					this.SendPropertyChanged("FECHA_SISTEMA");
+					this.OnFECHA_SISTEMAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA_SISTEMA", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORA_SISTEMA
+		{
+			get
+			{
+				return this._HORA_SISTEMA;
+			}
+			set
+			{
+				if ((this._HORA_SISTEMA != value))
+				{
+					this.OnHORA_SISTEMAChanging(value);
+					this.SendPropertyChanging();
+					this._HORA_SISTEMA = value;
+					this.SendPropertyChanged("HORA_SISTEMA");
+					this.OnHORA_SISTEMAChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -374,6 +591,514 @@ namespace Jbanimalitosv2
 					this._ESTATUS = value;
 					this.SendPropertyChanged("ESTATUS");
 					this.OnESTATUSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_BANCA")]
+	public partial class TBL_BANCA : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_AGENCIA;
+		
+		private string _NOMBRE_AGENCIA;
+		
+		private System.Nullable<double> _MULTIPLICADOR;
+		
+		private string _ESTATUS;
+		
+		private System.Nullable<System.DateTime> _FECHAINICIO;
+		
+		private string _IMPRESORA;
+		
+		private System.Nullable<System.DateTime> _FECHAREGISTRO;
+		
+		private System.Nullable<System.TimeSpan> _HORAREGISTRO;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_AGENCIAChanging(int value);
+    partial void OnID_AGENCIAChanged();
+    partial void OnNOMBRE_AGENCIAChanging(string value);
+    partial void OnNOMBRE_AGENCIAChanged();
+    partial void OnMULTIPLICADORChanging(System.Nullable<double> value);
+    partial void OnMULTIPLICADORChanged();
+    partial void OnESTATUSChanging(string value);
+    partial void OnESTATUSChanged();
+    partial void OnFECHAINICIOChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHAINICIOChanged();
+    partial void OnIMPRESORAChanging(string value);
+    partial void OnIMPRESORAChanged();
+    partial void OnFECHAREGISTROChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHAREGISTROChanged();
+    partial void OnHORAREGISTROChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHORAREGISTROChanged();
+    #endregion
+		
+		public TBL_BANCA()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AGENCIA", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_AGENCIA
+		{
+			get
+			{
+				return this._ID_AGENCIA;
+			}
+			set
+			{
+				if ((this._ID_AGENCIA != value))
+				{
+					this.OnID_AGENCIAChanging(value);
+					this.SendPropertyChanging();
+					this._ID_AGENCIA = value;
+					this.SendPropertyChanged("ID_AGENCIA");
+					this.OnID_AGENCIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE_AGENCIA", DbType="VarChar(30)")]
+		public string NOMBRE_AGENCIA
+		{
+			get
+			{
+				return this._NOMBRE_AGENCIA;
+			}
+			set
+			{
+				if ((this._NOMBRE_AGENCIA != value))
+				{
+					this.OnNOMBRE_AGENCIAChanging(value);
+					this.SendPropertyChanging();
+					this._NOMBRE_AGENCIA = value;
+					this.SendPropertyChanged("NOMBRE_AGENCIA");
+					this.OnNOMBRE_AGENCIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MULTIPLICADOR", DbType="Float")]
+		public System.Nullable<double> MULTIPLICADOR
+		{
+			get
+			{
+				return this._MULTIPLICADOR;
+			}
+			set
+			{
+				if ((this._MULTIPLICADOR != value))
+				{
+					this.OnMULTIPLICADORChanging(value);
+					this.SendPropertyChanging();
+					this._MULTIPLICADOR = value;
+					this.SendPropertyChanged("MULTIPLICADOR");
+					this.OnMULTIPLICADORChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUS", DbType="VarChar(2)")]
+		public string ESTATUS
+		{
+			get
+			{
+				return this._ESTATUS;
+			}
+			set
+			{
+				if ((this._ESTATUS != value))
+				{
+					this.OnESTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._ESTATUS = value;
+					this.SendPropertyChanged("ESTATUS");
+					this.OnESTATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAINICIO", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHAINICIO
+		{
+			get
+			{
+				return this._FECHAINICIO;
+			}
+			set
+			{
+				if ((this._FECHAINICIO != value))
+				{
+					this.OnFECHAINICIOChanging(value);
+					this.SendPropertyChanging();
+					this._FECHAINICIO = value;
+					this.SendPropertyChanged("FECHAINICIO");
+					this.OnFECHAINICIOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMPRESORA", DbType="VarChar(100)")]
+		public string IMPRESORA
+		{
+			get
+			{
+				return this._IMPRESORA;
+			}
+			set
+			{
+				if ((this._IMPRESORA != value))
+				{
+					this.OnIMPRESORAChanging(value);
+					this.SendPropertyChanging();
+					this._IMPRESORA = value;
+					this.SendPropertyChanged("IMPRESORA");
+					this.OnIMPRESORAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAREGISTRO", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHAREGISTRO
+		{
+			get
+			{
+				return this._FECHAREGISTRO;
+			}
+			set
+			{
+				if ((this._FECHAREGISTRO != value))
+				{
+					this.OnFECHAREGISTROChanging(value);
+					this.SendPropertyChanging();
+					this._FECHAREGISTRO = value;
+					this.SendPropertyChanged("FECHAREGISTRO");
+					this.OnFECHAREGISTROChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAREGISTRO", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORAREGISTRO
+		{
+			get
+			{
+				return this._HORAREGISTRO;
+			}
+			set
+			{
+				if ((this._HORAREGISTRO != value))
+				{
+					this.OnHORAREGISTROChanging(value);
+					this.SendPropertyChanging();
+					this._HORAREGISTRO = value;
+					this.SendPropertyChanged("HORAREGISTRO");
+					this.OnHORAREGISTROChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_CIERRE")]
+	public partial class TBL_CIERRE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ID_CIERRE;
+		
+		private System.Nullable<int> _LOTERIA;
+		
+		private System.Nullable<System.DateTime> _FECHA_DE_CIERRE;
+		
+		private System.Nullable<double> _TOTAL_VENTAS;
+		
+		private System.Nullable<double> _TOTAL_PAGOS;
+		
+		private System.Nullable<double> _SUB_TOTAL;
+		
+		private System.Nullable<double> _PORCENTAJE_VENTA;
+		
+		private System.Nullable<double> _TOTAL_GENERAL;
+		
+		private System.Nullable<double> _ABONOS_TOTAL;
+		
+		private string _ESTATUS_CIERRE;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_CIERREChanging(long value);
+    partial void OnID_CIERREChanged();
+    partial void OnLOTERIAChanging(System.Nullable<int> value);
+    partial void OnLOTERIAChanged();
+    partial void OnFECHA_DE_CIERREChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHA_DE_CIERREChanged();
+    partial void OnTOTAL_VENTASChanging(System.Nullable<double> value);
+    partial void OnTOTAL_VENTASChanged();
+    partial void OnTOTAL_PAGOSChanging(System.Nullable<double> value);
+    partial void OnTOTAL_PAGOSChanged();
+    partial void OnSUB_TOTALChanging(System.Nullable<double> value);
+    partial void OnSUB_TOTALChanged();
+    partial void OnPORCENTAJE_VENTAChanging(System.Nullable<double> value);
+    partial void OnPORCENTAJE_VENTAChanged();
+    partial void OnTOTAL_GENERALChanging(System.Nullable<double> value);
+    partial void OnTOTAL_GENERALChanged();
+    partial void OnABONOS_TOTALChanging(System.Nullable<double> value);
+    partial void OnABONOS_TOTALChanged();
+    partial void OnESTATUS_CIERREChanging(string value);
+    partial void OnESTATUS_CIERREChanged();
+    #endregion
+		
+		public TBL_CIERRE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CIERRE", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ID_CIERRE
+		{
+			get
+			{
+				return this._ID_CIERRE;
+			}
+			set
+			{
+				if ((this._ID_CIERRE != value))
+				{
+					this.OnID_CIERREChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CIERRE = value;
+					this.SendPropertyChanged("ID_CIERRE");
+					this.OnID_CIERREChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOTERIA", DbType="Int")]
+		public System.Nullable<int> LOTERIA
+		{
+			get
+			{
+				return this._LOTERIA;
+			}
+			set
+			{
+				if ((this._LOTERIA != value))
+				{
+					this.OnLOTERIAChanging(value);
+					this.SendPropertyChanging();
+					this._LOTERIA = value;
+					this.SendPropertyChanged("LOTERIA");
+					this.OnLOTERIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_DE_CIERRE", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHA_DE_CIERRE
+		{
+			get
+			{
+				return this._FECHA_DE_CIERRE;
+			}
+			set
+			{
+				if ((this._FECHA_DE_CIERRE != value))
+				{
+					this.OnFECHA_DE_CIERREChanging(value);
+					this.SendPropertyChanging();
+					this._FECHA_DE_CIERRE = value;
+					this.SendPropertyChanged("FECHA_DE_CIERRE");
+					this.OnFECHA_DE_CIERREChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_VENTAS", DbType="Float")]
+		public System.Nullable<double> TOTAL_VENTAS
+		{
+			get
+			{
+				return this._TOTAL_VENTAS;
+			}
+			set
+			{
+				if ((this._TOTAL_VENTAS != value))
+				{
+					this.OnTOTAL_VENTASChanging(value);
+					this.SendPropertyChanging();
+					this._TOTAL_VENTAS = value;
+					this.SendPropertyChanged("TOTAL_VENTAS");
+					this.OnTOTAL_VENTASChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_PAGOS", DbType="Float")]
+		public System.Nullable<double> TOTAL_PAGOS
+		{
+			get
+			{
+				return this._TOTAL_PAGOS;
+			}
+			set
+			{
+				if ((this._TOTAL_PAGOS != value))
+				{
+					this.OnTOTAL_PAGOSChanging(value);
+					this.SendPropertyChanging();
+					this._TOTAL_PAGOS = value;
+					this.SendPropertyChanged("TOTAL_PAGOS");
+					this.OnTOTAL_PAGOSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_TOTAL", DbType="Float")]
+		public System.Nullable<double> SUB_TOTAL
+		{
+			get
+			{
+				return this._SUB_TOTAL;
+			}
+			set
+			{
+				if ((this._SUB_TOTAL != value))
+				{
+					this.OnSUB_TOTALChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_TOTAL = value;
+					this.SendPropertyChanged("SUB_TOTAL");
+					this.OnSUB_TOTALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORCENTAJE_VENTA", DbType="Float")]
+		public System.Nullable<double> PORCENTAJE_VENTA
+		{
+			get
+			{
+				return this._PORCENTAJE_VENTA;
+			}
+			set
+			{
+				if ((this._PORCENTAJE_VENTA != value))
+				{
+					this.OnPORCENTAJE_VENTAChanging(value);
+					this.SendPropertyChanging();
+					this._PORCENTAJE_VENTA = value;
+					this.SendPropertyChanged("PORCENTAJE_VENTA");
+					this.OnPORCENTAJE_VENTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_GENERAL", DbType="Float")]
+		public System.Nullable<double> TOTAL_GENERAL
+		{
+			get
+			{
+				return this._TOTAL_GENERAL;
+			}
+			set
+			{
+				if ((this._TOTAL_GENERAL != value))
+				{
+					this.OnTOTAL_GENERALChanging(value);
+					this.SendPropertyChanging();
+					this._TOTAL_GENERAL = value;
+					this.SendPropertyChanged("TOTAL_GENERAL");
+					this.OnTOTAL_GENERALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABONOS_TOTAL", DbType="Float")]
+		public System.Nullable<double> ABONOS_TOTAL
+		{
+			get
+			{
+				return this._ABONOS_TOTAL;
+			}
+			set
+			{
+				if ((this._ABONOS_TOTAL != value))
+				{
+					this.OnABONOS_TOTALChanging(value);
+					this.SendPropertyChanging();
+					this._ABONOS_TOTAL = value;
+					this.SendPropertyChanged("ABONOS_TOTAL");
+					this.OnABONOS_TOTALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUS_CIERRE", DbType="VarChar(2)")]
+		public string ESTATUS_CIERRE
+		{
+			get
+			{
+				return this._ESTATUS_CIERRE;
+			}
+			set
+			{
+				if ((this._ESTATUS_CIERRE != value))
+				{
+					this.OnESTATUS_CIERREChanging(value);
+					this.SendPropertyChanging();
+					this._ESTATUS_CIERRE = value;
+					this.SendPropertyChanged("ESTATUS_CIERRE");
+					this.OnESTATUS_CIERREChanged();
 				}
 			}
 		}
@@ -849,6 +1574,236 @@ namespace Jbanimalitosv2
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_RESULTADOS")]
+	public partial class TBL_RESULTADOS : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ID_RESULTADO;
+		
+		private System.Nullable<int> _ID_LOTERIA;
+		
+		private System.Nullable<int> _ID_SORTEOHR;
+		
+		private System.Nullable<int> _ID_ANIMAL;
+		
+		private string _CODIGOANIMAL;
+		
+		private System.Nullable<System.DateTime> _FECHA;
+		
+		private System.Nullable<System.TimeSpan> _HORA;
+		
+		private string _ESTATUS;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_RESULTADOChanging(long value);
+    partial void OnID_RESULTADOChanged();
+    partial void OnID_LOTERIAChanging(System.Nullable<int> value);
+    partial void OnID_LOTERIAChanged();
+    partial void OnID_SORTEOHRChanging(System.Nullable<int> value);
+    partial void OnID_SORTEOHRChanged();
+    partial void OnID_ANIMALChanging(System.Nullable<int> value);
+    partial void OnID_ANIMALChanged();
+    partial void OnCODIGOANIMALChanging(string value);
+    partial void OnCODIGOANIMALChanged();
+    partial void OnFECHAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHAChanged();
+    partial void OnHORAChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHORAChanged();
+    partial void OnESTATUSChanging(string value);
+    partial void OnESTATUSChanged();
+    #endregion
+		
+		public TBL_RESULTADOS()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_RESULTADO", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ID_RESULTADO
+		{
+			get
+			{
+				return this._ID_RESULTADO;
+			}
+			set
+			{
+				if ((this._ID_RESULTADO != value))
+				{
+					this.OnID_RESULTADOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_RESULTADO = value;
+					this.SendPropertyChanged("ID_RESULTADO");
+					this.OnID_RESULTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_LOTERIA", DbType="Int")]
+		public System.Nullable<int> ID_LOTERIA
+		{
+			get
+			{
+				return this._ID_LOTERIA;
+			}
+			set
+			{
+				if ((this._ID_LOTERIA != value))
+				{
+					this.OnID_LOTERIAChanging(value);
+					this.SendPropertyChanging();
+					this._ID_LOTERIA = value;
+					this.SendPropertyChanged("ID_LOTERIA");
+					this.OnID_LOTERIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SORTEOHR", DbType="Int")]
+		public System.Nullable<int> ID_SORTEOHR
+		{
+			get
+			{
+				return this._ID_SORTEOHR;
+			}
+			set
+			{
+				if ((this._ID_SORTEOHR != value))
+				{
+					this.OnID_SORTEOHRChanging(value);
+					this.SendPropertyChanging();
+					this._ID_SORTEOHR = value;
+					this.SendPropertyChanged("ID_SORTEOHR");
+					this.OnID_SORTEOHRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ANIMAL", DbType="Int")]
+		public System.Nullable<int> ID_ANIMAL
+		{
+			get
+			{
+				return this._ID_ANIMAL;
+			}
+			set
+			{
+				if ((this._ID_ANIMAL != value))
+				{
+					this.OnID_ANIMALChanging(value);
+					this.SendPropertyChanging();
+					this._ID_ANIMAL = value;
+					this.SendPropertyChanged("ID_ANIMAL");
+					this.OnID_ANIMALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGOANIMAL", DbType="VarChar(2)")]
+		public string CODIGOANIMAL
+		{
+			get
+			{
+				return this._CODIGOANIMAL;
+			}
+			set
+			{
+				if ((this._CODIGOANIMAL != value))
+				{
+					this.OnCODIGOANIMALChanging(value);
+					this.SendPropertyChanging();
+					this._CODIGOANIMAL = value;
+					this.SendPropertyChanged("CODIGOANIMAL");
+					this.OnCODIGOANIMALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHA
+		{
+			get
+			{
+				return this._FECHA;
+			}
+			set
+			{
+				if ((this._FECHA != value))
+				{
+					this.OnFECHAChanging(value);
+					this.SendPropertyChanging();
+					this._FECHA = value;
+					this.SendPropertyChanged("FECHA");
+					this.OnFECHAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORA
+		{
+			get
+			{
+				return this._HORA;
+			}
+			set
+			{
+				if ((this._HORA != value))
+				{
+					this.OnHORAChanging(value);
+					this.SendPropertyChanging();
+					this._HORA = value;
+					this.SendPropertyChanged("HORA");
+					this.OnHORAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUS", DbType="VarChar(2)")]
+		public string ESTATUS
+		{
+			get
+			{
+				return this._ESTATUS;
+			}
+			set
+			{
+				if ((this._ESTATUS != value))
+				{
+					this.OnESTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._ESTATUS = value;
+					this.SendPropertyChanged("ESTATUS");
+					this.OnESTATUSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tbl_SORTEO")]
 	public partial class Tbl_SORTEO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1059,6 +2014,10 @@ namespace Jbanimalitosv2
 		
 		private System.Nullable<System.TimeSpan> _HORATQ;
 		
+		private System.Nullable<System.DateTime> _FECHA_PAGO;
+		
+		private System.Nullable<System.TimeSpan> _HORA_PAGO;
+		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1085,6 +2044,10 @@ namespace Jbanimalitosv2
     partial void OnFECHATQChanged();
     partial void OnHORATQChanging(System.Nullable<System.TimeSpan> value);
     partial void OnHORATQChanged();
+    partial void OnFECHA_PAGOChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHA_PAGOChanged();
+    partial void OnHORA_PAGOChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHORA_PAGOChanged();
     #endregion
 		
 		public TBL_TICKET()
@@ -1312,692 +2275,42 @@ namespace Jbanimalitosv2
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_BANCA")]
-	public partial class TBL_BANCA : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_AGENCIA;
-		
-		private string _NOMBRE_AGENCIA;
-		
-		private System.Nullable<double> _MULTIPLICADOR;
-		
-		private string _ESTATUS;
-		
-		private System.Nullable<System.DateTime> _FECHAINICIO;
-		
-		private string _IMPRESORA;
-		
-		private System.Nullable<System.DateTime> _FECHAREGISTRO;
-		
-		private System.Nullable<System.DateTime> _HORAREGISTRO;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_AGENCIAChanging(int value);
-    partial void OnID_AGENCIAChanged();
-    partial void OnNOMBRE_AGENCIAChanging(string value);
-    partial void OnNOMBRE_AGENCIAChanged();
-    partial void OnMULTIPLICADORChanging(System.Nullable<double> value);
-    partial void OnMULTIPLICADORChanged();
-    partial void OnESTATUSChanging(string value);
-    partial void OnESTATUSChanged();
-    partial void OnFECHAINICIOChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAINICIOChanged();
-    partial void OnIMPRESORAChanging(string value);
-    partial void OnIMPRESORAChanged();
-    partial void OnFECHAREGISTROChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAREGISTROChanged();
-    partial void OnHORAREGISTROChanging(System.Nullable<System.DateTime> value);
-    partial void OnHORAREGISTROChanged();
-    #endregion
-		
-		public TBL_BANCA()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AGENCIA", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ID_AGENCIA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_PAGO", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHA_PAGO
 		{
 			get
 			{
-				return this._ID_AGENCIA;
+				return this._FECHA_PAGO;
 			}
 			set
 			{
-				if ((this._ID_AGENCIA != value))
+				if ((this._FECHA_PAGO != value))
 				{
-					this.OnID_AGENCIAChanging(value);
+					this.OnFECHA_PAGOChanging(value);
 					this.SendPropertyChanging();
-					this._ID_AGENCIA = value;
-					this.SendPropertyChanged("ID_AGENCIA");
-					this.OnID_AGENCIAChanged();
+					this._FECHA_PAGO = value;
+					this.SendPropertyChanged("FECHA_PAGO");
+					this.OnFECHA_PAGOChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE_AGENCIA", DbType="VarChar(30)")]
-		public string NOMBRE_AGENCIA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA_PAGO", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORA_PAGO
 		{
 			get
 			{
-				return this._NOMBRE_AGENCIA;
+				return this._HORA_PAGO;
 			}
 			set
 			{
-				if ((this._NOMBRE_AGENCIA != value))
+				if ((this._HORA_PAGO != value))
 				{
-					this.OnNOMBRE_AGENCIAChanging(value);
+					this.OnHORA_PAGOChanging(value);
 					this.SendPropertyChanging();
-					this._NOMBRE_AGENCIA = value;
-					this.SendPropertyChanged("NOMBRE_AGENCIA");
-					this.OnNOMBRE_AGENCIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MULTIPLICADOR", DbType="Float")]
-		public System.Nullable<double> MULTIPLICADOR
-		{
-			get
-			{
-				return this._MULTIPLICADOR;
-			}
-			set
-			{
-				if ((this._MULTIPLICADOR != value))
-				{
-					this.OnMULTIPLICADORChanging(value);
-					this.SendPropertyChanging();
-					this._MULTIPLICADOR = value;
-					this.SendPropertyChanged("MULTIPLICADOR");
-					this.OnMULTIPLICADORChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUS", DbType="VarChar(2)")]
-		public string ESTATUS
-		{
-			get
-			{
-				return this._ESTATUS;
-			}
-			set
-			{
-				if ((this._ESTATUS != value))
-				{
-					this.OnESTATUSChanging(value);
-					this.SendPropertyChanging();
-					this._ESTATUS = value;
-					this.SendPropertyChanged("ESTATUS");
-					this.OnESTATUSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAINICIO", DbType="Date")]
-		public System.Nullable<System.DateTime> FECHAINICIO
-		{
-			get
-			{
-				return this._FECHAINICIO;
-			}
-			set
-			{
-				if ((this._FECHAINICIO != value))
-				{
-					this.OnFECHAINICIOChanging(value);
-					this.SendPropertyChanging();
-					this._FECHAINICIO = value;
-					this.SendPropertyChanged("FECHAINICIO");
-					this.OnFECHAINICIOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMPRESORA", DbType="VarChar(100)")]
-		public string IMPRESORA
-		{
-			get
-			{
-				return this._IMPRESORA;
-			}
-			set
-			{
-				if ((this._IMPRESORA != value))
-				{
-					this.OnIMPRESORAChanging(value);
-					this.SendPropertyChanging();
-					this._IMPRESORA = value;
-					this.SendPropertyChanged("IMPRESORA");
-					this.OnIMPRESORAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAREGISTRO", DbType="Date")]
-		public System.Nullable<System.DateTime> FECHAREGISTRO
-		{
-			get
-			{
-				return this._FECHAREGISTRO;
-			}
-			set
-			{
-				if ((this._FECHAREGISTRO != value))
-				{
-					this.OnFECHAREGISTROChanging(value);
-					this.SendPropertyChanging();
-					this._FECHAREGISTRO = value;
-					this.SendPropertyChanged("FECHAREGISTRO");
-					this.OnFECHAREGISTROChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAREGISTRO", DbType="Date")]
-		public System.Nullable<System.DateTime> HORAREGISTRO
-		{
-			get
-			{
-				return this._HORAREGISTRO;
-			}
-			set
-			{
-				if ((this._HORAREGISTRO != value))
-				{
-					this.OnHORAREGISTROChanging(value);
-					this.SendPropertyChanging();
-					this._HORAREGISTRO = value;
-					this.SendPropertyChanged("HORAREGISTRO");
-					this.OnHORAREGISTROChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_BANCA")]
-	public partial class TBL_BANCA1 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_AGENCIA;
-		
-		private string _NOMBRE_AGENCIA;
-		
-		private System.Nullable<double> _MULTIPLICADOR;
-		
-		private string _ESTATUS;
-		
-		private System.Nullable<System.DateTime> _FECHAINICIO;
-		
-		private string _IMPRESORA;
-		
-		private System.Nullable<System.DateTime> _FECHAREGISTRO;
-		
-		private System.Nullable<System.DateTime> _HORAREGISTRO;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_AGENCIAChanging(int value);
-    partial void OnID_AGENCIAChanged();
-    partial void OnNOMBRE_AGENCIAChanging(string value);
-    partial void OnNOMBRE_AGENCIAChanged();
-    partial void OnMULTIPLICADORChanging(System.Nullable<double> value);
-    partial void OnMULTIPLICADORChanged();
-    partial void OnESTATUSChanging(string value);
-    partial void OnESTATUSChanged();
-    partial void OnFECHAINICIOChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAINICIOChanged();
-    partial void OnIMPRESORAChanging(string value);
-    partial void OnIMPRESORAChanged();
-    partial void OnFECHAREGISTROChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAREGISTROChanged();
-    partial void OnHORAREGISTROChanging(System.Nullable<System.DateTime> value);
-    partial void OnHORAREGISTROChanged();
-    #endregion
-		
-		public TBL_BANCA1()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AGENCIA", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_AGENCIA
-		{
-			get
-			{
-				return this._ID_AGENCIA;
-			}
-			set
-			{
-				if ((this._ID_AGENCIA != value))
-				{
-					this.OnID_AGENCIAChanging(value);
-					this.SendPropertyChanging();
-					this._ID_AGENCIA = value;
-					this.SendPropertyChanged("ID_AGENCIA");
-					this.OnID_AGENCIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE_AGENCIA", DbType="VarChar(30)")]
-		public string NOMBRE_AGENCIA
-		{
-			get
-			{
-				return this._NOMBRE_AGENCIA;
-			}
-			set
-			{
-				if ((this._NOMBRE_AGENCIA != value))
-				{
-					this.OnNOMBRE_AGENCIAChanging(value);
-					this.SendPropertyChanging();
-					this._NOMBRE_AGENCIA = value;
-					this.SendPropertyChanged("NOMBRE_AGENCIA");
-					this.OnNOMBRE_AGENCIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MULTIPLICADOR", DbType="Float")]
-		public System.Nullable<double> MULTIPLICADOR
-		{
-			get
-			{
-				return this._MULTIPLICADOR;
-			}
-			set
-			{
-				if ((this._MULTIPLICADOR != value))
-				{
-					this.OnMULTIPLICADORChanging(value);
-					this.SendPropertyChanging();
-					this._MULTIPLICADOR = value;
-					this.SendPropertyChanged("MULTIPLICADOR");
-					this.OnMULTIPLICADORChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUS", DbType="VarChar(2)")]
-		public string ESTATUS
-		{
-			get
-			{
-				return this._ESTATUS;
-			}
-			set
-			{
-				if ((this._ESTATUS != value))
-				{
-					this.OnESTATUSChanging(value);
-					this.SendPropertyChanging();
-					this._ESTATUS = value;
-					this.SendPropertyChanged("ESTATUS");
-					this.OnESTATUSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAINICIO", DbType="Date")]
-		public System.Nullable<System.DateTime> FECHAINICIO
-		{
-			get
-			{
-				return this._FECHAINICIO;
-			}
-			set
-			{
-				if ((this._FECHAINICIO != value))
-				{
-					this.OnFECHAINICIOChanging(value);
-					this.SendPropertyChanging();
-					this._FECHAINICIO = value;
-					this.SendPropertyChanged("FECHAINICIO");
-					this.OnFECHAINICIOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMPRESORA", DbType="VarChar(100)")]
-		public string IMPRESORA
-		{
-			get
-			{
-				return this._IMPRESORA;
-			}
-			set
-			{
-				if ((this._IMPRESORA != value))
-				{
-					this.OnIMPRESORAChanging(value);
-					this.SendPropertyChanging();
-					this._IMPRESORA = value;
-					this.SendPropertyChanged("IMPRESORA");
-					this.OnIMPRESORAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAREGISTRO", DbType="Date")]
-		public System.Nullable<System.DateTime> FECHAREGISTRO
-		{
-			get
-			{
-				return this._FECHAREGISTRO;
-			}
-			set
-			{
-				if ((this._FECHAREGISTRO != value))
-				{
-					this.OnFECHAREGISTROChanging(value);
-					this.SendPropertyChanging();
-					this._FECHAREGISTRO = value;
-					this.SendPropertyChanged("FECHAREGISTRO");
-					this.OnFECHAREGISTROChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAREGISTRO", DbType="Date")]
-		public System.Nullable<System.DateTime> HORAREGISTRO
-		{
-			get
-			{
-				return this._HORAREGISTRO;
-			}
-			set
-			{
-				if ((this._HORAREGISTRO != value))
-				{
-					this.OnHORAREGISTROChanging(value);
-					this.SendPropertyChanging();
-					this._HORAREGISTRO = value;
-					this.SendPropertyChanged("HORAREGISTRO");
-					this.OnHORAREGISTROChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_RESULTADOS")]
-	public partial class TBL_RESULTADOS : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _ID_RESULTADO;
-		
-		private System.Nullable<int> _ID_LOTERIA;
-		
-		private System.Nullable<int> _ID_SORTEOHR;
-		
-		private System.Nullable<int> _ID_ANIMAL;
-		
-		private string _CODIGOANIMAL;
-		
-		private System.Nullable<System.DateTime> _FECHA;
-		
-		private System.Nullable<System.TimeSpan> _HORA;
-		
-		private string _ESTATUS;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_RESULTADOChanging(long value);
-    partial void OnID_RESULTADOChanged();
-    partial void OnID_LOTERIAChanging(System.Nullable<int> value);
-    partial void OnID_LOTERIAChanged();
-    partial void OnID_SORTEOHRChanging(System.Nullable<int> value);
-    partial void OnID_SORTEOHRChanged();
-    partial void OnID_ANIMALChanging(System.Nullable<int> value);
-    partial void OnID_ANIMALChanged();
-    partial void OnCODIGOANIMALChanging(string value);
-    partial void OnCODIGOANIMALChanged();
-    partial void OnFECHAChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAChanged();
-    partial void OnHORAChanging(System.Nullable<System.TimeSpan> value);
-    partial void OnHORAChanged();
-    partial void OnESTATUSChanging(string value);
-    partial void OnESTATUSChanged();
-    #endregion
-		
-		public TBL_RESULTADOS()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_RESULTADO", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long ID_RESULTADO
-		{
-			get
-			{
-				return this._ID_RESULTADO;
-			}
-			set
-			{
-				if ((this._ID_RESULTADO != value))
-				{
-					this.OnID_RESULTADOChanging(value);
-					this.SendPropertyChanging();
-					this._ID_RESULTADO = value;
-					this.SendPropertyChanged("ID_RESULTADO");
-					this.OnID_RESULTADOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_LOTERIA", DbType="Int")]
-		public System.Nullable<int> ID_LOTERIA
-		{
-			get
-			{
-				return this._ID_LOTERIA;
-			}
-			set
-			{
-				if ((this._ID_LOTERIA != value))
-				{
-					this.OnID_LOTERIAChanging(value);
-					this.SendPropertyChanging();
-					this._ID_LOTERIA = value;
-					this.SendPropertyChanged("ID_LOTERIA");
-					this.OnID_LOTERIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SORTEOHR", DbType="Int")]
-		public System.Nullable<int> ID_SORTEOHR
-		{
-			get
-			{
-				return this._ID_SORTEOHR;
-			}
-			set
-			{
-				if ((this._ID_SORTEOHR != value))
-				{
-					this.OnID_SORTEOHRChanging(value);
-					this.SendPropertyChanging();
-					this._ID_SORTEOHR = value;
-					this.SendPropertyChanged("ID_SORTEOHR");
-					this.OnID_SORTEOHRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ANIMAL", DbType="Int")]
-		public System.Nullable<int> ID_ANIMAL
-		{
-			get
-			{
-				return this._ID_ANIMAL;
-			}
-			set
-			{
-				if ((this._ID_ANIMAL != value))
-				{
-					this.OnID_ANIMALChanging(value);
-					this.SendPropertyChanging();
-					this._ID_ANIMAL = value;
-					this.SendPropertyChanged("ID_ANIMAL");
-					this.OnID_ANIMALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGOANIMAL", DbType="VarChar(2)")]
-		public string CODIGOANIMAL
-		{
-			get
-			{
-				return this._CODIGOANIMAL;
-			}
-			set
-			{
-				if ((this._CODIGOANIMAL != value))
-				{
-					this.OnCODIGOANIMALChanging(value);
-					this.SendPropertyChanging();
-					this._CODIGOANIMAL = value;
-					this.SendPropertyChanged("CODIGOANIMAL");
-					this.OnCODIGOANIMALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA", DbType="Date")]
-		public System.Nullable<System.DateTime> FECHA
-		{
-			get
-			{
-				return this._FECHA;
-			}
-			set
-			{
-				if ((this._FECHA != value))
-				{
-					this.OnFECHAChanging(value);
-					this.SendPropertyChanging();
-					this._FECHA = value;
-					this.SendPropertyChanged("FECHA");
-					this.OnFECHAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA", DbType="Time")]
-		public System.Nullable<System.TimeSpan> HORA
-		{
-			get
-			{
-				return this._HORA;
-			}
-			set
-			{
-				if ((this._HORA != value))
-				{
-					this.OnHORAChanging(value);
-					this.SendPropertyChanging();
-					this._HORA = value;
-					this.SendPropertyChanged("HORA");
-					this.OnHORAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUS", DbType="VarChar(2)")]
-		public string ESTATUS
-		{
-			get
-			{
-				return this._ESTATUS;
-			}
-			set
-			{
-				if ((this._ESTATUS != value))
-				{
-					this.OnESTATUSChanging(value);
-					this.SendPropertyChanging();
-					this._ESTATUS = value;
-					this.SendPropertyChanged("ESTATUS");
-					this.OnESTATUSChanged();
+					this._HORA_PAGO = value;
+					this.SendPropertyChanged("HORA_PAGO");
+					this.OnHORA_PAGOChanged();
 				}
 			}
 		}

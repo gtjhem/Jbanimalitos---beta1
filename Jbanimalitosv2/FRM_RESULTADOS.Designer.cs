@@ -49,6 +49,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lbldia = new System.Windows.Forms.LinkLabel();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgr)).BeginInit();
             this.SuspendLayout();
@@ -149,14 +150,14 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(577, 249);
+            this.button2.Location = new System.Drawing.Point(487, 249);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 52);
+            this.button2.Size = new System.Drawing.Size(341, 52);
             this.button2.TabIndex = 26;
-            this.button2.Text = "Asignar";
+            this.button2.Text = "Asignar / Reasignar";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -233,18 +234,18 @@
             this.dgr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgr.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgr.Location = new System.Drawing.Point(359, 304);
+            this.dgr.Location = new System.Drawing.Point(367, 303);
             this.dgr.Margin = new System.Windows.Forms.Padding(0);
             this.dgr.Name = "dgr";
             this.dgr.ReadOnly = true;
             this.dgr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgr.Size = new System.Drawing.Size(591, 292);
+            this.dgr.Size = new System.Drawing.Size(580, 248);
             this.dgr.TabIndex = 32;
             // 
             // label1
@@ -291,9 +292,9 @@
             this.button1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(359, 248);
+            this.button1.Location = new System.Drawing.Point(367, 554);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 52);
+            this.button1.Size = new System.Drawing.Size(129, 42);
             this.button1.TabIndex = 36;
             this.button1.Text = "- 1 Dia";
             this.button1.UseVisualStyleBackColor = false;
@@ -306,9 +307,9 @@
             this.button3.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(821, 248);
+            this.button3.Location = new System.Drawing.Point(818, 554);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 52);
+            this.button3.Size = new System.Drawing.Size(129, 42);
             this.button3.TabIndex = 37;
             this.button3.Text = "+ 1 Dia";
             this.button3.UseVisualStyleBackColor = false;
@@ -331,12 +332,28 @@
             this.lbldia.VisitedLinkColor = System.Drawing.Color.White;
             this.lbldia.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbldia_LinkClicked);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.Location = new System.Drawing.Point(577, 554);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(170, 42);
+            this.button4.TabIndex = 38;
+            this.button4.Text = "Hoy";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FRM_RESULTADOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(959, 608);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.lbldia);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
@@ -392,5 +409,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.LinkLabel lbldia;
+        private System.Windows.Forms.Button button4;
     }
 }

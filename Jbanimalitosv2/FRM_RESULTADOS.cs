@@ -57,6 +57,12 @@ namespace Jbanimalitosv2
                 CN.sr_resultados_del_dia_otros(Convert.ToDateTime(hoy.ToString("dd/MM/yyyy")));   // llama al STORE PROCEDURE para cargar los dias pendientes por incluir resultados
 
             ur.sr_llenar_resultados(ref this.dgr, int.Parse(v[1]), hoy);
+
+            ur.sr_columnas_cambiar(ref dgr, "R");
+
+            dgr.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgr.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
             this.dgr.ClearSelection();
         }
 
@@ -176,6 +182,11 @@ namespace Jbanimalitosv2
 
         private void lbldia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            sr_hoy();
+        }
+
+        public void sr_hoy()
+        {
             hoy = DateTime.Now;
             sr_fecha();
             sr_resultados();
@@ -183,20 +194,46 @@ namespace Jbanimalitosv2
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            if (func_validar() == true) 
+            {
+                sr_asignar_ganador();
+
+            }
+            
+        }
+
+        public Boolean func_validar()
+        {
+            if (lstSorteos.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("Error - Indique el Sorteo al que vas asignar el ganador", "Error en el Sorteo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (Animales.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("Error - Debe Seleccionar un Ganador para poder Asignar", "Error en Campo Ganador", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            return true;
+        }
+        public void sr_asignar_ganador()
+        {
             string[] v = cmbloteria.Text.Split('-');
             int ids = 0;
             string b = "";
             obtener_sorteo(ref ids, ref b);
 
-            if (MessageBox.Show("Desea cargar como ganador la siguiente jugada: " + this.Numero.Text.ToUpper () + " - " +
-               this.Nombre.Text.ToUpper() + " Para la loteria " + v[0] + " en el sorteo de " + b, " EPA CUIDADO !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Hand ) == DialogResult.Yes) {
+            if (MessageBox.Show("Desea cargar como ganador la siguiente jugada: " + this.Numero.Text.ToUpper() + " - " +
+               this.Nombre.Text.ToUpper() + " Para la loteria " + v[0] + " en el sorteo de " + b, " EPA CUIDADO !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+            {
 
-                CN.sr_guardar_ganador(int.Parse(v[1]), ids ,hoy, this.Numero.Text );
+                CN.sr_guardar_ganador(int.Parse(v[1]), ids, hoy, this.Numero.Text);
 
                 MessageBox.Show(
-                    " El " + this.Nombre.Text  + " - " + this.Numero.Text  + "Fue Cargado para la loteria de "
-                    + v[0] + " para el Sorteo de las " + b 
+                    " El " + this.Nombre.Text + " - " + this.Numero.Text + "Fue Cargado para la loteria de "
+                    + v[0] + " para el Sorteo de las " + b
                    , "Resultado Cargado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 sr_resultados();
@@ -229,5 +266,9 @@ namespace Jbanimalitosv2
           CN.sr_ganador(Convert.ToDateTime(hoy.ToString("dd/MM/yyyy")));
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            sr_hoy();
+        }
     }
 }

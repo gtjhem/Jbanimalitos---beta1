@@ -433,20 +433,46 @@ namespace Jbanimalitosv2
 
         private void Imprimir_Click(object sender, EventArgs e)
         {
-            
-            CN.sr_guardar_ticket(ref this.Ticket, ref this.Total, ref this.cmbloteria);
-            MessageBox.Show(
-                 " creo que se guardo revisa wn"
-                , "Se guardo creo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //Rutina para imprimir falta realizar ajustes de alineacion  
-            //sr_imprimir();
-            ver_ticket();
-            sr_antiquiebre();
-            this.Ticket.Items.Clear();
-            this.Animal.Focus();
+            sr_iniciar_impresion();
         }
 
+        private void sr_iniciar_impresion()
+        {
+            Calcular();
+            if (this.Total.Text != "0" )
+            {
+                CN.sr_guardar_ticket(ref this.Ticket, ref this.Total, ref this.cmbloteria);
+
+
+                //Rutina para imprimir falta realizar ajustes de alineacion  
+                //sr_imprimir();
+
+                MessageBox.Show(
+                   " Ticket Impreso: " + this.NTicket.Text + " " + Environment.NewLine +
+                   " - - - - - - - - - - - - - - - - -" + Environment.NewLine +
+                   CN.func_linea(ref this.Ticket) +
+                   " - - - - - - - - - - - - - - - - -" +
+                   this.Total.Text
+                  , "Impresion completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ver_ticket();
+                sr_antiquiebre();
+                this.Ticket.Items.Clear();
+                this.Animal.Focus();
+                this.Monto.Text = "";
+                this.Total.Text = "";
+                Calcular();
+                deseleccionar();
+            }
+            else
+            {
+                MessageBox.Show(
+                   " No hay Jugada seleccionada para este Ticket " + Environment.NewLine                    
+                  , "Error al Intentar imprimir un ticket vacio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
         
 
 
@@ -535,12 +561,17 @@ namespace Jbanimalitosv2
             sr_antiquiebre();
         }
 
+      
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
             FRM_RESULTADOS f = new FRM_RESULTADOS();
             f.ShowDialog();
-
         }
     }
 }

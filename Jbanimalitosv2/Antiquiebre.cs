@@ -10,6 +10,7 @@ namespace Jbanimalitosv2
     class Antiquiebre
     {
         Utilidades CN = new Utilidades();
+        Busquedas bsq = new Busquedas();
         public void sr_anti_quiebre(DateTime  desde, DateTime hasta, ref  ListBox lst, int IDS, int IDH)
         {
 
@@ -40,6 +41,8 @@ namespace Jbanimalitosv2
                              TOTAL = (double?)g.Sum(p => p.TBL_DTICKET.MONTO)
                          }).ToList();
 
+            sr_llenar_banca(lst, Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy")), Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy")));
+
             string nombre = "";
             double? total = 0;
             foreach (var anti in query){
@@ -51,6 +54,17 @@ namespace Jbanimalitosv2
                     + " - " + anti.conteo + " - " + Convert.ToDouble(total).ToString("###,##0.00"));
 
             }
+        }
+
+        public void sr_llenar_banca(ListBox lst ,DateTime Desde, DateTime Hasta)
+        {
+            decimal? ttv = 0, ttp = 0, stt = 0;
+                      
+            bsq.sr_stp_totales_dia(ref ttv, ref ttp, ref stt, Desde, Hasta);
+
+            lst.Items.Add("Banca Actual: " + Convert.ToDouble(stt).ToString("###,##0.00"));
+            lst.Items.Add("- - - - - - - - - - - - - - - - - - - -");
+
         }
 
         public void nombre_animal(ref string nombre,string animal, int? IDS)
@@ -65,9 +79,6 @@ namespace Jbanimalitosv2
 
             foreach (var aqui in query)
                 nombre = aqui.NOMBRE_ANIMALITO.ToString();
-
-
-
 
         }
     }

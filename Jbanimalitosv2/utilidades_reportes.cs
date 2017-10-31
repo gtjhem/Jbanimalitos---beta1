@@ -315,9 +315,24 @@ namespace Jbanimalitosv2
                 dgr.Columns[3].DefaultCellStyle.Format = "###,##0.00";
                 dgr.Columns[4].DefaultCellStyle.Format = "###,##0.00";
             
+            }else if (tipo == "R")
+            {
+
+                dgr.Columns[0].HeaderText = "Id";
+                dgr.Columns[1].HeaderText = "Loteria";
+                dgr.Columns[2].HeaderText = "Sorteo";
+                dgr.Columns[3].HeaderText = "Jugada";
+                dgr.Columns[4].HeaderText = "Estatus";
+                dgr.Columns[5].HeaderText = "Fecha";
+                dgr.Columns[6].HeaderText = "Hora";
+
             }
 
 
+
+            dgr.AutoSizeColumnsMode =
+        DataGridViewAutoSizeColumnsMode.AllCells;
+            dgr.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
         public void sr_ganador_ticket(ref DataGridView dgr, int celda)

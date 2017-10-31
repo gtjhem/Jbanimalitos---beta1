@@ -1,59 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.625, 10.375" name="CLS_LINQ_ANMLT">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 10.375" name="CLS_LINQ_ANMLT">
   <DataContextMoniker Name="/CLS_LINQ_ANMLTDataContext" />
   <nestedChildShapes>
-    <classShape Id="10e968d3-61d5-4b6a-97e6-999a72453f85" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
+    <classShape Id="c7247b4e-b439-4939-b8f9-b19c16842f30" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_ABONOS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a53ce04-5634-482b-8433-3d5fb9a688ab" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="55e37c08-324d-439b-b8ed-47fc0a66f941" absoluteBounds="3.75, 0.75, 2, 2.1554996744791666">
       <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_ANIMALITOS" />
       <nestedChildShapes>
-        <elementListCompartment Id="11036812-cb4a-444d-b5ec-b355154bfea7" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0a3b75bb-7325-4f31-883d-d825c432c93c" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8ddec6cf-75c5-4190-8cd9-899152f4bcf0" absoluteBounds="3.75, 0.75, 2, 2.3478011067708335">
-      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_DTICKET" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d2f2887e-0491-485b-9148-2db0d40083f4" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="ebc46d61-1124-4050-a18e-ead69cefbd1c" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_ESTATUS" />
-      <nestedChildShapes>
-        <elementListCompartment Id="0cd7c344-8f96-4049-8114-6a039c5301e7" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="192ff709-2008-456a-8ded-59a7c398c268" absoluteBounds="3.75, 4.75, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_HORARIOS" />
-      <nestedChildShapes>
-        <elementListCompartment Id="455035e3-4a2a-4c08-8604-7536354c655e" absoluteBounds="3.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="2f255f88-fb0b-477e-a45c-fd4402fe20ea" absoluteBounds="6.75, 0.75, 2, 1.9631982421875003">
-      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/Tbl_SORTEO" />
-      <nestedChildShapes>
-        <elementListCompartment Id="49caf4f9-fa19-43d2-9187-912d80bde7ee" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="d7aeab22-afbd-4169-9add-d6212adb4006" absoluteBounds="6.75, 3.75, 2, 2.9247054036458326">
-      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_TICKET" />
-      <nestedChildShapes>
-        <elementListCompartment Id="06c9ef16-95ce-431f-9c61-0701c8d79fcc" absoluteBounds="6.765, 4.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="ff93250b-eb85-4b7c-8f0e-861d38e07756" absoluteBounds="9.375, 3.75, 2, 2.3478011067708335">
+    <classShape Id="6d56852f-d5e2-4601-b614-01484678031a" absoluteBounds="0.75, 3.75, 2, 2.347801106770834">
       <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_BANCA" />
       <nestedChildShapes>
-        <elementListCompartment Id="ac9b5dce-b0f2-4553-9604-f5cbef74e91b" absoluteBounds="9.39, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="861bdac0-7040-424e-a0cf-08710a5e63bd" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0748d014-a6ea-484d-8e23-c4178a0a0ec6" absoluteBounds="0.75, 7.75, 2, 2.3478011067708344">
-      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_BANCA1" />
+    <classShape Id="8ad6316d-0b9e-43c2-91ff-d77dda7a18bf" absoluteBounds="3.75, 3.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_CIERRE" />
       <nestedChildShapes>
-        <elementListCompartment Id="fa6f9bcc-a2aa-4551-9c4e-73a969096533" absoluteBounds="0.765, 8.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="abde5c24-070d-458b-89e0-358d43708ed7" absoluteBounds="3.765, 4.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f08aded7-9a8b-443e-85d3-54ae59eca29b" absoluteBounds="3.75, 7.75, 2, 2.3478011067708344">
+    <classShape Id="ffeb0604-6971-477e-a90a-b42a18cf6123" absoluteBounds="6.75, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_DTICKET" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de3d20d3-27cd-4820-acd6-12d6fe0ce4a1" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7bc98da-2818-48d4-a572-4bcd4cdd216c" absoluteBounds="6.75, 4.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_ESTATUS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="043861e6-b49d-4a64-875d-70a0776fdb0f" absoluteBounds="6.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ee6cdea8-8c5a-4843-827e-1d014827a6c5" absoluteBounds="0.75, 7.75, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_HORARIOS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09597172-39e9-48ad-ada8-91453e0422a6" absoluteBounds="0.765, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9c9703d8-1683-4b07-a29a-87dccd0f1f57" absoluteBounds="3.75, 7.75, 2, 2.3478011067708344">
       <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_RESULTADOS" />
       <nestedChildShapes>
-        <elementListCompartment Id="f0a06732-02be-49b0-be84-d3317eaae1f2" absoluteBounds="3.765, 8.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7bfd9e46-83e7-4357-b14b-aa7c1cb6388d" absoluteBounds="3.765, 8.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="185e79a6-ee6b-4956-bafd-c810e8c7c339" absoluteBounds="6.75, 7.75, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/Tbl_SORTEO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4330c79d-8a06-46f8-aafb-2062a0786443" absoluteBounds="6.765, 8.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f11c09ee-dfa3-4af6-bdb5-aa4d4a9f78b1" absoluteBounds="9.75, 0.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/CLS_LINQ_ANMLTDataContext/TBL_TICKET" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f57d1867-902c-45d4-ab96-4e47dd76fd9f" absoluteBounds="9.765, 1.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
