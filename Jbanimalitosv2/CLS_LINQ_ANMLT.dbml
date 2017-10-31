@@ -24,12 +24,15 @@
   </Table>
   <Table Name="dbo.TBL_BANCA" Member="TBL_BANCA">
     <Type Name="TBL_BANCA">
-      <Column Name="ID_AGENCIA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_AGENCIA" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="NOMBRE_AGENCIA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="MULTIPLICADOR" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="ESTATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
       <Column Name="FECHAINICIO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="IMPRESORA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TIEMPO_LIMITE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_COMISION" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COMISION_ACTUAL" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="FECHAREGISTRO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="HORAREGISTRO" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
     </Type>
@@ -46,6 +49,16 @@
       <Column Name="TOTAL_GENERAL" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="ABONOS_TOTAL" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="ESTATUS_CIERRE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_COMISION" Member="TBL_COMISION">
+    <Type Name="TBL_COMISION">
+      <Column Name="ID_COMISIONES" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_AGENCIA_CM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COMISION" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FECHA_COMISION" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HORA_COMISION" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ESTATUS_COMISION" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBL_DTICKET" Member="TBL_DTICKET">

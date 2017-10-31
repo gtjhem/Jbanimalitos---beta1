@@ -43,7 +43,10 @@ namespace Jbanimalitosv2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            MiBanca.sr_llenar();
 
+            if (MiBanca.nom_banca != "" || MiBanca.nom_banca != "") lblloteria.Text = MiBanca.nom_banca.ToUpper();
+            
             sr_loteria();
 
             if (this.cmbloteria.Items.Count > 0){
@@ -535,24 +538,21 @@ namespace Jbanimalitosv2
         {
             
             Reportes  f = new Reportes();
-            f.ShowDialog();
-            
+            llamar(f);
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           
-            frm_premiados  f = new frm_premiados ();
-            f.ShowDialog();
             
+            frm_premiados  f = new frm_premiados ();
+            llamar(f);
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           
-            frm_ganyper f = new frm_ganyper();
-            f.ShowDialog();
             
+            frm_ganyper f = new frm_ganyper();
+            llamar(f);
 
         }
 
@@ -570,8 +570,23 @@ namespace Jbanimalitosv2
 
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            
             FRM_RESULTADOS f = new FRM_RESULTADOS();
-            f.ShowDialog();
+            llamar(f);
+        }
+
+        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+            FRM_BANCA f = new FRM_BANCA();            
+            llamar(f);
+        }
+
+        private void llamar(Form f)
+        {
+            this.Opacity = .55;
+            f.ShowDialog(this);
+            this.Opacity = 1;
         }
     }
 }

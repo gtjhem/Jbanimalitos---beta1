@@ -42,6 +42,9 @@ namespace Jbanimalitosv2
     partial void InsertTBL_CIERRE(TBL_CIERRE instance);
     partial void UpdateTBL_CIERRE(TBL_CIERRE instance);
     partial void DeleteTBL_CIERRE(TBL_CIERRE instance);
+    partial void InsertTBL_COMISION(TBL_COMISION instance);
+    partial void UpdateTBL_COMISION(TBL_COMISION instance);
+    partial void DeleteTBL_COMISION(TBL_COMISION instance);
     partial void InsertTBL_DTICKET(TBL_DTICKET instance);
     partial void UpdateTBL_DTICKET(TBL_DTICKET instance);
     partial void DeleteTBL_DTICKET(TBL_DTICKET instance);
@@ -121,6 +124,14 @@ namespace Jbanimalitosv2
 			get
 			{
 				return this.GetTable<TBL_CIERRE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_COMISION> TBL_COMISION
+		{
+			get
+			{
+				return this.GetTable<TBL_COMISION>();
 			}
 		}
 		
@@ -622,7 +633,7 @@ namespace Jbanimalitosv2
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ID_AGENCIA;
+		private long _ID_AGENCIA;
 		
 		private string _NOMBRE_AGENCIA;
 		
@@ -634,6 +645,12 @@ namespace Jbanimalitosv2
 		
 		private string _IMPRESORA;
 		
+		private System.Nullable<int> _TIEMPO_LIMITE;
+		
+		private System.Nullable<long> _ID_COMISION;
+		
+		private System.Nullable<double> _COMISION_ACTUAL;
+		
 		private System.Nullable<System.DateTime> _FECHAREGISTRO;
 		
 		private System.Nullable<System.TimeSpan> _HORAREGISTRO;
@@ -642,7 +659,7 @@ namespace Jbanimalitosv2
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnID_AGENCIAChanging(int value);
+    partial void OnID_AGENCIAChanging(long value);
     partial void OnID_AGENCIAChanged();
     partial void OnNOMBRE_AGENCIAChanging(string value);
     partial void OnNOMBRE_AGENCIAChanged();
@@ -654,6 +671,12 @@ namespace Jbanimalitosv2
     partial void OnFECHAINICIOChanged();
     partial void OnIMPRESORAChanging(string value);
     partial void OnIMPRESORAChanged();
+    partial void OnTIEMPO_LIMITEChanging(System.Nullable<int> value);
+    partial void OnTIEMPO_LIMITEChanged();
+    partial void OnID_COMISIONChanging(System.Nullable<long> value);
+    partial void OnID_COMISIONChanged();
+    partial void OnCOMISION_ACTUALChanging(System.Nullable<double> value);
+    partial void OnCOMISION_ACTUALChanged();
     partial void OnFECHAREGISTROChanging(System.Nullable<System.DateTime> value);
     partial void OnFECHAREGISTROChanged();
     partial void OnHORAREGISTROChanging(System.Nullable<System.TimeSpan> value);
@@ -665,8 +688,8 @@ namespace Jbanimalitosv2
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AGENCIA", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_AGENCIA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AGENCIA", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ID_AGENCIA
 		{
 			get
 			{
@@ -781,6 +804,66 @@ namespace Jbanimalitosv2
 					this._IMPRESORA = value;
 					this.SendPropertyChanged("IMPRESORA");
 					this.OnIMPRESORAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIEMPO_LIMITE", DbType="Int")]
+		public System.Nullable<int> TIEMPO_LIMITE
+		{
+			get
+			{
+				return this._TIEMPO_LIMITE;
+			}
+			set
+			{
+				if ((this._TIEMPO_LIMITE != value))
+				{
+					this.OnTIEMPO_LIMITEChanging(value);
+					this.SendPropertyChanging();
+					this._TIEMPO_LIMITE = value;
+					this.SendPropertyChanged("TIEMPO_LIMITE");
+					this.OnTIEMPO_LIMITEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_COMISION", DbType="BigInt")]
+		public System.Nullable<long> ID_COMISION
+		{
+			get
+			{
+				return this._ID_COMISION;
+			}
+			set
+			{
+				if ((this._ID_COMISION != value))
+				{
+					this.OnID_COMISIONChanging(value);
+					this.SendPropertyChanging();
+					this._ID_COMISION = value;
+					this.SendPropertyChanged("ID_COMISION");
+					this.OnID_COMISIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMISION_ACTUAL", DbType="Float")]
+		public System.Nullable<double> COMISION_ACTUAL
+		{
+			get
+			{
+				return this._COMISION_ACTUAL;
+			}
+			set
+			{
+				if ((this._COMISION_ACTUAL != value))
+				{
+					this.OnCOMISION_ACTUALChanging(value);
+					this.SendPropertyChanging();
+					this._COMISION_ACTUAL = value;
+					this.SendPropertyChanged("COMISION_ACTUAL");
+					this.OnCOMISION_ACTUALChanged();
 				}
 			}
 		}
@@ -1099,6 +1182,188 @@ namespace Jbanimalitosv2
 					this._ESTATUS_CIERRE = value;
 					this.SendPropertyChanged("ESTATUS_CIERRE");
 					this.OnESTATUS_CIERREChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_COMISION")]
+	public partial class TBL_COMISION : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ID_COMISIONES;
+		
+		private System.Nullable<long> _ID_AGENCIA_CM;
+		
+		private System.Nullable<double> _COMISION;
+		
+		private System.Nullable<System.DateTime> _FECHA_COMISION;
+		
+		private System.Nullable<System.TimeSpan> _HORA_COMISION;
+		
+		private string _ESTATUS_COMISION;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_COMISIONESChanging(long value);
+    partial void OnID_COMISIONESChanged();
+    partial void OnID_AGENCIA_CMChanging(System.Nullable<long> value);
+    partial void OnID_AGENCIA_CMChanged();
+    partial void OnCOMISIONChanging(System.Nullable<double> value);
+    partial void OnCOMISIONChanged();
+    partial void OnFECHA_COMISIONChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHA_COMISIONChanged();
+    partial void OnHORA_COMISIONChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHORA_COMISIONChanged();
+    partial void OnESTATUS_COMISIONChanging(string value);
+    partial void OnESTATUS_COMISIONChanged();
+    #endregion
+		
+		public TBL_COMISION()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_COMISIONES", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ID_COMISIONES
+		{
+			get
+			{
+				return this._ID_COMISIONES;
+			}
+			set
+			{
+				if ((this._ID_COMISIONES != value))
+				{
+					this.OnID_COMISIONESChanging(value);
+					this.SendPropertyChanging();
+					this._ID_COMISIONES = value;
+					this.SendPropertyChanged("ID_COMISIONES");
+					this.OnID_COMISIONESChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AGENCIA_CM", DbType="BigInt")]
+		public System.Nullable<long> ID_AGENCIA_CM
+		{
+			get
+			{
+				return this._ID_AGENCIA_CM;
+			}
+			set
+			{
+				if ((this._ID_AGENCIA_CM != value))
+				{
+					this.OnID_AGENCIA_CMChanging(value);
+					this.SendPropertyChanging();
+					this._ID_AGENCIA_CM = value;
+					this.SendPropertyChanged("ID_AGENCIA_CM");
+					this.OnID_AGENCIA_CMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMISION", DbType="Float")]
+		public System.Nullable<double> COMISION
+		{
+			get
+			{
+				return this._COMISION;
+			}
+			set
+			{
+				if ((this._COMISION != value))
+				{
+					this.OnCOMISIONChanging(value);
+					this.SendPropertyChanging();
+					this._COMISION = value;
+					this.SendPropertyChanged("COMISION");
+					this.OnCOMISIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_COMISION", DbType="Date")]
+		public System.Nullable<System.DateTime> FECHA_COMISION
+		{
+			get
+			{
+				return this._FECHA_COMISION;
+			}
+			set
+			{
+				if ((this._FECHA_COMISION != value))
+				{
+					this.OnFECHA_COMISIONChanging(value);
+					this.SendPropertyChanging();
+					this._FECHA_COMISION = value;
+					this.SendPropertyChanged("FECHA_COMISION");
+					this.OnFECHA_COMISIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA_COMISION", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORA_COMISION
+		{
+			get
+			{
+				return this._HORA_COMISION;
+			}
+			set
+			{
+				if ((this._HORA_COMISION != value))
+				{
+					this.OnHORA_COMISIONChanging(value);
+					this.SendPropertyChanging();
+					this._HORA_COMISION = value;
+					this.SendPropertyChanged("HORA_COMISION");
+					this.OnHORA_COMISIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTATUS_COMISION", DbType="VarChar(2)")]
+		public string ESTATUS_COMISION
+		{
+			get
+			{
+				return this._ESTATUS_COMISION;
+			}
+			set
+			{
+				if ((this._ESTATUS_COMISION != value))
+				{
+					this.OnESTATUS_COMISIONChanging(value);
+					this.SendPropertyChanging();
+					this._ESTATUS_COMISION = value;
+					this.SendPropertyChanged("ESTATUS_COMISION");
+					this.OnESTATUS_COMISIONChanged();
 				}
 			}
 		}

@@ -228,6 +228,7 @@
             this.linkLabel7.TabStop = true;
             this.linkLabel7.Text = "- Banca";
             this.linkLabel7.VisitedLinkColor = System.Drawing.Color.White;
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
             // 
             // linkLabel8
             // 
