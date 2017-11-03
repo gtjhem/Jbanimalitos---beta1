@@ -113,7 +113,7 @@ namespace Jbanimalitosv2
         private void button2_Click(object sender, EventArgs e)
         {
             sr_agregar();
-                   }
+        }
 
         public void sr_agregar() {
 
@@ -142,18 +142,28 @@ namespace Jbanimalitosv2
                     
                     foreach (object seleccionados in Animales.CheckedItems)
                     {
-                        this.Ticket.Items.Add(seleccionados.ToString() + " - " + this.Monto.Text);
+                        ;
+                        
+                        if (CN.func_agrupar(ref this.Ticket, seleccionados.ToString() + " - " + this.Monto.Text) == false){
+                            this.Ticket.Items.Add(seleccionados.ToString() + " - " + this.Monto.Text);
+                        }
                     }
                 }
                 else
                 {
-                    this.Ticket.Items.Add(this.Animal.Text + " - " + this.Nombre.Text + " - " + this.Monto.Text);
-                    
+                   if  (CN.func_agrupar(ref this.Ticket, this.Animal.Text + " - " + this.Nombre.Text + " - " + this.Monto.Text) == false)
+                    {
+                        this.Ticket.Items.Add(this.Animal.Text + " - " + this.Nombre.Text + " - " + this.Monto.Text);
+
+                    }
+
+
                 }
 
                 this.Animal.Text = "";
                 this.Nombre.Text = "";
                 this.Monto.Text = "";
+                
                 Calcular();
                 deseleccionar();
             }

@@ -56,6 +56,8 @@ namespace Jbanimalitosv2
                 this.button1.Enabled = true;
                 this.button1.Visible = true;
 
+                sr_llenar();
+
             }
             else
             {
@@ -67,9 +69,10 @@ namespace Jbanimalitosv2
                 this.txtfechor.Text = "";
                 this.button1.Enabled = false;
                 this.button1.Visible = false;
+                this.dgr.DataSource = null;
             }
 
-            sr_llenar();
+            
         }
 
         private void Cerrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

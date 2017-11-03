@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbldatosticket = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.Buscar = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtestatus = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgr)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +94,7 @@
             this.Buscar.TabIndex = 62;
             this.Buscar.Text = "Buscar";
             this.Buscar.UseVisualStyleBackColor = false;
+            this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
             // 
             // NTicket
             // 
@@ -151,9 +154,9 @@
             this.lbldetalleticket.Location = new System.Drawing.Point(13, 15);
             this.lbldetalleticket.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.lbldetalleticket.Name = "lbldetalleticket";
-            this.lbldetalleticket.Size = new System.Drawing.Size(144, 22);
+            this.lbldetalleticket.Size = new System.Drawing.Size(136, 22);
             this.lbldetalleticket.TabIndex = 18;
-            this.lbldetalleticket.Text = "Anular Ticket";
+            this.lbldetalleticket.Text = "Pagar Ticket";
             // 
             // panel1
             // 
@@ -161,7 +164,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(21, 600);
+            this.panel1.Size = new System.Drawing.Size(21, 648);
             this.panel1.TabIndex = 49;
             // 
             // txtfechor
@@ -245,15 +248,15 @@
             this.dgr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(72)))), ((int)(((byte)(69)))));
             this.dgr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgr.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgr.Location = new System.Drawing.Point(38, 298);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgr.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgr.Location = new System.Drawing.Point(33, 343);
             this.dgr.Margin = new System.Windows.Forms.Padding(0);
             this.dgr.Name = "dgr";
             this.dgr.ReadOnly = true;
@@ -335,12 +338,39 @@
             this.textBox2.Size = new System.Drawing.Size(234, 27);
             this.textBox2.TabIndex = 68;
             // 
+            // txtestatus
+            // 
+            this.txtestatus.BackColor = System.Drawing.SystemColors.Window;
+            this.txtestatus.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.txtestatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
+            this.txtestatus.Location = new System.Drawing.Point(218, 299);
+            this.txtestatus.MaxLength = 0;
+            this.txtestatus.Multiline = true;
+            this.txtestatus.Name = "txtestatus";
+            this.txtestatus.ReadOnly = true;
+            this.txtestatus.Size = new System.Drawing.Size(234, 27);
+            this.txtestatus.TabIndex = 70;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(44, 303);
+            this.label7.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(168, 23);
+            this.label7.TabIndex = 69;
+            this.label7.Text = "Estatus..........:";
+            // 
             // FRM_PAGAR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(666, 600);
+            this.ClientSize = new System.Drawing.Size(666, 648);
+            this.Controls.Add(this.txtestatus);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox1);
@@ -398,5 +428,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtestatus;
+        private System.Windows.Forms.Label label7;
     }
 }

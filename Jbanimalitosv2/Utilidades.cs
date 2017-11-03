@@ -388,6 +388,8 @@ namespace Jbanimalitosv2
                 hora = query.HORATQ.ToString();
 
             }
+
+
           
             catch (System.InvalidOperationException)
             {
@@ -397,6 +399,62 @@ namespace Jbanimalitosv2
                 total = 0;
                 fecha = "";
                 hora = "";
+            }
+        }
+
+
+
+        public void sr_buscar_ticket_para_pagar(long BTCK, string serial, ref string loteria, ref string sorteo, ref double? total, ref string fecha, ref string hora, ref double? premio, ref string estatus)
+        {
+            animalitos db = new animalitos(CONEC);
+
+
+            try
+            {
+                var query = (from TBL_TICKET in db.dbtickets
+                             join Tbl_SORTEO in db.dbSorteos on new { IDSORTEOTK = Convert.ToInt32(TBL_TICKET.IDSORTEOTK) } equals new { IDSORTEOTK = Tbl_SORTEO.ID_SORTEO }
+                             join TBL_HORARIOS in db.dbhorarios
+                                   on new { IDHRTK = Convert.ToInt32(TBL_TICKET.IDHRTK), TBL_TICKET.IDSORTEOTK }
+                               equals new { IDHRTK = TBL_HORARIOS.IDHORA, IDSORTEOTK = TBL_HORARIOS.IDSORTEOHR }
+                             join TBL_ESTATUS in db.dbestatus on new { ESTATUSTK = TBL_TICKET.ESTATUSTK } equals new { ESTATUSTK = TBL_ESTATUS.CODESTATUS }
+                             where
+                                    TBL_TICKET.IDTICKET == BTCK && TBL_TICKET.SERIAL == serial
+                             select new
+                             {
+                                 TBL_TICKET.IDTICKET,
+                                 Tbl_SORTEO.NOMBRE_SORTEO,
+                                 TBL_HORARIOS.HORA,
+                                 TBL_ESTATUS.NOMESTATUS,
+                                 TBL_TICKET.TOTALPAGADO,
+                                 TBL_TICKET.PREMIOS,
+                                 TBL_TICKET.SERIAL,
+                                 TBL_TICKET.FECHATQ,
+                                 TBL_TICKET.HORATQ
+                             }).First();
+
+
+                loteria = query.NOMBRE_SORTEO;
+                sorteo = query.HORA.ToString();
+                total = query.TOTALPAGADO;
+                fecha = query.FECHATQ.ToString();
+                hora = query.HORATQ.ToString();
+                premio = query.PREMIOS;
+                estatus = query.NOMESTATUS.ToString();
+
+            }
+
+
+
+            catch (System.InvalidOperationException)
+            {
+                // Ticket no encontrado
+                loteria = "";
+                sorteo = "";
+                total = 0;
+                fecha = "";
+                hora = "";
+                premio = 0;
+                estatus = "";
             }
         }
 
@@ -435,6 +493,33 @@ namespace Jbanimalitosv2
             // GC.SuppressFinalize(this);
         }
         #endregion
+
+
+
+        public Boolean func_agrupar(ref ListBox lst, string jugada)
+        {
+
+            string[] s = jugada.Split('-'); // obtengo la jugada que voy agrupar
+
+            int val = 0;   
+            for (int x = 1; x <= lst.Items.Count - 1; x++)
+            {
+                string[] v = lst.Items[x].ToString().Split('-'); // separo los valores del list
+                if (v[0] == s[0]) //comparo la jugada con la que ya esta ingresada 
+                {
+
+                    val = int.Parse(v[2]) + int.Parse(s[2]);
+                    lst.Items.RemoveAt(x);
+                    lst.Items.Insert(x, v[0].Trim() + " - " + v[1].Trim() + " - " + (val.ToString().Trim()));
+                    return true;
+                }
+              
+                                        
+            }
+
+            return false;
+                   
+        }
 
     }
 }
