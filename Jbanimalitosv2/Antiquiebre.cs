@@ -49,7 +49,7 @@ namespace Jbanimalitosv2
                 total = 0;
                 nombre_animal(ref nombre, anti.CODIGODTK, anti.IDSORTEOTK );
 
-                total = anti.TOTAL * 30;
+                total = anti.TOTAL * MiBanca.VR_MULTIPLICADOR;
                 lst.Items.Add(anti.CODIGODTK.ToString () + " - " + nombre
                     + " - " + anti.conteo + " - " + Convert.ToDouble(total).ToString("###,##0.00"));
 

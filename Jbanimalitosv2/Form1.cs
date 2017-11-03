@@ -215,6 +215,16 @@ namespace Jbanimalitosv2
                     cont += 1;
                     msg = msg + " Debe Ingresar el monto " + Environment.NewLine;
                 }
+
+                if (this.Monto.Text != "")
+                {
+                    if ( int.Parse(this.Monto.Text) == 0)
+                    {
+                        cont += 1;
+                        msg = msg + " Debe ingresar un monto mayor a 0 " + Environment.NewLine;
+
+                    }
+                }
              
             }
             else
@@ -230,6 +240,16 @@ namespace Jbanimalitosv2
                     cont += 1;
                     msg = msg + " Indique el monto de la jugada" + Environment.NewLine;
                     this.Monto.Focus();
+                }
+
+                if (this.Monto.Text != "")
+                {
+                    if (int.Parse(this.Monto.Text) == 0)
+                    {
+                        cont += 1;
+                        msg = msg + " Debe ingresar un monto mayor a 0 " + Environment.NewLine;
+
+                    }
                 }
             }
 

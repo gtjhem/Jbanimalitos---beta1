@@ -39,7 +39,7 @@ namespace Jbanimalitosv2
             catch (System.InvalidOperationException) {
                 nom_banca = "";
                 impresora = "";
-                VR_MULTIPLICADOR = 0;
+                VR_MULTIPLICADOR = 30;
                 VR_COMISION = 0;
 
             }                   
