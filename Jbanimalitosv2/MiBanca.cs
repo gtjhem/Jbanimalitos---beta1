@@ -16,6 +16,7 @@ namespace Jbanimalitosv2
         public static long ID_AGENCIA;
         public static double ? VR_MULTIPLICADOR;
         public static double? VR_COMISION;
+        public static int? VR_TIEMPO;
          
       
         public static void sr_llenar()
@@ -33,6 +34,7 @@ namespace Jbanimalitosv2
                 VR_MULTIPLICADOR = query.MULTIPLICADOR;
                 VR_COMISION = query.COMISION_ACTUAL;
                 ID_AGENCIA = query.ID_AGENCIA;
+                VR_TIEMPO = query.TIEMPO_LIMITE;
             }
             catch (System.InvalidOperationException) {
                 nom_banca = "";

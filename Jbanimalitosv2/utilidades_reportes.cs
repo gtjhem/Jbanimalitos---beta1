@@ -337,15 +337,22 @@ namespace Jbanimalitosv2
 
         public void sr_ganador_ticket(ref DataGridView dgr, int celda)
         {
-            
-                for (int count = 0; count < dgr.Rows.Count; count++)
+            for (int count = 0; count < dgr.Rows.Count; count++)
                 {
                 
-                        if (dgr.Rows[count].Cells[celda].Value.ToString().Trim() == "PENDIENTE POR PAGAR" ||
-                            dgr.Rows[count].Cells[celda].Value.ToString().Trim() == "PAGADO") 
+                        if (dgr.Rows[count].Cells[celda].Value.ToString().Trim() == "PAGADO") 
                         {
                             dgr.Rows[count].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(167)))), ((int)(((byte)(151)))));
-                        }
+
+                        } else if (dgr.Rows[count].Cells[celda].Value.ToString().Trim() == "ANULADO MANUAL"){
+                    
+                            dgr.Rows[count].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
+                            dgr.Rows[count].DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+                        }else if (dgr.Rows[count].Cells[celda].Value.ToString().Trim() == "PENDIENTE POR PAGAR")
+                { 
+                    dgr.Rows[count].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(148)))), ((int)(((byte)(38)))));
+                    dgr.Rows[count].DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+                } 
                 }
 
 

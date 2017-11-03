@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
+
 using System.Windows.Forms;
 
 namespace Jbanimalitosv2
@@ -12,8 +10,10 @@ namespace Jbanimalitosv2
 
     {
         
-                public string CONEC =  System.Configuration.ConfigurationManager.ConnectionStrings["CNX"].ConnectionString;
-
+        public string CONEC =  System.Configuration.ConfigurationManager.ConnectionStrings["CNX"].ConnectionString;
+        public string ULTIMOSERIAL;
+        public string ULTIMOTICKET;
+        public double ULTIMOTOTAL;
         
         private   CheckedListBox  CLB = new CheckedListBox();
 
@@ -31,7 +31,7 @@ namespace Jbanimalitosv2
             CLB.Items.Clear();
             foreach (var aqui in query)
 
-                if (aqui.HORA <= DateTime.Now.TimeOfDay)
+                if (aqui.HORA >= DateTime.Now.TimeOfDay)
                 //if (aqui.HORA <= DateTime.Now.TimeOfDay)
                 {
 
@@ -165,7 +165,11 @@ namespace Jbanimalitosv2
                     DateTime.Now.ToLongTimeString().ToString().Substring(6, 2) +
                     empezar.Sertkt(6);
 
+                ULTIMOSERIAL = ser; // obtener el ultimo serial para imprimir 
+                ULTIMOTICKET = sr_ticket().ToString(); // obtener el ultimo ticket para IMPRIMIR 
+
                 ing.TOTALPAGADO = float.Parse (ttl.Text);
+                ULTIMOTOTAL = float.Parse(ttl.Text); // total ticket pagado para IMPRIMIR
                 
                 string[] v = lxb.Items[0].ToString().Split('-');
                 ing.IDHRTK = int.Parse (v[2]); //obtener ID horario desde el primer items del listbox 
@@ -237,6 +241,51 @@ namespace Jbanimalitosv2
 
             }
         }
+
+
+        public Boolean sr_anular_ticket(long idticket)
+        {
+            using (animalitos db = new animalitos(CONEC))
+            {
+
+           try
+                {
+                    //actualizo ticket principal
+                    var queryTBL_TICKET =
+                        from TBL_TICKET in db.dbtickets
+                        where
+                          TBL_TICKET.IDTICKET == idticket
+                        select TBL_TICKET;
+
+                    foreach (var ACtualizar_TICKET in queryTBL_TICKET)
+                    {
+                        ACtualizar_TICKET.ESTATUSTK = "AM";
+                    }
+                    db.SubmitChanges();
+
+                    //Actualizo ticket detalle
+                    var queryTBL_DTICKET =
+                            from TBL_TICKET in db.dbdtickets
+                            where
+                              TBL_TICKET.IDTICKETDTR == idticket
+                            select TBL_TICKET;
+
+                    foreach (var Actualizardetalle in queryTBL_DTICKET)
+                    {
+                        Actualizardetalle.ESTATUSDTK = "AM";
+                    }
+                    db.SubmitChanges();
+
+                    return true;
+                }
+                catch(System.InvalidOperationException)
+                {
+                    return false;
+                }
+                
+
+            }
+        }
         public int sr_ID_ANIMALITO(string coda, int IDL)
         {
             animalitos db = new animalitos(CONEC);
@@ -269,6 +318,88 @@ namespace Jbanimalitosv2
                 
             return linea;
         }
+
+
+        public void sr_actualizar_BANCA(double ? comi, int ? cadu, double ? mult, string impresora, string agencia)
+        {
+            animalitos DB = new Jbanimalitosv2.animalitos(CONEC);
+
+            try { 
+
+                    var query = (from qrybanca in DB.dbbanca
+                         where qrybanca.ID_AGENCIA == MiBanca.ID_AGENCIA &&
+                         qrybanca.ESTATUS == "AC"
+                         select qrybanca).First();
+
+                //* SI LO CONSIGO ACTUALIZO 
+                query.COMISION_ACTUAL = comi;
+                query.TIEMPO_LIMITE = cadu;
+                query.IMPRESORA = impresora;
+                query.MULTIPLICADOR = mult;
+                query.NOMBRE_AGENCIA = agencia;
+                DB.SubmitChanges();
+                           
+                }
+            catch (System.InvalidOperationException)
+            {
+                //* SI NO LO CONSIGO CREO UNO NUEVO CUAL ES EL PEO
+                TBL_BANCA TBN = new TBL_BANCA();
+
+                TBN.MULTIPLICADOR = 30;
+                TBN.NOMBRE_AGENCIA = "LOTERIA POR DEFECTO";
+                TBN.COMISION_ACTUAL = 0;
+                TBN.IMPRESORA = "POR DEFINIR";
+                TBN.TIEMPO_LIMITE = 3;
+                TBN.ESTATUS = "AC";
+                DB.dbbanca.InsertOnSubmit(TBN);
+                DB.SubmitChanges();
+            }
+        }
+
+
+        public void sr_buscar_ticket_para_anular(long BTCK,ref string loteria, ref string sorteo, ref double ? total, ref string fecha, ref string hora)
+        {
+            animalitos db = new animalitos(CONEC);
+
+
+            try
+            {
+                var query = (from TBL_TICKET in db.dbtickets
+                             join Tbl_SORTEO in db.dbSorteos on new { IDSORTEOTK = Convert.ToInt32(TBL_TICKET.IDSORTEOTK) } equals new { IDSORTEOTK = Tbl_SORTEO.ID_SORTEO }
+                             join TBL_HORARIOS in db.dbhorarios
+                                   on new { TBL_TICKET.IDSORTEOTK, IDHRTK = Convert.ToInt32(TBL_TICKET.IDHRTK) }
+                               equals new { IDSORTEOTK = TBL_HORARIOS.IDSORTEOHR, IDHRTK = TBL_HORARIOS.IDHORA }
+                             where TBL_TICKET.IDTICKET == BTCK
+                             select new
+                             {
+                                 TBL_TICKET.IDTICKET,
+                                 Tbl_SORTEO.NOMBRE_SORTEO,
+                                 TBL_HORARIOS.HORA,
+                                 TBL_TICKET.TOTALPAGADO,
+                                 TBL_TICKET.FECHATQ,
+                                 TBL_TICKET.HORATQ
+                             }).First();
+
+
+                loteria = query.NOMBRE_SORTEO;
+                sorteo = query.HORA.ToString();
+                total = query.TOTALPAGADO ;
+                fecha = query.FECHATQ.ToString();
+                hora = query.HORATQ.ToString();
+
+            }
+          
+            catch (System.InvalidOperationException)
+            {
+                // Ticket no encontrado
+                loteria = "";
+                sorteo = "";
+                total = 0;
+                fecha = "";
+                hora = "";
+            }
+        }
+
 
         #region IDisposable Support
         private bool disposedValue = false; // Para detectar llamadas redundantes

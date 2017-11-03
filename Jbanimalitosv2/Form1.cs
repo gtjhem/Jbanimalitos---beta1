@@ -1,21 +1,11 @@
-﻿
+﻿using System;
 
-
-using Jbanimalitosv2;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
 namespace Jbanimalitosv2
 {
-     
+
 
     public partial class INICIO : Form
     {
@@ -43,10 +33,8 @@ namespace Jbanimalitosv2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MiBanca.sr_llenar();
 
-            if (MiBanca.nom_banca != "" || MiBanca.nom_banca != "") lblloteria.Text = MiBanca.nom_banca.ToUpper();
-            
+            sr_nombre_banca();
             sr_loteria();
 
             if (this.cmbloteria.Items.Count > 0){
@@ -65,6 +53,12 @@ namespace Jbanimalitosv2
             CN.sr_resultados_del_dia(); // llama al STORE PROCEDURE para cargar los dias pendientes por incluir resultados
         }
 
+        public void sr_nombre_banca()
+        {
+            MiBanca.sr_llenar();
+
+            if (MiBanca.nom_banca != "" || MiBanca.nom_banca != "") lblloteria.Text = MiBanca.nom_banca.ToUpper();
+        }
          public void sr_sorteos (int vr_key_codigo)
         {
 
@@ -449,7 +443,7 @@ namespace Jbanimalitosv2
 
 
                 //Rutina para imprimir falta realizar ajustes de alineacion  
-                //sr_imprimir();
+                sr_imprimir();
 
                 MessageBox.Show(
                    " Ticket Impreso: " + this.NTicket.Text + " " + Environment.NewLine +
@@ -483,54 +477,49 @@ namespace Jbanimalitosv2
         {
             KeyCreator empezar = new KeyCreator();
             TicketCS Tk = new TicketCS();
-
-            string ser = "";
-            // serial 
-            ser = DateTime.Now.ToLongTimeString().ToString().Substring(0, 2) +
-                DateTime.Now.ToLongTimeString().ToString().Substring(3, 2) +
-                DateTime.Now.ToLongTimeString().ToString().Substring(6, 2) +
-                empezar.Sertkt(6);
-
-
+            
             //ver_ticket();
 
             Tk.OpenBoxCash();
-            Tk.TextoCentrado("CATIA LA MAR LOTERIA");
-            Tk.TextoCentrado("RIF: ");
-            Tk.TextoCentrado("Direccion: ");
-            Tk.TextoAlaDerecha("Local Principal");
-            Tk.TextoAlaDerecha("Telfs: ");
-            Tk.TextoAlaIzquierda("Emails: ");
+           //Tk.TextoCentrado("CATIA LA MAR LOTERIA");
+           //Tk.TextoCentrado("RIF: ");
+           //Tk.TextoCentrado("Direccion: ");
+           //Tk.TextoAlaDerecha("Local Principal");
+           //Tk.TextoAlaDerecha("Telfs: ");
+           //Tk.TextoAlaIzquierda("Emails: ");
+           //Tk.LineasPunteadas();
+           //Tk.TextoExtremos("Caja # 1", "Ticket-Boleta: # ");
+           //Tk.LineasPunteadas();
+
+            Tk.TextoAlaIzquierda(MiBanca.nom_banca.ToUpper ()); // Nombre Agencia
+            Tk.TextoAlaIzquierda("Cliente: Publico General"); // Cliente
+            Tk.TextoAlaIzquierda("Ticket:" + CN.ULTIMOTICKET); // Numero de Ticket
+            Tk.TextoAlaIzquierda("SN:"+ CN.ULTIMOSERIAL   );
             Tk.LineasPunteadas();
-            Tk.TextoExtremos("Caja # 1", "Ticket-Boleta: # ");
+            Tk.TextoAlaIzquierda("Fecha: " + DateTime.Now.ToShortDateString() + "Hora: " + DateTime.Now.ToShortTimeString());
             Tk.LineasPunteadas();
-            Tk.TextoAlaIzquierda("Le Atendio: Jhembell Baderna");
-            Tk.TextoAlaIzquierda("Cliente: Publico General");
+            //Tk.CabezeraVenta(); // titulos 
+            for (int x = 1; x <= Ticket.Items.Count - 1; x++) { 
+                if (x == 0)
+                {
+                    Tk.TextoAlaIzquierda(Ticket.Items[x].ToString());
+                    
+                }
+                else if (x > 0) {
+                    string[] v = Ticket.Items[x].ToString().Split('-');
+                    Tk.TextoAlaIzquierda(v[0] + " " + v[1] + "x" + v[2]);
+                } 
+                
+            }
+            Tk.TextoAlaIzquierda("Total: " + CN.ULTIMOTOTAL);
             Tk.LineasPunteadas();
-            Tk.TextoCentrado("Datos de Emision");
-            Tk.TextoExtremos("Fecha: " + DateTime.Now.ToShortDateString(), "Hora: " + DateTime.Now.ToShortTimeString());
-            Tk.LineasPunteadas();
-            Tk.CabezeraVenta();
-            Tk.LineasPunteadas();
-            Tk.AgregarArticulos("Tu Love mas nada Chiquito", 10, 15, 150);
-            Tk.AgregarArticulos("Tu Love mas nada Chiquito", 10, 15, 150);
-            Tk.AgregarArticulos("Tu Love mas nada Chiquito", 10, 15, 150);
-            Tk.AgregarArticulos("Tu Love mas nada Chiquito mas na es un papi cuando logres hacer esta pendejada master", 10, 15, 150);
-            Tk.AgregarSubTotales("", 0);
-            Tk.AgregarSubTotales("SUB-TOTAL: ", 2400);
-            Tk.AgregarSubTotales("      IGV: ", 24.05M);
-            Tk.AgregarSubTotales("    TOTAL: ", 2424.05M);
-            Tk.TextoAlaDerecha("");
-            Tk.AgregarSubTotales(" PAGO CON: ", 1500);
-            Tk.AgregarSubTotales("    TOTAL: ", 850.5M);
-            Tk.LineasIgualdad();
-            Tk.TextoCentrado("SU TICKET CADUCA A LOS 3 DIAS");
-            Tk.TextoCentrado("SIN TICKET NO SE COBRA");
-            Tk.TextoCentrado("REVISE SU TICKET NO SE REALIZA DEV");
-            Tk.TextoCentrado("GRACIAS POR SU COMPRA VUELVA PRONTO");
+            Tk.TextoAlaIzquierda("SU TICKET CADUCA A LOS 3 DIAS");
+            Tk.TextoAlaIzquierda("SIN TICKET NO SE COBRA");
+            Tk.TextoAlaIzquierda("REVISE SU TICKET NO SE REALIZA DEV");
+            Tk.TextoAlaIzquierda("GRACIAS POR SU COMPRA VUELVA PRONTO");
             Tk.CortaCinta();
             //Tk.PrintTicket("Microsoft Office Document Image Writer");
-            Tk.PrintTicket("POS58(copy of 1)");
+            Tk.PrintTicket(MiBanca.impresora);
 
         }
 
@@ -580,6 +569,7 @@ namespace Jbanimalitosv2
             
             FRM_BANCA f = new FRM_BANCA();            
             llamar(f);
+            sr_nombre_banca();
         }
 
         private void llamar(Form f)
@@ -587,6 +577,18 @@ namespace Jbanimalitosv2
             this.Opacity = .55;
             f.ShowDialog(this);
             this.Opacity = 1;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FRM_ANULA f = new FRM_ANULA();
+            llamar(f);
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FRM_PAGAR f = new FRM_PAGAR();
+            llamar(f);
         }
     }
 }

@@ -30,8 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbldetalleticket = new System.Windows.Forms.Label();
             this.Cerrar = new System.Windows.Forms.LinkLabel();
+            this.lbldetalleticket = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,10 +39,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtnombreagencia = new System.Windows.Forms.TextBox();
             this.txtpagarpor = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.cmbtiempo = new System.Windows.Forms.ComboBox();
             this.cmbcomision = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.cmbimpresoras = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,18 +66,6 @@
             this.panel2.Size = new System.Drawing.Size(596, 48);
             this.panel2.TabIndex = 1;
             // 
-            // lbldetalleticket
-            // 
-            this.lbldetalleticket.AutoSize = true;
-            this.lbldetalleticket.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.lbldetalleticket.ForeColor = System.Drawing.Color.White;
-            this.lbldetalleticket.Location = new System.Drawing.Point(3, 9);
-            this.lbldetalleticket.Margin = new System.Windows.Forms.Padding(0);
-            this.lbldetalleticket.Name = "lbldetalleticket";
-            this.lbldetalleticket.Size = new System.Drawing.Size(326, 32);
-            this.lbldetalleticket.TabIndex = 20;
-            this.lbldetalleticket.Text = "Configuracion Banca";
-            // 
             // Cerrar
             // 
             this.Cerrar.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
@@ -94,6 +82,18 @@
             this.Cerrar.Text = "x";
             this.Cerrar.VisitedLinkColor = System.Drawing.Color.White;
             this.Cerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Cerrar_LinkClicked);
+            // 
+            // lbldetalleticket
+            // 
+            this.lbldetalleticket.AutoSize = true;
+            this.lbldetalleticket.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.lbldetalleticket.ForeColor = System.Drawing.Color.White;
+            this.lbldetalleticket.Location = new System.Drawing.Point(3, 9);
+            this.lbldetalleticket.Margin = new System.Windows.Forms.Padding(0);
+            this.lbldetalleticket.Name = "lbldetalleticket";
+            this.lbldetalleticket.Size = new System.Drawing.Size(326, 32);
+            this.lbldetalleticket.TabIndex = 20;
+            this.lbldetalleticket.Text = "Configuracion Banca";
             // 
             // label12
             // 
@@ -179,22 +179,9 @@
             this.txtpagarpor.TabIndex = 29;
             this.txtpagarpor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
-            this.textBox4.Location = new System.Drawing.Point(292, 227);
-            this.textBox4.MaxLength = 0;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(282, 27);
-            this.textBox4.TabIndex = 32;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // cmbtiempo
             // 
             this.cmbtiempo.DropDownHeight = 150;
-            this.cmbtiempo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbtiempo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbtiempo.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.cmbtiempo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -208,7 +195,6 @@
             // cmbcomision
             // 
             this.cmbcomision.DropDownHeight = 150;
-            this.cmbcomision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbcomision.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbcomision.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.cmbcomision.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -225,12 +211,26 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(192, 285);
+            this.button3.Location = new System.Drawing.Point(196, 285);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(218, 52);
             this.button3.TabIndex = 35;
             this.button3.Text = "Actualizar";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // cmbimpresoras
+            // 
+            this.cmbimpresoras.DropDownHeight = 150;
+            this.cmbimpresoras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbimpresoras.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbimpresoras.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cmbimpresoras.FormattingEnabled = true;
+            this.cmbimpresoras.IntegralHeight = false;
+            this.cmbimpresoras.Location = new System.Drawing.Point(292, 228);
+            this.cmbimpresoras.Name = "cmbimpresoras";
+            this.cmbimpresoras.Size = new System.Drawing.Size(282, 26);
+            this.cmbimpresoras.TabIndex = 36;
             // 
             // FRM_BANCA
             // 
@@ -238,10 +238,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(610, 349);
+            this.Controls.Add(this.cmbimpresoras);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.cmbcomision);
             this.Controls.Add(this.cmbtiempo);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.txtpagarpor);
             this.Controls.Add(this.txtnombreagencia);
             this.Controls.Add(this.label3);
@@ -276,9 +276,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtnombreagencia;
         private System.Windows.Forms.TextBox txtpagarpor;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ComboBox cmbtiempo;
         private System.Windows.Forms.ComboBox cmbcomision;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cmbimpresoras;
     }
 }

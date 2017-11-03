@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
 namespace Jbanimalitosv2
@@ -16,7 +14,7 @@ namespace Jbanimalitosv2
         /// 
 
         StringBuilder lineas = new StringBuilder();
-        int MaxCtresXLinea = 40, Cortar;
+        int MaxCtresXLinea = 30, Cortar;
 
         /// <summary>
         /// Para Dibujar las Lineas De La Impresion Con el Caracter de Impresion Deseable Segun Gustos-Pre-Encabezado
@@ -26,7 +24,7 @@ namespace Jbanimalitosv2
         public string LineasPunteadas()
         {
             string LineaPunteada = "";
-
+            
             for (int i = 0; i < MaxCtresXLinea; i++)
             {
                 LineaPunteada += "-";//Es El Caracter Divisor o Los Guiones se Puede Cambiar(#$%&-_\) Para Personalizar
@@ -379,9 +377,13 @@ namespace Jbanimalitosv2
             IntPtr hPrinter = new IntPtr(0);
             DOCINFOA di = new DOCINFOA();
             bool bSuccess = false; // Assume failure unless you specifically succeed.
-
+            
+           
             di.pDocName = "Ticket De Venta C#";
             di.pDataType = "RAW";
+            
+            
+            
 
             // Open the printer.
             if (OpenPrinter(szPrinterName.Normalize(), out hPrinter, IntPtr.Zero))

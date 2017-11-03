@@ -334,6 +334,7 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "- Anular";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel3
             // 
@@ -350,6 +351,7 @@
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "- Pagar";
             this.linkLabel3.VisitedLinkColor = System.Drawing.Color.White;
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // label13
             // 

@@ -82,6 +82,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRM_ANULA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_ANULA.Designer.cs">
+      <DependentUpon>FRM_ANULA.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_BANCA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,12 @@
     </Compile>
     <Compile Include="frm_ganyper.Designer.cs">
       <DependentUpon>frm_ganyper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_PAGAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_PAGAR.Designer.cs">
+      <DependentUpon>FRM_PAGAR.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_premiados.cs">
       <SubType>Form</SubType>
@@ -126,6 +138,9 @@
     <Compile Include="TicketCS.cs" />
     <Compile Include="Utilidades.cs" />
     <Compile Include="utilidades_reportes.cs" />
+    <EmbeddedResource Include="FRM_ANULA.resx">
+      <DependentUpon>FRM_ANULA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRM_BANCA.resx">
       <DependentUpon>FRM_BANCA.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ganyper.resx">
       <DependentUpon>frm_ganyper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_PAGAR.resx">
+      <DependentUpon>FRM_PAGAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_premiados.resx">
       <DependentUpon>frm_premiados.cs</DependentUpon>
