@@ -50,7 +50,9 @@ namespace Jbanimalitosv2
                 ticket = long.Parse(this.NTicket.Text.ToString());
                 this.lbldatosticket.Text = "Anular el Ticket Nº: " + NTicket.Text.ToString();
                 this.txtloteria.Text = loteria;
-                this.txttotal.Text = total.ToString();
+                double t = 0;
+                t = Convert.ToDouble(total);
+                this.txttotal.Text = t.ToString("###,##0.00");
                 this.txthorario.Text = sorteo;
                 this.txtfechor.Text = fecha.Substring(0, 10) + " " + hora.Substring(0, 8).ToString();
                 this.button1.Enabled = true;

@@ -47,10 +47,10 @@
             this.dgr = new System.Windows.Forms.DataGridView();
             this.txttotal = new System.Windows.Forms.TextBox();
             this.txthorario = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtserial = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtpremio = new System.Windows.Forms.TextBox();
             this.txtestatus = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
@@ -75,12 +75,13 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(506, 73);
+            this.button1.Location = new System.Drawing.Point(487, 73);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 57);
+            this.button1.Size = new System.Drawing.Size(161, 57);
             this.button1.TabIndex = 63;
             this.button1.Text = "Pagar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Buscar
             // 
@@ -90,7 +91,7 @@
             this.Buscar.ForeColor = System.Drawing.Color.White;
             this.Buscar.Location = new System.Drawing.Point(319, 73);
             this.Buscar.Name = "Buscar";
-            this.Buscar.Size = new System.Drawing.Size(142, 57);
+            this.Buscar.Size = new System.Drawing.Size(162, 57);
             this.Buscar.TabIndex = 62;
             this.Buscar.Text = "Buscar";
             this.Buscar.UseVisualStyleBackColor = false;
@@ -290,16 +291,16 @@
             this.txthorario.Size = new System.Drawing.Size(193, 27);
             this.txthorario.TabIndex = 55;
             // 
-            // textBox1
+            // txtserial
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.Location = new System.Drawing.Point(141, 107);
-            this.textBox1.MaxLength = 20;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 27);
-            this.textBox1.TabIndex = 66;
+            this.txtserial.BackColor = System.Drawing.SystemColors.Window;
+            this.txtserial.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.txtserial.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtserial.Location = new System.Drawing.Point(141, 107);
+            this.txtserial.MaxLength = 20;
+            this.txtserial.Name = "txtserial";
+            this.txtserial.Size = new System.Drawing.Size(163, 27);
+            this.txtserial.TabIndex = 66;
             // 
             // label5
             // 
@@ -325,18 +326,18 @@
             this.label6.TabIndex = 67;
             this.label6.Text = "Monto Premio:";
             // 
-            // textBox2
+            // txtpremio
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
-            this.textBox2.Location = new System.Drawing.Point(218, 256);
-            this.textBox2.MaxLength = 0;
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(234, 27);
-            this.textBox2.TabIndex = 68;
+            this.txtpremio.BackColor = System.Drawing.SystemColors.Window;
+            this.txtpremio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.txtpremio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
+            this.txtpremio.Location = new System.Drawing.Point(218, 256);
+            this.txtpremio.MaxLength = 0;
+            this.txtpremio.Multiline = true;
+            this.txtpremio.Name = "txtpremio";
+            this.txtpremio.ReadOnly = true;
+            this.txtpremio.Size = new System.Drawing.Size(234, 27);
+            this.txtpremio.TabIndex = 68;
             // 
             // txtestatus
             // 
@@ -371,9 +372,9 @@
             this.ClientSize = new System.Drawing.Size(666, 648);
             this.Controls.Add(this.txtestatus);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtpremio);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtserial);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbldatosticket);
             this.Controls.Add(this.button1);
@@ -424,10 +425,10 @@
         private System.Windows.Forms.DataGridView dgr;
         private System.Windows.Forms.TextBox txttotal;
         private System.Windows.Forms.TextBox txthorario;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtserial;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtpremio;
         private System.Windows.Forms.TextBox txtestatus;
         private System.Windows.Forms.Label label7;
     }
