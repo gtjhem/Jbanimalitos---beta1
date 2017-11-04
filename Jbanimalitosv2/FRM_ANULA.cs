@@ -13,6 +13,7 @@ namespace Jbanimalitosv2
     public partial class FRM_ANULA : Form
     {
         public long ticket;
+        public string vr_estatus;
 
         Utilidades CN = new Utilidades();
         public FRM_ANULA()
@@ -39,15 +40,16 @@ namespace Jbanimalitosv2
         private void Buscar_Click(object sender, EventArgs e)
         {
            
-            string loteria = "", sorteo = "", fecha = "", hora = "";
+            string loteria = "", sorteo = "", fecha = "", hora = "", estatus = "";
             double ? total = 0;
 
             CN.sr_buscar_ticket_para_anular(long.Parse(this.NTicket.Text.ToString()), ref loteria, ref sorteo,
-                ref total, ref fecha, ref hora);
+                ref total, ref fecha, ref hora, ref estatus );
 
             if (loteria != "")
             {
                 ticket = long.Parse(this.NTicket.Text.ToString());
+                vr_estatus = estatus;
                 this.lbldatosticket.Text = "Anular el Ticket Nº: " + NTicket.Text.ToString();
                 this.txtloteria.Text = loteria;
                 double t = 0;
@@ -64,6 +66,7 @@ namespace Jbanimalitosv2
             else
             {
                 ticket = 0;
+                vr_estatus = "";
                 this.lbldatosticket.Text = "Anular el Ticket Nº:";
                 this.txtloteria.Text = "";
                 this.txttotal.Text = "";
@@ -125,6 +128,19 @@ namespace Jbanimalitosv2
                 cont += 1;
                 msg = msg + " " + cont + " - El numero de ticket ha cambiado o no se ha buscado, busque nuevamente antes de intentar anular otra vez" + Environment.NewLine;
 
+            }
+
+            if (ticket != 0)
+            {
+                if (vr_estatus != "")
+                {
+                    var TAGESTATUS = new string[] { "PAGADO", "ANULADO MANUAL", "PENDIENTE POR PAGAR" };
+                    if ( TAGESTATUS.Contains(vr_estatus))
+                    {
+                        cont += 1;
+                        msg = msg + " " + cont + " - No se puede anular ticket con estatus PAGADO, ANULADO MANUAL ó PENDIENTE POR PAGAR" + Environment.NewLine;
+                    }
+                }
             }
 
             if (msg == "") {

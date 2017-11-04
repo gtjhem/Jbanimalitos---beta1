@@ -406,7 +406,7 @@ namespace Jbanimalitosv2
         }
 
 
-        public void sr_buscar_ticket_para_anular(long BTCK,ref string loteria, ref string sorteo, ref double ? total, ref string fecha, ref string hora)
+        public void sr_buscar_ticket_para_anular(long BTCK,ref string loteria, ref string sorteo, ref double ? total, ref string fecha, ref string hora, ref string estatus)
         {
             animalitos db = new animalitos(CONEC);
 
@@ -418,6 +418,7 @@ namespace Jbanimalitosv2
                              join TBL_HORARIOS in db.dbhorarios
                                    on new { TBL_TICKET.IDSORTEOTK, IDHRTK = Convert.ToInt32(TBL_TICKET.IDHRTK) }
                                equals new { IDSORTEOTK = TBL_HORARIOS.IDSORTEOHR, IDHRTK = TBL_HORARIOS.IDHORA }
+                             join TBL_ESTATUS in db.dbestatus on new { ESTATUSTK = TBL_TICKET.ESTATUSTK } equals new { ESTATUSTK = TBL_ESTATUS.CODESTATUS }
                              where TBL_TICKET.IDTICKET == BTCK
                              select new
                              {
@@ -426,7 +427,8 @@ namespace Jbanimalitosv2
                                  TBL_HORARIOS.HORA,
                                  TBL_TICKET.TOTALPAGADO,
                                  TBL_TICKET.FECHATQ,
-                                 TBL_TICKET.HORATQ
+                                 TBL_TICKET.HORATQ,
+                                 TBL_ESTATUS.NOMESTATUS
                              }).First();
 
 
@@ -435,6 +437,7 @@ namespace Jbanimalitosv2
                 total = query.TOTALPAGADO ;
                 fecha = query.FECHATQ.ToString();
                 hora = query.HORATQ.ToString();
+                estatus = query.NOMESTATUS;
 
             }
 
@@ -448,6 +451,7 @@ namespace Jbanimalitosv2
                 total = 0;
                 fecha = "";
                 hora = "";
+                estatus = "";
             }
         }
 

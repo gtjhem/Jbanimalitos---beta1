@@ -107,6 +107,8 @@ namespace Jbanimalitosv2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string msg = "";
+            if (func_validar(ref msg ) == true ) { 
             CN.sr_pagar_ticket(vr_ticket, vr_serial);
             MessageBox.Show("El Ticket Nº:" + vr_ticket + Environment.NewLine
                      + "Identificado con el Serial: " + vr_serial.ToUpper()  + Environment.NewLine
@@ -114,6 +116,14 @@ namespace Jbanimalitosv2
                     , "Ticket pagado ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
+            }
+            else
+            {
+                MessageBox.Show(msg, "Errores al intentar Pagar ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            } 
+
+
         }
 
         private Boolean func_validar(ref string msg)
@@ -130,10 +140,10 @@ namespace Jbanimalitosv2
                 DateTime Ticket = DateTime.Parse(v[0] + " " + v[1]);
                 TimeSpan diferencias = hoy.Subtract(Ticket);
 
-                if (diferencias.TotalMinutes > 10)
+                if (diferencias.Days > MiBanca.VR_TIEMPO)
                 {
                     cont += 1;
-                    msg = msg + " " + cont + " - No se puede anular un ticket que tiene mas de 10 minutos de emitido" + Environment.NewLine;
+                    msg = msg + " " + cont + " - No se puede anular un ticket que tiene mas de " + MiBanca.VR_TIEMPO  + " dias de emitido" + Environment.NewLine;
                 }
             }
 
