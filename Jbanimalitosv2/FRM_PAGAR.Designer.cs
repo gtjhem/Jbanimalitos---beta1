@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbldatosticket = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.Buscar = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(487, 73);
+            this.button1.Location = new System.Drawing.Point(494, 73);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 57);
             this.button1.TabIndex = 63;
@@ -128,7 +128,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(21, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(645, 58);
+            this.panel2.Size = new System.Drawing.Size(640, 58);
             this.panel2.TabIndex = 50;
             // 
             // Cerrar
@@ -146,6 +146,7 @@
             this.Cerrar.TabStop = true;
             this.Cerrar.Text = "x";
             this.Cerrar.VisitedLinkColor = System.Drawing.Color.White;
+            this.Cerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Cerrar_LinkClicked);
             // 
             // lbldetalleticket
             // 
@@ -249,14 +250,14 @@
             this.dgr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(72)))), ((int)(((byte)(69)))));
             this.dgr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgr.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgr.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgr.Location = new System.Drawing.Point(33, 343);
             this.dgr.Margin = new System.Windows.Forms.Padding(0);
             this.dgr.Name = "dgr";
@@ -369,7 +370,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(666, 648);
+            this.ClientSize = new System.Drawing.Size(661, 648);
             this.Controls.Add(this.txtestatus);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtpremio);

@@ -286,6 +286,55 @@ namespace Jbanimalitosv2
 
             }
         }
+
+
+        public Boolean sr_pagar_ticket(long idticket, string serial)
+        {
+            using (animalitos db = new animalitos(CONEC))
+            {
+
+                try
+                {
+                    //actualizo ticket principal
+                    var queryTBL_TICKET =
+                        from TBL_TICKET in db.dbtickets
+                        where
+                          TBL_TICKET.IDTICKET == idticket &&
+                          TBL_TICKET.SERIAL == serial
+                        select TBL_TICKET;
+
+                    foreach (var ACtualizar_TICKET in queryTBL_TICKET)
+                    {
+                        ACtualizar_TICKET.ESTATUSTK = "PA";
+                    }
+                    db.SubmitChanges();
+
+                    //Actualizo ticket detalle
+                    var queryTBL_DTICKET =
+                            from TBL_TICKET in db.dbdtickets
+                            where
+                              TBL_TICKET.IDTICKETDTR == idticket
+                            select TBL_TICKET;
+
+                    foreach (var Actualizardetalle in queryTBL_DTICKET)
+                    {
+                        if (Actualizardetalle.PREMIO != 0) {
+                            Actualizardetalle.ESTATUSDTK = "PA";
+                        }
+                        
+                    }
+                    db.SubmitChanges();
+
+                    return true;
+                }
+                catch (System.InvalidOperationException)
+                {
+                    return false;
+                }
+
+
+            }
+        }
         public int sr_ID_ANIMALITO(string coda, int IDL)
         {
             animalitos db = new animalitos(CONEC);

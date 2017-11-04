@@ -12,6 +12,8 @@ namespace Jbanimalitosv2
 {
     public partial class FRM_PAGAR : Form
     {
+        public long vr_ticket; // ticket buscado
+        public string vr_serial; // serial buscado
 
         Utilidades CN = new Utilidades();
         public FRM_PAGAR()
@@ -49,6 +51,9 @@ namespace Jbanimalitosv2
                 double t = 0, p = 0;
                 t = Convert.ToDouble(total);
                 p = Convert.ToDouble(premio);
+
+                vr_serial = this.txtserial.Text.Trim();
+                vr_ticket = long.Parse(this.NTicket.Text.ToString());
                 this.txtloteria.Text = loteria;
                 this.txttotal.Text = t.ToString("###,##0.00");
 
@@ -57,7 +62,7 @@ namespace Jbanimalitosv2
                 this.txtestatus.Text = estatus;
                 this.txtpremio.Text = p.ToString("###,##0.00");
                 
-                if (t == 0 && this.txtestatus.Text.Trim() == "PENDIENTE POR PAGAR")
+                if (t == 0 && this.txtestatus.Text.Trim() != "PENDIENTE POR PAGAR")
                 {
                     sr_inhabilito();
 
@@ -65,9 +70,18 @@ namespace Jbanimalitosv2
                 {
                     sr_habilito(); // desbloquea boton de pagar
                 }
+                else
+                {
+                    sr_inhabilito();
+                }
 
-            }else
+                sr_llenar();
+
+            }
+            else
             {
+                vr_ticket = 0;
+                vr_serial = "";
                 this.txtloteria.Text = "";
                 this.txttotal.Text = "";
 
@@ -93,7 +107,64 @@ namespace Jbanimalitosv2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            CN.sr_pagar_ticket(vr_ticket, vr_serial);
+            MessageBox.Show("El Ticket Nº:" + vr_ticket + Environment.NewLine
+                     + "Identificado con el Serial: " + vr_serial.ToUpper()  + Environment.NewLine
+                    + "Se ha pagado Correctamente"
+                    , "Ticket pagado ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            this.Close();
+        }
+
+        private Boolean func_validar(ref string msg)
+        {
+
+
+            int cont = 0;
+
+            if (this.txtfechor.Text != "")
+            {
+
+                string[] v = this.txtfechor.Text.Split(' ');
+                DateTime hoy = DateTime.Now;
+                DateTime Ticket = DateTime.Parse(v[0] + " " + v[1]);
+                TimeSpan diferencias = hoy.Subtract(Ticket);
+
+                if (diferencias.TotalMinutes > 10)
+                {
+                    cont += 1;
+                    msg = msg + " " + cont + " - No se puede anular un ticket que tiene mas de 10 minutos de emitido" + Environment.NewLine;
+                }
+            }
+
+            if (vr_ticket  == 0) // validacion de seguridad
+            {
+                cont += 1;
+                msg = msg + " " + cont + " - El numero de ticket ha cambiado o no se ha buscado, busque nuevamente antes de intentar pagar el ticket" + Environment.NewLine;
+
+            }
+
+            if (vr_serial == "")
+            {
+                cont += 1;
+                msg = msg + " " + cont + " - El numero de serial ha cambiado o no se ha buscado, busque nuevamente antes de intentar pagar el ticket" + Environment.NewLine;
+            }
+
+            if (msg == "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
+        private void Cerrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
         }
     }
 
