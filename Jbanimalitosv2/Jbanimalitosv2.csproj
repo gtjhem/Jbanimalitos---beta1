@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publicar\</PublishUrl>
+    <PublishUrl>E:\Actualizacionesanimalitos\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -27,14 +27,16 @@
     <ProductName>JbAnimalitos</ProductName>
     <PublisherName>Jhembell Baderna</PublisherName>
     <SuiteName>C#</SuiteName>
-    <ApplicationRevision>0</ApplicationRevision>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -51,6 +53,31 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D11169E9171012743DA7AE05A496D660C4073EEB</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Jbanimalitosv2_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -106,6 +133,12 @@
     <Compile Include="frm_ganyper.Designer.cs">
       <DependentUpon>frm_ganyper.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRM_JUGADAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_JUGADAS.Designer.cs">
+      <DependentUpon>FRM_JUGADAS.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_PAGAR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +183,9 @@
     <EmbeddedResource Include="frm_ganyper.resx">
       <DependentUpon>frm_ganyper.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FRM_JUGADAS.resx">
+      <DependentUpon>FRM_JUGADAS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRM_PAGAR.resx">
       <DependentUpon>FRM_PAGAR.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +219,8 @@
       <LastGenOutput>CLS_LINQ_ANMLT.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Jbanimalitosv2_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -217,13 +255,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="jbandb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="jbandb_log.ldf">
-      <DependentUpon>jbandb.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="TABLAS SQL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

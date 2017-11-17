@@ -79,6 +79,8 @@
             this.cmbloteria = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.refrescando = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -200,6 +202,7 @@
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "- Jugadas";
             this.linkLabel5.VisitedLinkColor = System.Drawing.Color.White;
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
             // label2
             // 
@@ -508,6 +511,7 @@
             this.Animales.Size = new System.Drawing.Size(308, 322);
             this.Animales.TabIndex = 7;
             this.Animales.SelectedIndexChanged += new System.EventHandler(this.Animales_SelectedIndexChanged);
+            this.Animales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Animales_KeyPress);
             // 
             // Animal
             // 
@@ -691,11 +695,11 @@
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(494, 542);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(218, 52);
+            this.button3.Size = new System.Drawing.Size(218, 29);
             this.button3.TabIndex = 9;
             this.button3.Text = "Quitar";
             this.button3.UseVisualStyleBackColor = false;
@@ -705,11 +709,11 @@
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold);
+            this.button4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(494, 601);
+            this.button4.Location = new System.Drawing.Point(494, 604);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(218, 39);
+            this.button4.Size = new System.Drawing.Size(218, 36);
             this.button4.TabIndex = 10;
             this.button4.Text = "Limpiar";
             this.button4.UseVisualStyleBackColor = false;
@@ -778,6 +782,34 @@
             this.refrescando.TabStop = false;
             this.refrescando.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(56)))), ((int)(((byte)(37)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(494, 573);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 29);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Deseleccionar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(304, 500);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(184, 36);
+            this.button5.TabIndex = 25;
+            this.button5.Text = "Refrescar";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // INICIO
             // 
             this.AllowDrop = true;
@@ -785,6 +817,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(959, 652);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.refrescando);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cmbloteria);
@@ -877,6 +911,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.LinkLabel linkLabel11;
         private System.Windows.Forms.LinkLabel linkLabel12;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button5;
     }
 }
 

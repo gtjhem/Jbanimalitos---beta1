@@ -524,15 +524,16 @@ namespace Jbanimalitosv2
             Tk.TextoAlaIzquierda(MiBanca.nom_banca.ToUpper ()); // Nombre Agencia
             Tk.TextoAlaIzquierda("Cliente: Publico General"); // Cliente
             Tk.TextoAlaIzquierda("Ticket:" + CN.ULTIMOTICKET); // Numero de Ticket
-            Tk.TextoAlaIzquierda("SN:"+ CN.ULTIMOSERIAL   );
-            Tk.LineasPunteadas();
-            Tk.TextoAlaIzquierda("Fecha: " + DateTime.Now.ToShortDateString() + "Hora: " + DateTime.Now.ToShortTimeString());
+            Tk.TextoAlaIzquierda("SN:"+ CN.ULTIMOSERIAL   );           
+            Tk.TextoAlaIzquierda("Fecha: " + DateTime.Now.ToShortDateString());
+            Tk.TextoAlaIzquierda("Hora: " + DateTime.Now.ToShortTimeString());
             Tk.LineasPunteadas();
             //Tk.CabezeraVenta(); // titulos 
-            for (int x = 1; x <= Ticket.Items.Count - 1; x++) { 
+            for (int x = 0; x <= Ticket.Items.Count - 1; x++) { 
                 if (x == 0)
                 {
-                    Tk.TextoAlaIzquierda(Ticket.Items[x].ToString());
+                    string[] h = Ticket.Items[x].ToString().Split('-');
+                    Tk.TextoAlaIzquierda(h[0] + " " + h[1]);
                     
                 }
                 else if (x > 0) {
@@ -546,7 +547,7 @@ namespace Jbanimalitosv2
             Tk.TextoAlaIzquierda("SU TICKET CADUCA A LOS 3 DIAS");
             Tk.TextoAlaIzquierda("SIN TICKET NO SE COBRA");
             Tk.TextoAlaIzquierda("REVISE SU TICKET NO SE REALIZA DEV");
-            Tk.TextoAlaIzquierda("GRACIAS POR SU COMPRA VUELVA PRONTO");
+            Tk.TextoAlaIzquierda("GRACIAS POR SU COMPRA");
             Tk.CortaCinta();
             //Tk.PrintTicket("Microsoft Office Document Image Writer");
             Tk.PrintTicket(MiBanca.impresora);
@@ -618,6 +619,70 @@ namespace Jbanimalitosv2
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FRM_PAGAR f = new FRM_PAGAR();
+            llamar(f);
+        }
+
+        private void Animales_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+
+                e.Handled = true;
+
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                if (e.KeyChar == '\r')
+
+                {
+                    this.Monto.Focus();
+                    e.Handled = true;
+
+                }
+                else
+                {
+                    e.Handled = false;
+                }
+            }
+            //SI lo activas permite usar el espacio
+            //else if (Char.IsSeparator(e.KeyChar))
+            //{
+            //   e.Handled = false;
+            //}
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            deseleccionar();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (this.cmbloteria.Items.Count > 0)
+            {
+                this.cmbloteria.SelectedIndex = 0;
+                string[] v = cmbloteria.Text.Split('-');
+                sr_sorteos(int.Parse(v[1]));
+                
+            }
+
+            if (this.lstSorteos.Items.Count > 0)
+            {
+                this.lstSorteos.SetItemChecked(0, true);
+
+                sr_antiquiebre();
+            }
+
+
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FRM_JUGADAS f = new FRM_JUGADAS();
             llamar(f);
         }
     }

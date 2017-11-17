@@ -40,6 +40,8 @@ namespace Jbanimalitosv2
                                     
         }
 
+
+
         public void sr_llenar_sorteos_resultados(ref CheckedListBox CLB, int vr_key_codigo) // no posee filtros para la hora
         {
 
@@ -55,6 +57,23 @@ namespace Jbanimalitosv2
             foreach (var aqui in query)
                     CLB.Items.Add(aqui.HORA + " - " + aqui.NOMBRE_SORTEO.ToString().ToUpper() + " - " + aqui.IDHORA);
              
+        }
+
+        public void sr_llenar_sorteos_cmb(ref ComboBox CLB, int vr_key_codigo) // no posee filtros para la hora
+        {
+
+            animalitos db = new animalitos(CONEC);
+
+            var query = (from qrysorteos in db.dbSorteos
+                         join qryhorario in db.dbhorarios on qrysorteos.ID_SORTEO equals qryhorario.IDSORTEOHR
+                         where qrysorteos.ESTATUS == "A" && qrysorteos.ID_SORTEO == vr_key_codigo
+                         select new { qryhorario.HORA, qrysorteos.NOMBRE_SORTEO, qryhorario.IDHORA }).ToList();
+
+
+            CLB.Items.Clear();
+            foreach (var aqui in query)
+                CLB.Items.Add(aqui.HORA + " - " + aqui.NOMBRE_SORTEO.ToString().ToUpper() + " - " + aqui.IDHORA);
+
         }
 
         private ComboBox cmb = new ComboBox();
@@ -91,7 +110,23 @@ namespace Jbanimalitosv2
             foreach (var aqui in query)
                 CLB.Items.Add(aqui.CODIGO.ToString() + " - " + aqui.NOMBRE_ANIMALITO.ToString());
         }
-        
+        public void sr_llenar_animales_cmb(ref ComboBox CLB, int vr_key_loteria)
+        {
+            animalitos db = new animalitos(CONEC);
+
+
+            var query = (from qryanimalito in db.dbanimalitos
+                         where qryanimalito.IDSORTEOAN == vr_key_loteria
+
+                         select new { qryanimalito.CODIGO, qryanimalito.NOMBRE_ANIMALITO }).ToList();
+
+
+            CLB.Items.Clear();
+
+            foreach (var aqui in query)
+                CLB.Items.Add(aqui.CODIGO.ToString() + " - " + aqui.NOMBRE_ANIMALITO.ToString());
+        }
+
         public long sr_ticket()
         {
             
@@ -460,8 +495,7 @@ namespace Jbanimalitosv2
         public void sr_buscar_ticket_para_pagar(long BTCK, string serial, ref string loteria, ref string sorteo, ref double? total, ref string fecha, ref string hora, ref double? premio, ref string estatus)
         {
             animalitos db = new animalitos(CONEC);
-
-
+            
             try
             {
                 var query = (from TBL_TICKET in db.dbtickets
@@ -574,5 +608,8 @@ namespace Jbanimalitosv2
                    
         }
 
+
+  }
+
     }
-}
+

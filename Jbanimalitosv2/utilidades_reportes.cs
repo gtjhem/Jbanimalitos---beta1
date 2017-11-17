@@ -273,6 +273,44 @@ namespace Jbanimalitosv2
             return IDSORT;
         }
 
+         public void sr_llenar_grid_jugadas(ref DataGridView dgr, long loteria, long sorteo, string codan, DateTime desde, DateTime hasta)
+        {
+            animalitos db = new animalitos(CN.CONEC);
+
+            var query = (from A in db.dbdtickets
+                         join TBL_TICKET in db.dbtickets 
+                            on new { IDTICKETDTR = Convert.ToInt64(A.IDTICKETDTR), A.FECHADTK } 
+                            equals new { IDTICKETDTR = TBL_TICKET.IDTICKET, FECHADTK = TBL_TICKET.FECHATQ }
+                         join Tbl_SORTEO in db.dbSorteos on new { IDSORTEOTK = Convert.ToInt32(TBL_TICKET.IDSORTEOTK) } equals new { IDSORTEOTK = Tbl_SORTEO.ID_SORTEO }
+                         join B in db.dbhorarios
+                               on new { TBL_TICKET.IDSORTEOTK, IDHRTK = Convert.ToInt32(TBL_TICKET.IDHRTK) }
+                           equals new { IDSORTEOTK = B.IDSORTEOHR, IDHRTK = B.IDHORA }
+                         join TBL_ANIMALITOS in db.dbanimalitos
+                               on new { TBL_TICKET.IDSORTEOTK, A.CODIGODTK }
+                           equals new { IDSORTEOTK = TBL_ANIMALITOS.IDSORTEOAN, CODIGODTK = TBL_ANIMALITOS.CODIGO }
+                         join TBL_ESTATUS in db.dbestatus on new { ESTATUSDTK = A.ESTATUSDTK } equals new { ESTATUSDTK = TBL_ESTATUS.CODESTATUS }
+                         where
+                           A.FECHADTK >= desde && A.FECHADTK <= hasta &&
+                           A.CODIGODTK == codan && TBL_TICKET.IDSORTEOTK == loteria && TBL_TICKET.IDHRTK == sorteo 
+                         orderby
+                           A.IDTICKETDTR
+                         select new
+                         {
+                             A.IDTICKETDTR,
+                             TBL_ANIMALITOS.NOMBRE_ANIMALITO,
+                             A.CODIGODTK,
+                             A.MONTO,
+                             TBL_ESTATUS.NOMESTATUS,
+                             FECHADTK = (DateTime?)A.FECHADTK,
+                             A.HORA,
+                             Tbl_SORTEO.NOMBRE_SORTEO,
+                             Column1 = B.HORA
+                         }).ToList();
+
+
+            dgr.DataSource = query;
+
+        }
         public void sr_columnas_cambiar(ref DataGridView dgr, string tipo)
         {
             if (tipo == "D") { 

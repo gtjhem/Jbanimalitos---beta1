@@ -23,7 +23,8 @@ namespace Jbanimalitosv2
                           TBL_DTICKET.FECHADTK >= desde &&
                           TBL_DTICKET.FECHADTK <= hasta &&
                            TBL_TICKET.IDSORTEOTK == IDS &&
-                           TBL_TICKET.IDHRTK == IDH
+                           TBL_TICKET.IDHRTK == IDH &&
+                           TBL_TICKET.ESTATUSTK != "AM"
                          group new { TBL_TICKET, TBL_DTICKET } by new
                          {
                              TBL_TICKET.IDSORTEOTK,
