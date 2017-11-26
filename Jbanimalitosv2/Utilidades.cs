@@ -129,12 +129,19 @@ namespace Jbanimalitosv2
 
         public long sr_ticket()
         {
-            
-            animalitos db = new animalitos(CONEC);
+            try
 
-             long query = db.dbtickets.Max(d => d.IDTICKET);
+            {
+                animalitos db = new animalitos(CONEC);
 
-            return query + 1;
+                long query = db.dbtickets.Max(d => d.IDTICKET);
+
+                return query + 1;
+            }
+            catch (System.InvalidOperationException)
+            {
+                return 1;
+            }
         }
 
         public void sr_nombre_animalitos (ref TextBox TXT, int vr_key_sorteo, string vr_key_codigo )

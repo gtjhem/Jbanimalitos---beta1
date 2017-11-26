@@ -95,6 +95,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="animalitosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>animalitosDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Antiquiebre.cs" />
     <Compile Include="CLS_LINQ_ANMLT.designer.cs">
       <AutoGen>True</AutoGen>
@@ -198,6 +203,17 @@
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="animalitosDataSet.xsc">
+      <DependentUpon>animalitosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="animalitosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>animalitosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="animalitosDataSet.xss">
+      <DependentUpon>animalitosDataSet.xsd</DependentUpon>
+    </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="CLS_LINQ_ANMLT.dbml.layout">
       <DependentUpon>CLS_LINQ_ANMLT.dbml</DependentUpon>
@@ -232,7 +248,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -255,6 +273,13 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Lotobd.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lotobd_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Lotobd.mdf</DependentUpon>
+    </Content>
     <Content Include="TABLAS SQL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

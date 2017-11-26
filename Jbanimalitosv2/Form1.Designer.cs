@@ -40,7 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel9 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel10 = new System.Windows.Forms.LinkLabel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
@@ -81,6 +80,8 @@
             this.refrescando = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.linkLabel9 = new System.Windows.Forms.LinkLabel();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -108,7 +109,6 @@
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel7);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel8);
-            this.flowLayoutPanel1.Controls.Add(this.linkLabel9);
             this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel10);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel6);
@@ -118,6 +118,8 @@
             this.flowLayoutPanel1.Controls.Add(this.label13);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel11);
             this.flowLayoutPanel1.Controls.Add(this.linkLabel12);
+            this.flowLayoutPanel1.Controls.Add(this.linkLabel9);
+            this.flowLayoutPanel1.Controls.Add(this.label14);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 17);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(144, 603);
@@ -249,28 +251,12 @@
             this.linkLabel8.Text = "- Loterias";
             this.linkLabel8.VisitedLinkColor = System.Drawing.Color.White;
             // 
-            // linkLabel9
-            // 
-            this.linkLabel9.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
-            this.linkLabel9.AutoSize = true;
-            this.linkLabel9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.linkLabel9.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel9.LinkColor = System.Drawing.Color.White;
-            this.linkLabel9.Location = new System.Drawing.Point(10, 279);
-            this.linkLabel9.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
-            this.linkLabel9.Name = "linkLabel9";
-            this.linkLabel9.Size = new System.Drawing.Size(91, 18);
-            this.linkLabel9.TabIndex = 40;
-            this.linkLabel9.TabStop = true;
-            this.linkLabel9.Text = "- Abonos ";
-            this.linkLabel9.VisitedLinkColor = System.Drawing.Color.White;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
-            this.label3.Location = new System.Drawing.Point(10, 312);
+            this.label3.Location = new System.Drawing.Point(10, 279);
             this.label3.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 18);
@@ -284,7 +270,7 @@
             this.linkLabel10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel10.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel10.LinkColor = System.Drawing.Color.White;
-            this.linkLabel10.Location = new System.Drawing.Point(10, 345);
+            this.linkLabel10.Location = new System.Drawing.Point(10, 312);
             this.linkLabel10.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel10.Name = "linkLabel10";
             this.linkLabel10.Size = new System.Drawing.Size(52, 18);
@@ -300,7 +286,7 @@
             this.linkLabel6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel6.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel6.LinkColor = System.Drawing.Color.White;
-            this.linkLabel6.Location = new System.Drawing.Point(10, 378);
+            this.linkLabel6.Location = new System.Drawing.Point(10, 345);
             this.linkLabel6.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel6.Name = "linkLabel6";
             this.linkLabel6.Size = new System.Drawing.Size(108, 18);
@@ -315,7 +301,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
-            this.label9.Location = new System.Drawing.Point(10, 411);
+            this.label9.Location = new System.Drawing.Point(10, 378);
             this.label9.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 18);
@@ -329,7 +315,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(10, 444);
+            this.linkLabel1.Location = new System.Drawing.Point(10, 411);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(78, 18);
@@ -346,7 +332,7 @@
             this.linkLabel3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel3.LinkColor = System.Drawing.Color.White;
-            this.linkLabel3.Location = new System.Drawing.Point(10, 477);
+            this.linkLabel3.Location = new System.Drawing.Point(10, 444);
             this.linkLabel3.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(74, 18);
@@ -361,12 +347,12 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
-            this.label13.Location = new System.Drawing.Point(10, 510);
+            this.label13.Location = new System.Drawing.Point(10, 477);
             this.label13.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(107, 18);
+            this.label13.Size = new System.Drawing.Size(63, 18);
             this.label13.TabIndex = 47;
-            this.label13.Text = "Cierre Caja";
+            this.label13.Text = "Ayuda";
             // 
             // linkLabel11
             // 
@@ -375,13 +361,13 @@
             this.linkLabel11.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel11.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel11.LinkColor = System.Drawing.Color.White;
-            this.linkLabel11.Location = new System.Drawing.Point(10, 543);
+            this.linkLabel11.Location = new System.Drawing.Point(10, 510);
             this.linkLabel11.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel11.Name = "linkLabel11";
-            this.linkLabel11.Size = new System.Drawing.Size(55, 18);
+            this.linkLabel11.Size = new System.Drawing.Size(103, 18);
             this.linkLabel11.TabIndex = 48;
             this.linkLabel11.TabStop = true;
-            this.linkLabel11.Text = "- Hoy";
+            this.linkLabel11.Text = "- Registrar";
             this.linkLabel11.VisitedLinkColor = System.Drawing.Color.White;
             // 
             // linkLabel12
@@ -391,13 +377,13 @@
             this.linkLabel12.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.linkLabel12.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel12.LinkColor = System.Drawing.Color.White;
-            this.linkLabel12.Location = new System.Drawing.Point(10, 576);
+            this.linkLabel12.Location = new System.Drawing.Point(10, 543);
             this.linkLabel12.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
             this.linkLabel12.Name = "linkLabel12";
             this.linkLabel12.Size = new System.Drawing.Size(110, 18);
             this.linkLabel12.TabIndex = 49;
             this.linkLabel12.TabStop = true;
-            this.linkLabel12.Text = "- Otros dias";
+            this.linkLabel12.Text = "- Acerca De";
             this.linkLabel12.VisitedLinkColor = System.Drawing.Color.White;
             // 
             // panel2
@@ -511,6 +497,7 @@
             this.Animales.Size = new System.Drawing.Size(308, 322);
             this.Animales.TabIndex = 7;
             this.Animales.SelectedIndexChanged += new System.EventHandler(this.Animales_SelectedIndexChanged);
+            this.Animales.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Animales_KeyDown);
             this.Animales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Animales_KeyPress);
             // 
             // Animal
@@ -525,6 +512,7 @@
             this.Animal.Size = new System.Drawing.Size(83, 27);
             this.Animal.TabIndex = 2;
             this.Animal.TextChanged += new System.EventHandler(this.Animal_TextChanged);
+            this.Animal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Animal_KeyDown);
             this.Animal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Animal_KeyPress);
             // 
             // label5
@@ -575,6 +563,7 @@
             this.Monto.Name = "Monto";
             this.Monto.Size = new System.Drawing.Size(149, 27);
             this.Monto.TabIndex = 4;
+            this.Monto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Monto_KeyDown);
             this.Monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Monto_KeyPress);
             // 
             // label7
@@ -604,6 +593,7 @@
             this.lstSorteos.TabIndex = 8;
             this.lstSorteos.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstSorteos_ItemCheck);
             this.lstSorteos.SelectedIndexChanged += new System.EventHandler(this.lstSorteos_SelectedIndexChanged);
+            this.lstSorteos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstSorteos_KeyDown);
             // 
             // Imprimir
             // 
@@ -632,6 +622,7 @@
             this.Ticket.Name = "Ticket";
             this.Ticket.Size = new System.Drawing.Size(218, 322);
             this.Ticket.TabIndex = 12;
+            this.Ticket.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Animales_KeyDown);
             // 
             // NTicket
             // 
@@ -669,6 +660,7 @@
             this.AntiQuiebre.Name = "AntiQuiebre";
             this.AntiQuiebre.Size = new System.Drawing.Size(229, 274);
             this.AntiQuiebre.TabIndex = 15;
+            this.AntiQuiebre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Animales_KeyDown);
             // 
             // button2
             // 
@@ -810,6 +802,34 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // linkLabel9
+            // 
+            this.linkLabel9.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
+            this.linkLabel9.AutoSize = true;
+            this.linkLabel9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.linkLabel9.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel9.LinkColor = System.Drawing.Color.White;
+            this.linkLabel9.Location = new System.Drawing.Point(10, 576);
+            this.linkLabel9.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
+            this.linkLabel9.Name = "linkLabel9";
+            this.linkLabel9.Size = new System.Drawing.Size(108, 18);
+            this.linkLabel9.TabIndex = 50;
+            this.linkLabel9.TabStop = true;
+            this.linkLabel9.Text = "- Actualizar";
+            this.linkLabel9.VisitedLinkColor = System.Drawing.Color.White;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(130)))), ((int)(((byte)(52)))));
+            this.label14.Location = new System.Drawing.Point(10, 609);
+            this.label14.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 18);
+            this.label14.TabIndex = 51;
+            this.label14.Text = "Ayuda";
+            // 
             // INICIO
             // 
             this.AllowDrop = true;
@@ -848,6 +868,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.INICIO_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -901,7 +922,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel7;
         private System.Windows.Forms.LinkLabel linkLabel8;
-        private System.Windows.Forms.LinkLabel linkLabel9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel10;
         private System.Windows.Forms.LinkLabel linkLabel6;
@@ -913,6 +933,8 @@
         private System.Windows.Forms.LinkLabel linkLabel12;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.LinkLabel linkLabel9;
+        private System.Windows.Forms.Label label14;
     }
 }
 

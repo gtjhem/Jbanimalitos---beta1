@@ -55,5 +55,16 @@ namespace Jbanimalitosv2.Properties {
                 return ((string)(this["LoteriasConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Lotobd.mdf;In" +
+            "tegrated Security=True")]
+        public string ltcnx {
+            get {
+                return ((string)(this["ltcnx"]));
+            }
+        }
     }
 }

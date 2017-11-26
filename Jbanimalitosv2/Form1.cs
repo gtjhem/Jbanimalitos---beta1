@@ -86,7 +86,13 @@ namespace Jbanimalitosv2
 
         private void Cerrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close ();
+            if (MessageBox.Show("¿Esta usted Seguro de cerrar el sistema",
+                "Cierre del sistema", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information) == DialogResult.Yes){
+                this.Close();
+            }
+            
         }
 
         private void Relog_Tick(object sender, EventArgs e)
@@ -684,6 +690,87 @@ namespace Jbanimalitosv2
         {
             FRM_JUGADAS f = new FRM_JUGADAS();
             llamar(f);
+        }
+
+        private void INICIO_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.I)
+            {
+                sr_iniciar_impresion();
+            }
+            if (e.KeyCode == Keys.N)
+            {
+                this.Animal.Focus();
+            }
+            if (e.KeyCode == Keys.M)
+            {
+                this.Monto.Focus();
+            }
+
+        }
+
+        private void Animales_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.I)
+            {
+                sr_iniciar_impresion();
+            }
+            if (e.KeyCode == Keys.N)
+            {
+                this.Animal.Focus();
+            }
+            if (e.KeyCode == Keys.M)
+            {
+                this.Monto.Focus();
+            }
+        }
+
+        private void lstSorteos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.I)
+            {
+                sr_iniciar_impresion();
+            }
+            if (e.KeyCode == Keys.N)
+            {
+                this.Animal.Focus();
+            }
+            if (e.KeyCode == Keys.M)
+            {
+                this.Monto.Focus();
+            }
+        }
+
+        private void Animal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.I)
+            {
+                sr_iniciar_impresion();
+            }
+            if (e.KeyCode == Keys.N)
+            {
+                this.Animal.Focus();
+            }
+            if (e.KeyCode == Keys.M)
+            {
+                this.Monto.Focus();
+            }
+        }
+
+        private void Monto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.I)
+            {
+                sr_iniciar_impresion();
+            }
+            if (e.KeyCode == Keys.N)
+            {
+                this.Animal.Focus();
+            }
+            if (e.KeyCode == Keys.M)
+            {
+                this.Monto.Focus();
+            }
         }
     }
 }
