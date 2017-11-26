@@ -33,7 +33,7 @@ namespace Jbanimalitosv2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+          
             sr_nombre_banca();
             sr_loteria();
 
@@ -53,6 +53,7 @@ namespace Jbanimalitosv2
             CN.sr_resultados_del_dia(); // llama al STORE PROCEDURE para cargar los dias pendientes por incluir resultados
         }
 
+      
         public void sr_nombre_banca()
         {
             MiBanca.sr_llenar();
@@ -90,7 +91,10 @@ namespace Jbanimalitosv2
                 "Cierre del sistema", 
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Information) == DialogResult.Yes){
-                this.Close();
+
+                Application.Exit();
+
+
             }
             
         }

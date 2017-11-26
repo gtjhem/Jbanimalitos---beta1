@@ -3,6 +3,8 @@
 using System.Linq;
 
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Jbanimalitosv2
 {
@@ -613,6 +615,24 @@ namespace Jbanimalitosv2
 
             return false;
                    
+        }
+
+        public Boolean func_conexion() {
+
+            try
+            {
+                SqlConnection conexion = new SqlConnection(CONEC);
+                conexion.Open();
+                conexion.Close();
+                return true;
+
+            }
+            catch (System.InvalidOperationException)
+            {
+                return false;
+            }
+               
+
         }
 
 

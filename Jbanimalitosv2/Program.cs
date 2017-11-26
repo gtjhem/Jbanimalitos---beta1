@@ -23,7 +23,7 @@ namespace Jbanimalitosv2
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new INICIO());
+            Application.Run(new Presenta());
         }
 
        
